@@ -1,6 +1,9 @@
 ---
-title: Welcome to Quartz
+title: home
 ---
+a digital catalog of the things I think, say, do and love.
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+[striving to be remembered]
+
+
+[[about]]

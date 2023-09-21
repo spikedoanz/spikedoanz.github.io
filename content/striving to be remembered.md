@@ -1,0 +1,1 @@
+I grew up in Vietnam, which has a pretty [rich history of funerals](https://vi.wikipedia.org/wiki/%C4%90%C3%A1m_tang) 
