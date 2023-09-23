@@ -12,13 +12,13 @@ I'm currently juggling between being a full time student, a part time software e
 
 **projects:**
 
-[gptnum.py](https://github.com/spikedoanz/GPTnum.py): A hands on numpy only implementation of GPT I did as a learning project with no prior experience. Taught me a lot about how transformers worked and a lot of the technical specifics of the GPT models
+[gptnum.py](https://github.com/spikedoanz/GPTnum.py): hands on numpy only implementation of GPT I did as a learning project with no prior experience. Taught me a lot about how transformers worked and a lot of the technical specifics of the GPT models
 ![[Pasted image 20230922220147.png]]
 
-**poindexter**: A sweet and short summarizer bot me and a coworker made over a couple of days. Currently running on the company Slack at TReNDS Center, and a great help in letting me and other people ping papers to one another easily
+**poindexter**: sweet and short summarizer bot me and a coworker made over a couple of days. Currently running on the company Slack at TReNDS Center, and a great help in letting me and other people ping papers to one another easily
 ![[Pasted image 20230922213446.png]]
 
-**man vs digital oracle:** an attempt to investigate whether it was possible to say anything at all about astrology using state-of-the-art machine learning techniques. *Turns out, astrology isn't real!!*
+**man vs digital oracle:** attempt to investigate whether it was possible to say anything at all about astrology using "state-of-the-art" machine learning techniques. *Turns out, astrology isn't real!!*
 ![[Pasted image 20230922213852.png]]
 
 ---
