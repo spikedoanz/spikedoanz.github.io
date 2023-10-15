@@ -1,34 +1,33 @@
 ---
 title: home
 ---
-
-![[Pasted image 20230922214842.png]]
-
-hi there, I'm Mike. I'm trying to make ^^^^ a reality.
-
-I'm currently juggling between being a full time student, a part time software engineer at [TReNDS Center](https://trendscenter.org/), and building some tools at AI-bo to help people prepare for a future where AIs and humans coexist.
+[Twitter](https://twitter.com/spikedoanz) || [Github](https://github.com/spikedoanz) || [Email](mailto:spikedoanz@gmail.com)
 
 ---
 
-**projects:**
+# Oct 15 2023
+- Started reading the Gita, why does everyone have 17 names
+- Found my new favorite website https://readsomethingwonderful.com
+- Papers:
+- [Language models have world models](https://arxiv.org/abs/2305.10626)
+- [Replacing softmax with relu in vision transformers](https://arxiv.org/abs/2309.08586) :thinking:
+- Got access to DINGBOARD DING DING DING
 
-[gptnum.py](https://github.com/spikedoanz/GPTnum.py): hands on numpy only implementation of GPT I did as a learning project with no prior experience. Taught me a lot about how transformers worked and a lot of the technical specifics of the GPT models
-![[Pasted image 20230922220147.png]]
+![[Pasted image 20231015194109.png]]
+# Oct 6 2023
+- [[how I use GPT 4 for writing]]
+- [[Do LLMs know conlangs?]]
+![[Pasted image 20231015190922.png]]
+- [[How to make a better search engine]]
+- Realized that I can only focus on like 2 things at once, so breeze through nonsense without caring about quality. The opportunity cost for doing otherwise is too high
+	- Biting the pill and planning for grad school
+- There is hidden value left in the [shannon paper](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf)
 
-**poindexter**: sweet and short summarizer bot me and a coworker made over a couple of days. Currently running on the company Slack at TReNDS Center, and a great help in letting me and other people ping papers to one another easily
-![[Pasted image 20230922213446.png]]
+![[Pasted image 20231015192812.png]]
 
-**man vs digital oracle:** attempt to investigate whether it was possible to say anything at all about astrology using "state-of-the-art" machine learning techniques. *Turns out, astrology isn't real!!*
-![[Pasted image 20230922213852.png]]
+also cute fish <3
 
 ---
 
-**contacts:**
-
-Twitter: [@spikedoanz](https://twitter.com/spikedoanz)
-
-Github: [spikedoanz](https://github.com/spikedoanz)
-
-Email: spikedoanz@gmail.com
-
----
+the end is never the end is never the end is never the end is never the end is never the end is never
+![[Pasted image 20231015192119.png]]
