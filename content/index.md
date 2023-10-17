@@ -4,11 +4,14 @@ title: spikedoanz
 [Twitter](https://twitter.com/spikedoanz) &nbsp;&nbsp; [Github](https://github.com/spikedoanz) &nbsp;&nbsp; [Email](mailto:spikedoanz@gmail.com)
 <br>
 [[ようこそ]] &nbsp;&nbsp; [[Xin chào]] 
+<br>
+[[Books]] &nbsp;&nbsp; [[Manga]] 
 
 ---
 
+I am studying ML, these are my notes. I try to keep these to the 
+least entorpic resources I can find.
 # Oct 15 2023
-- Started reading the Gita, why does everyone have 17 names
 - Found my new favorite website https://readsomethingwonderful.com
 - Papers:
 - [Language models have world models](https://arxiv.org/abs/2305.10626)
