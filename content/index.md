@@ -1,7 +1,9 @@
 ---
-title: home
+title: spikedoanz
 ---
-[Twitter](https://twitter.com/spikedoanz) || [Github](https://github.com/spikedoanz) || [Email](mailto:spikedoanz@gmail.com)
+[Twitter](https://twitter.com/spikedoanz) &nbsp;&nbsp; [Github](https://github.com/spikedoanz) &nbsp;&nbsp; [Email](mailto:spikedoanz@gmail.com)
+<br>
+[[ようこそ]] &nbsp;&nbsp; [[Xin chào]] 
 
 ---
 
