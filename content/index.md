@@ -1,9 +1,9 @@
 ---
 title: spikedoanz
 ---
-Hi there, I'm Mike Doan. I'm a computer science major specializing in ML/AI. I currently work part time as a software engineer at a neuroimaging center making data generation pipelines that run on [big computers](https://arctic.gsu.edu/). 
+Hi there, I'm Mike Doan. I'm a computer science major specializing in ML/AI. I currently work part time as a software engineer at a neuroimaging center and spend most of my time making data generation pipelines that run on [big computers](https://arctic.gsu.edu/). 
 
-I have far too many interests for my own good, including linguistics, programming languages, music theory, manga and rock climbing.
+I have a ton of interests, including linguistics, programming languages, music theory, manga and rock climbing.
 
 You can reach me through [Twitter](https://twitter.com/spikedoanz) or email me at spikedoanz@gmail.com 
 
@@ -13,8 +13,6 @@ You can reach me through [Twitter](https://twitter.com/spikedoanz) or email me a
 
 [[Links|Page of links]]
 
-**Personal**
+[[Me|Page of me]]
 
-I listen to bossa nova, funk, fusion jazz and city pop predominantly, and am currently learning to play the bass. I played piano for a couple of years but moving to the States meant I unfortunately couldn't take my instrument with me.
 
-I'm an avid boulderer, but mostly climb at gyms these days due to work. I also lift recreationally, for bench, squat and deadlift is 990 lbs (450 kg)

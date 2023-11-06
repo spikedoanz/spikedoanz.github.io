@@ -3,7 +3,7 @@ import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "mike's blog",
+    pageTitle: "aim for low entropy",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
