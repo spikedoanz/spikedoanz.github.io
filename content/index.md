@@ -1,38 +1,20 @@
 ---
 title: spikedoanz
 ---
-[Twitter](https://twitter.com/spikedoanz) &nbsp;&nbsp; [Github](https://github.com/spikedoanz) &nbsp;&nbsp; [Email](mailto:spikedoanz@gmail.com)
-<br>
-[[ようこそ]] &nbsp;&nbsp; [[Xin chào]] 
-<br>
-[[Books]] &nbsp;&nbsp; [[Manga]] 
+Hi there, I'm Mike Doan. I'm a computer science major specializing in ML/AI. I currently work part time as a software engineer at a neuroimaging center making data generation pipelines that run on [big computers](https://arctic.gsu.edu/). 
 
----
+I have far too many interests for my own good, including linguistics, programming languages, music theory, manga and rock climbing.
 
-I am studying ML, these are my notes. I try to keep these to the 
-least entorpic resources I can find.
-# Oct 15 2023
-- Found my new favorite website https://readsomethingwonderful.com
-- Papers:
-- [Language models have world models](https://arxiv.org/abs/2305.10626)
-- [Replacing softmax with relu in vision transformers](https://arxiv.org/abs/2309.08586) :thinking:
-- Got access to DINGBOARD DING DING DING
+You can reach me through [Twitter](https://twitter.com/spikedoanz) or email me at spikedoanz@gmail.com 
 
-![[Pasted image 20231015194109.png]]
-# Oct 6 2023
-- [[how I use GPT 4 for writing]]
-- [[Do LLMs know conlangs?]]
-![[Pasted image 20231015190922.png]]
-- [[How to make a better search engine]]
-- Realized that I can only focus on like 2 things at once, so breeze through nonsense without caring about quality. The opportunity cost for doing otherwise is too high
-	- Biting the pill and planning for grad school
-- There is hidden value left in the [shannon paper](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf)
+**Posts**
 
-![[Pasted image 20231015192812.png]]
+[[Books|Page of books]]
 
-also cute fish <3
+[[Links|Page of links]]
 
----
+**Personal**
 
-the end is never the end is never the end is never the end is never the end is never the end is never
-![[Pasted image 20231015192119.png]]
+I listen to bossa nova, funk, fusion jazz and city pop predominantly, and am currently learning to play the bass. I played piano for a couple of years but moving to the States meant I unfortunately couldn't take my instrument with me.
+
+I'm an avid boulderer, but mostly climb at gyms these days due to work. I also lift recreationally, for bench, squat and deadlift is 990 lbs (450 kg)
