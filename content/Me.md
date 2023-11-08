@@ -12,11 +12,11 @@ Python: Because I do mostly ML/AI, I mostly use Python. I actually like the it a
 
 Assembly: Jumping quite a few layers of the tech stack, but I actually find comfort in extremely low level systems programming. I don't program in it much anymore, but still love the assembly programming puzzle games [Zachtronics](https://www.zachtronics.com/) pumps out.
 
-Haskell/Lisp: I don't know enough category theory to do useful things in either of these languages, but I admire their aesthetics.
+Typescript: I've been [gaslit by the industry](https://dev.to/bobfirestone/i-give-up-atwood-s-law-won-7ic) into learning this language. Used to tinkering with this website.
 
 **Human**
 
-Vietnamese: I was born and raised in Vienam, so I of course know this one fluently. Funnily enough, due to mostly interacting with adults growing up (and the fact that I only read Vietnamese books from the 1900s), I speak and write like an old man I also have a tendency to sprinkle in English words whenever I lack technical vocabulary, which happens a lot more than I'd like.
+Vietnamese: I was born and raised in Vietnam, so I of course know this one fluently. Funnily enough, due to mostly interacting with adults growing up (and the fact that I only read Vietnamese books from the 1900s), I speak and write like an old man I also have a tendency to sprinkle in English words whenever I lack technical vocabulary, which happens a lot more than I'd like.
 
 English: Before going into computers, I spent about half my life doing English Olympiads, of which I won a couple. I also worked as a language instructor for a couple of years, and gained a ton of teaching skills that I still find really helpful for techincal communication.
 
