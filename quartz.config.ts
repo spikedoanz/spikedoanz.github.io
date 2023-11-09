@@ -3,7 +3,7 @@ import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "aim for low entropy",
+    pageTitle: "lingustics is the endgame",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
