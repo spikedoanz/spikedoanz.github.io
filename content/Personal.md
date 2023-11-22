@@ -1,6 +1,3 @@
-# Personal #
-
-
 ## Language ##
 ---
 
@@ -8,7 +5,7 @@
 
 Python: I'm a huge python simp. This is because the language is not only [good](https://www.fluentpython.com/), but also [fast](https://github.com/tinygrad/tinygrad). 
 
-Assembly: I sometimes code in assembly for [fun](https://www.zachtronics.com/) 
+Assembly: I hate abstractions for the most part so I sometimes code in assembly for [fun](https://www.zachtronics.com/).  
 
 **Human**
 
