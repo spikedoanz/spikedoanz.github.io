@@ -8,8 +8,8 @@ Hi there, I'm Mike Doan. I'm a computer science major specializing in ML/AI. I c
 
 [[Resume]]
 
-[Github](www.github.com/spikedoanz/)
+[Github](https://github.com/spikedoanz)
 
-[Twitter](www.twitter.com/spikedoanz)
+[Twitter](https://twitter.com/spikedoanz)
 
 [Email](mailto:spikedoanz@gmail.com)
