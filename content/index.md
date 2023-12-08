@@ -6,7 +6,7 @@ Hi there, I'm Mike Doan (aka Spikedoanz) . I'm a programmer primarily working in
 ## Past work ##
 ---
 
-[CSC 4850 - Machine Learning - Predicting belief in astrology using OKCupid dating profile metadata](https://github.com/spikedoanz/CSC4850-Machine-Learning-Project)
+[CSC4850 - Predicting belief in astrology using dating profile metadata](https://github.com/spikedoanz/CSC4850-Machine-Learning-Project)
 
 [Paper to podcast - Input arXiv paper, get out a generated pocast](https://github.com/spikedoanz/paper-to-podcast)
 
