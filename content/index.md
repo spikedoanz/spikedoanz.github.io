@@ -3,6 +3,8 @@ title: spikedoanz
 ---
 Hi there, I'm Mike Doan (aka spikedoanz). I'm a programmer primarily working in machine learning applications and infrastructure. 
 
+Aside from computers, I'm also into language learning, music theory, rock climbing and am an avid manga reader.
+
 ## Past work ##
 ---
 
