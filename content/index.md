@@ -1,7 +1,7 @@
 ---
 title: spikedoanz
 ---
-Hi there, I'm Mike Doan (aka spikedoanz). I'm a programmer primarily working in machine learning applications and infrastructure. 
+Hi there, I'm Mike Doan (aka spikedoanz) (aka スパイク). I'm a programmer primarily working in machine learning applications and infrastructure. 
 
 I'm in grad school right now, but am always looking for interesting work. If you're hiring and need a general purpose programmer, refer to my contacts below!
 
