@@ -5,7 +5,7 @@ Hi there, I'm Mike Doan (aka spikedoanz). I'm a programmer primarily working in 
 
 I'm in grad school right now, but am always looking for interesting work. If you're hiring and need a general purpose programmer, refer to my contacts below!
 
-## Some interesting stuff I've worked on ##
+## past work ##
 ---
 
 [Weenygrad - Minimal implementation of vectorized reverse mode automatic differentiation (aka 'backpropagation')](https://github.com/spikedoanz/weenygrad)
@@ -19,7 +19,7 @@ I'm in grad school right now, but am always looking for interesting work. If you
 [GPT 2 implementation with pure numpy](https://github.com/spikedoanz/GPTnum.py)
 
 
-## Info ##
+## info ##
 ---
 
 [Github](https://github.com/spikedoanz)
