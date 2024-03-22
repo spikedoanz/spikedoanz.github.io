@@ -1,9 +1,8 @@
-> [!quote]If you can’t explain something in simple terms, you don’t understand it.
-> Richard Feynman 
+> [!quote]plurality should not be posited without necessity
 
-When learning new things, I've found it extremely helpful to explain things in their most simplest of forms.
+When learning new things, I've found it extremely helpful to explain things in their simplest forms.
 
-This page includes my explainations of some of the tougher ideas I've come across. I hope reading this will be as helpful to you as I did writing them.
+This page includes my explainations of some of the tougher ideas I've come across. I'll append more as more difficult concepts crop up.
 
 # Reverse Mode Automatic differentiation #
 

@@ -14,9 +14,9 @@ const config: QuartzConfig = {
     defaultDateType: "created",
     theme: {
       typography: {
-        header: "JetBrains Nerd Font Mono",
-        body: "JetBrains Nerd Font Mono",
-        code: "JetBrains Nerd Font Mono",
+        header: "IBM Plex Mono",
+        body: "IBM Plex Mono",
+        code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
