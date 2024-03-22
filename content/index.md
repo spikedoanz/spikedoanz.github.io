@@ -4,9 +4,12 @@ title: supaiku dot com
 
 <img src="https://raw.githubusercontent.com/spikedoanz/spikedoanz.github.io/master/assets/computer.jpg" alt="computer" width="100%"/>
 
-Heya! I'm Spike, welcome to my corner of the internet. 
+It's present day, present time.
 
-I currently research applied machine learning for neuroimaging, but am always open to do more interesting work. If you're building something cool and need help, feel free to reach out. Samples of my work are on my github.
+Heya, I'm Spike, ML researcher by day, NEET at night. 
+
+If you've gotten this far, stay a little, come say hi. I won't bite :)
+
 
 ### post ###
 
