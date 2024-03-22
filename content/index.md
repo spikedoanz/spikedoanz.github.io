@@ -2,9 +2,11 @@
 title: spikedoanz
 ---
 
-![computer.png]()
+<img src="https://raw.githubusercontent.com/spikedoanz/spikedoanz.github.io/master/assets/lain_computer.jpg" alt="computer" width="100%"/>
 
-Heya! I'm Spike. I currently research applied machine learning for neuroimaging, but am always open to do more interesting work. My current passion project is learning the machine learning stack.
+Heya! I'm Spike, welcome to my corner of the internet. 
+
+I currently research applied machine learning for neuroimaging, but am always open to do more interesting work. If you're building something cool and need help, feel free to reach out. Samples of my work are on my github.
 
 ### post ###
 
