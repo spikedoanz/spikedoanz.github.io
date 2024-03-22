@@ -2,7 +2,7 @@
 title: spikedoanz
 ---
 
-<img src="https://raw.githubusercontent.com/spikedoanz/spikedoanz.github.io/master/assets/lain_computer.jpg" alt="computer" width="100%"/>
+<img src="https://raw.githubusercontent.com/spikedoanz/spikedoanz.github.io/master/assets/computer.jpg" alt="computer" width="100%"/>
 
 Heya! I'm Spike, welcome to my corner of the internet. 
 
