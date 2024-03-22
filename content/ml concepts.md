@@ -1,6 +1,6 @@
 Here are some ML concepts that I found fascinating.
 
-# Reverse Mode Automatic differentiation #
+### Reverse Mode Automatic differentiation ###
 
 [Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation)(AD) is a way to calculate the rate of change of outputs of computer programs with respect to their inputs. There are two forms of AD: forward mode, which efficientily calculates the rate of change of all outputs with respect to some input, and reverse mode (also known as backpropagation), which efficiently calculates the rate of change of one output with respect to all of its inputs.
 
