@@ -1,13 +1,15 @@
 ---
 title: spikedoanz
 ---
-Heya! I'm spike. I currently do applied deep learning in neuroimaging, but am always open to do more interesting work. Hit me up if you're building something cool.
+Heya! I'm Spike. I currently do applied machine learning for neuroimaging, but am always open to do more interesting work.
 
-Even if you're not if you've gotten this far, shoot me a DM! I won't bite :)
+Even if you're not if you've gotten this far, send me a message! I won't bite :)
 
 ### post ###
 
-[[shaving with occam's razor]]
+[[favorite links]]
+
+[[ml concepts]]
 
 ### info ###
 

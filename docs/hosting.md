@@ -17,7 +17,7 @@ However, if you'd like to publish your site to the world, you need a way to host
 
 | Configuration option   | Value              |
 | ---------------------- | ------------------ |
-| Production branch      | `v4`               |
+| Production branch      | `master`               |
 | Framework preset       | `None`             |
 | Build command          | `npx quartz build` |
 | Build output directory | `public`           |

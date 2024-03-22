@@ -1,8 +1,4 @@
-> [!quote]plurality should not be posited without necessity
-
-When learning new things, I've found it extremely helpful to explain things in their simplest forms.
-
-This page includes my explainations of some of the tougher ideas I've come across. I'll append more as more difficult concepts crop up.
+Here are some ML concepts that I found fascinating.
 
 # Reverse Mode Automatic differentiation #
 
@@ -14,3 +10,6 @@ You need three things to perform reverse mode automatic differentitation:
 3. The Chain Rule from calculus, which essentially says "when functions are nested, their rates of change multiply"
 
 Using these components, you can differentiate anything that is composable using those atomic functions. You do this by first expressing your program using these atomic functions (such as a simple neural network by using matrix multiplications). You then culminate this program into a single output (such as a loss function. Then to calculate the rate of change of the output (the loss function) with respect to all its inputs (the neural network matrix weights), you calculate the rate of change of all computations, and multiply them together using chain rule in the reverse order of your flow chart.
+
+
+Last update: 2024-01-02
