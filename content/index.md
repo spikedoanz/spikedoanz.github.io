@@ -1,9 +1,10 @@
 ---
 title: spikedoanz
 ---
-Heya! I'm Spike. I currently research applied machine learning for neuroimaging, but am always open to do more interesting work. My interim project is learning the entire deep learning stack.
 
-Even if you're not if you've gotten this far, send me a message! I won't bite :)
+![computer.png]()
+
+Heya! I'm Spike. I currently research applied machine learning for neuroimaging, but am always open to do more interesting work. My current passion project is learning the machine learning stack.
 
 ### post ###
 
