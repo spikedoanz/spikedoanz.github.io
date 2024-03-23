@@ -1,5 +1,5 @@
 ---
-title: supaiku dot com 
+title: spike
 ---
 
 <img src="https://raw.githubusercontent.com/spikedoanz/spikedoanz.github.io/master/assets/computer.jpg" alt="computer" width="100%"/>
