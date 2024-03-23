@@ -3,7 +3,7 @@ import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "ス",
+    pageTitle: "spike",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -20,13 +20,13 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#eff1f5",
+          light: "#e4e4e4",
           lightgray: "#e5e5e5",
           gray: "#b8b8b8",
           darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#131020",
-          tertiary: "#e5e5e5",
+          dark: "#262626",
+          secondary: "#8a8a8a",
+          tertiary: "#8a8a8a",
           highlight: "rgba(143, 159, 169, 0)",
         },
         darkMode: {
