@@ -17,8 +17,6 @@ if you've gotten this far, stay a little, come say hi. i'll be here all day.
 
 [[favorite links]]
 
-[[ml concepts]]
-
 ### info ###
 
 [github](https://github.com/spikedoanz)
