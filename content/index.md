@@ -2,8 +2,6 @@
 title: spike
 ---
 
-<img src="https://raw.githubusercontent.com/spikedoanz/spikedoanz.github.io/master/assets/computer.jpg" alt="computer" width="100%"/>
-
 ---
 
 it's present day, present time.
@@ -16,6 +14,8 @@ if you've gotten this far, stay a little, come say hi. i'll be here all day.
 ### post ###
 
 [[favorite links]]
+
+[[life without sudo]]
 
 ### info ###
 
