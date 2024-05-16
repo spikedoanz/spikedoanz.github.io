@@ -1,6 +1,7 @@
 So I have [this](https://www.apple.com/az/macbook-air-13-and-15-m2/) work laptop, and IT refuses to give me sudo access (admin privileges). This article catalogs my ongoing journey to turn it into a workable computer without needing sudo.
 
-Last update: 2024-05-03
+This article might also prove useful for you if you're working on a cloud instance and need some work tools.
+
 
 ## Ingredients ##
 - M2 Air 24GB
@@ -59,3 +60,7 @@ Some other stuff I found to be really helpful that were also installable without
 
 ## Appendix ##
 While technically all of this software can be installed by simply compiling them from source, I am a lazy bastard and the thought of git cloning and building all of my software from source strikes dread in my heart. 
+
+---
+
+Last update: 2024-05-03
