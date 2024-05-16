@@ -17,7 +17,7 @@ if you've gotten this far, stay a little, come say hi. i'll be here all day.
 
 [[life without sudo]]
 
-[[overdesigning a distributed data pipeline for synthetic data]]
+[[overdesigning a data pipeline for synthetic data]]
 
 ### info ###
 

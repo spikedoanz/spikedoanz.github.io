@@ -1,3 +1,5 @@
+# wirehead, a data pipeline for ml on synthetic data # 
+
 <img src="https://github.com/spikedoanz/spikedoanz.github.io/blob/master/assets/wirehead.png?raw=true" alt="Wirehead Image">
 
 ## the problem 
