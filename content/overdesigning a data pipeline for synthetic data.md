@@ -1,4 +1,4 @@
-# wirehead, a data pipeline for ml on synthetic data # 
+# wirehead, a synthetic data pipeline # 
 
 <img src="https://github.com/spikedoanz/spikedoanz.github.io/blob/master/assets/wirehead.png?raw=true" alt="Wirehead Image">
 
