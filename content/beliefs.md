@@ -1,4 +1,10 @@
+---
+title: beliefs dot md
+---
+
 # beliefs dot md #
+
+---
 
 this article contains my current set of beliefs. while my belief in them are strong, i'm not particularly attached, and will throw them out if a better theory presents itself. expect articles on some of these in the future.
 
@@ -22,5 +28,7 @@ this article contains my current set of beliefs. while my belief in them are str
 - [buddhists](https://en.wikipedia.org/wiki/Buddhism) roughly have it all figured out
 - [infinity isn't real](https://en.wikipedia.org/wiki/Actual_infinity)
 - blind faith is an underused tactic in justifying one's belief
+
+---
 
 last update: 2024-05-25
