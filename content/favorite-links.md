@@ -19,11 +19,13 @@ title: Favorite links
 >On the hard problem of coordinating society
 
 [Elizer Yudkowsky - Staring into the singularity](https://slatestarcodex.com/2014/07/30/meditations-on-moloch/)
-> Changed my life trajectory, make of it what you will
+
+[Curtis Yarvin -  A techno-pessimist manifesto](https://graymirror.substack.com/p/a-techno-pessimist-manifesto)
+
+[W. Daniel Hillis - Richard Feynman and The Connection Machine](https://longnow.org/essays/richard-feynman-connection-machine/)
+
+[Marvin Minsky - Society of Mind Course](https://www.youtube.com/watch?v=-pb3z2w9gDg&list=PLUl4u3cNGP61E-vNcDV0w5xpsIBYNJDkU)
 
 ---
 
-Last update: 2024-05-25
-
-
-
+last update: 2024-05-25
