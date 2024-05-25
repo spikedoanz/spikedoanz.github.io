@@ -1,4 +1,4 @@
-# taking back the internet
+# taking back the web
 
 - the internet used to be an amazing place
 - that was until, the algorithms hit. first google, then youtube, then reddit, then facebook, instagram, reddit and tiktok
@@ -31,7 +31,7 @@
 ## things that i find refreshingly free 
 - 4chan, for the sheer audacity to have barely any moderation or recommendation boosting
 - new twitter (i have the mute, block and filter on hotkey) 
-- blogs (favorites over [[favorite links|here]])
+- blogs (favorites over [[favorite-links|here]])
 
 ## useful tools
 1. block things at the ip level

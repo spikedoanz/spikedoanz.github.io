@@ -6,18 +6,15 @@ title: spike
 
 heya, i'm spike, ml researcher by day, neet at night. 
 
-if you've gotten this far, stay a little, come [say hi](https://x.com/spikedoanz). i'll be here all day.
+[[beliefs|here]] are my beliefs. if these resonate with you, come [say hi](https://x.com/spikedoanz). i'll be here all day.
 
+### posts ###
 
-### post ###
+[[favorite-links|favorite links]]
 
-[[favorite links]]
+[[life-without-sudo|life without sudo]]
 
-[[life without sudo]]
-
-[[overdesigning a data pipeline for synthetic data]]
-
-[[taking back the internet]]
+[[taking-back-the-web|taking back the web]]
 ### info ###
 
 [github](https://github.com/spikedoanz)
