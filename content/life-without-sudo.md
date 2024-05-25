@@ -1,3 +1,11 @@
+---
+title: Life without sudo
+---
+
+# Life without sudo
+
+---
+
 So I have [this](https://www.apple.com/az/macbook-air-13-and-15-m2/) work laptop, and IT refuses to give me sudo access (admin privileges). This article catalogs my ongoing journey to turn it into a workable computer without needing sudo.
 
 This article might also prove useful for you if you're working on a cloud instance and need some work tools.
@@ -63,4 +71,4 @@ While technically all of this software can be installed by simply compiling them
 
 ---
 
-Last update: 2024-05-03
+last update: 2024-05-03

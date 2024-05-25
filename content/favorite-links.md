@@ -1,4 +1,8 @@
-This page contains a lot of links that shaped who I am today. I can't always name them off the top of my head, so this is what I show my friends whenever they ask me for reading/watching/viewing/listening recommendations.
+---
+title: Favorite links
+---
+
+# Favorite links
 
 ---
 
@@ -19,7 +23,7 @@ This page contains a lot of links that shaped who I am today. I can't always nam
 
 ---
 
-Last update: 2024-03-21
+Last update: 2024-05-25
 
 
 
