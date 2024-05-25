@@ -6,7 +6,7 @@ title: spike
 
 heya, i'm spike, ml researcher by day, neet at night. 
 
-if you've gotten this far, stay a little, come [say hi](x.com/spikedoanz). i'll be here all day.
+if you've gotten this far, stay a little, come [say hi](https://x.com/spikedoanz). i'll be here all day.
 
 
 ### post ###
