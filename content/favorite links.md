@@ -15,6 +15,7 @@ This page contains a lot of links that shaped who I am today. I can't always nam
 >On the hard problem of coordinating society
 
 [Elizer Yudkowsky - Staring into the singularity](https://slatestarcodex.com/2014/07/30/meditations-on-moloch/)
+> Changed my life trajectory, make of it what you will
 
 ---
 

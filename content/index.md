@@ -4,11 +4,9 @@ title: spike
 
 ---
 
-it's present day, present time.
-
 heya, i'm spike, ml researcher by day, neet at night. 
 
-if you've gotten this far, stay a little, come say hi. i'll be here all day.
+if you've gotten this far, stay a little, come [say hi](x.com/spikedoanz). i'll be here all day.
 
 
 ### post ###
@@ -19,6 +17,7 @@ if you've gotten this far, stay a little, come say hi. i'll be here all day.
 
 [[overdesigning a data pipeline for synthetic data]]
 
+[[taking back the internet]]
 ### info ###
 
 [github](https://github.com/spikedoanz)
