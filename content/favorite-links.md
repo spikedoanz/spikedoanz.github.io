@@ -1,5 +1,5 @@
 ---
-title: Favorite links
+title: favorite links
 ---
 
 # Favorite links
@@ -16,15 +16,19 @@ title: Favorite links
 >The inspiration of this page and home to many more great links
 
 [Scott Alexander - Meditations on Molloch](https://slatestarcodex.com/2014/07/30/meditations-on-moloch/)
->On the hard problem of coordinating society
+>On the hard problem of coordination
 
 [Elizer Yudkowsky - Staring into the singularity](https://slatestarcodex.com/2014/07/30/meditations-on-moloch/)
+>"You can start a religion with this"
 
 [Curtis Yarvin -  A techno-pessimist manifesto](https://graymirror.substack.com/p/a-techno-pessimist-manifesto)
-
-[W. Daniel Hillis - Richard Feynman and The Connection Machine](https://longnow.org/essays/richard-feynman-connection-machine/)
+>"Wait, maybe you can't start a religion with this"
 
 [Marvin Minsky - Society of Mind Course](https://www.youtube.com/watch?v=-pb3z2w9gDg&list=PLUl4u3cNGP61E-vNcDV0w5xpsIBYNJDkU)
+>Record holder for most simultaneously wrong and right ideas about AI in history
+
+[Paul Graham - What I've worked on](https://paulgraham.com/worked.html)
+>Inspirational without being cringe
 
 ---
 

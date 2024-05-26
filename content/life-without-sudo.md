@@ -1,5 +1,5 @@
 ---
-title: Life without sudo
+title: life without sudo
 ---
 
 # Life without sudo

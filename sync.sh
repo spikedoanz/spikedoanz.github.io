@@ -4,6 +4,8 @@
 source_dir=~/Global/Vault/website/content
 dest_dir=.
 
+rm -rf content
+
 npx quartz build --serve &
 
 while true; do

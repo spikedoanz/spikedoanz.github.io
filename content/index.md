@@ -4,9 +4,10 @@ title: spike
 
 ---
 
-heya, i'm spike, ml researcher by day, neet at night. 
+heya, i'm spike, ml researcher by day, neet at night
 
-[[beliefs|here]] are my beliefs. if these resonate with you, come [say hi](https://x.com/spikedoanz). i'll be here all day.
+if you've gotten this far, come [say hi](https://x.com/spikedoanz). i'll be here all day
+
 
 ### posts ###
 
@@ -15,6 +16,14 @@ heya, i'm spike, ml researcher by day, neet at night.
 [[life-without-sudo|life without sudo]]
 
 [[taking-back-the-web|taking back the web]]
+
+### personal
+
+[[beliefs|here]] are my beliefs
+
+[[hub|here]] are my tastes
+
+
 
 ### info ###
 
