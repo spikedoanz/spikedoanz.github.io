@@ -55,7 +55,7 @@ sudo vim /etc/hosts
 
 it really does feel like i'm back in the early 2000s, back when i first discovered the internet. i use tech much less, and enjoy it more while doing so.
 
-there's also the sense of bespoke software that comes when i first started out doing this. i am no longer a consumer, but a curator, even if it's just for myself. consumption is now a conscious act i do, not something i just mindlessly put on to turn my brain off
+there's also the sense of bespoke software that comes when i first started out doing this. i am no longer a consumer, but a curator, even if it's just for myself.
 
 ---
 
