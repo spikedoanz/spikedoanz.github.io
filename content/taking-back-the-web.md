@@ -20,7 +20,7 @@ title: taking back the web
 
 ## ground rules
 1. if i have no control (blocks, mutes, subscriptions, boosting, strong filters), then the platform is **rotten**. the [raw internet](https://x.com/karpathy/status/1766509149297189274) is not a safe place to be
-2. vibes. does it look like tiktok? or does it look like gwern.net? find a cutoff point and filter everything on the tiktok side
+2. vibes. does it look like tiktok? or does it look like textbook? find a cutoff point and filter everything on the tiktok side
 3. no internet on the phone. these things have been optimized to wirehead you at the hardware level. use them as sparingly as possible
 4. whenever possible, become my own recommendation algorithm.
  
