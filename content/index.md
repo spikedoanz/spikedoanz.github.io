@@ -19,8 +19,6 @@ if you've gotten this far, come [say hi](https://x.com/spikedoanz). i'll be here
 
 ### personal
 
-[[beliefs|here]] are my beliefs
-
 [[hub|here]] are my tastes
 
 
