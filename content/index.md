@@ -19,7 +19,11 @@ if you've gotten this far, come [say hi](https://x.com/spikedoanz). i'll be here
 
 ### personal
 
-[[hub|here]] are my tastes
+[[reviews|here]] are my tastes
+
+some recents:
+
+[[saya-no-uta|saya no uta review]]
 
 
 

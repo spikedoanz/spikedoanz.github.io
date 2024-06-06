@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the source and destination directory paths
-source_dir=~/Global/Vault/website/content
+source_dir=~/Global/Vault/work/website/content
 dest_dir=.
 
 rm -rf content

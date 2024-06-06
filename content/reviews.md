@@ -10,12 +10,11 @@ For numerical rankings, check out [my mal](https://myanimelist.net/animelist/spi
 ---
 ## Thought Provoking
 
-An alternative criteria: What media has lived the longest in one's mind?
-
 - [Neon Genesis Evangelion](https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion)
 - [Disco Elysium](https://en.wikipedia.org/wiki/Disco_Elysium)
 - [House of Leaves](https://en.wikipedia.org/wiki/House_of_Leaves)
 - [Houseki no Kuni](https://en.wikipedia.org/wiki/Land_of_the_Lustrous)
+- [[saya-no-uta|Saya no Uta]]
 - [Serial Experiments Lain](https://en.wikipedia.org/wiki/Serial_Experiments_Lain)
 - [It's Such A Beautiful Day](https://en.wikipedia.org/wiki/It%27s_Such_a_Beautiful_Day_(film))
 
