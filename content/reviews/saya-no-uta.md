@@ -21,7 +21,7 @@ In the 'good' ending, Saya is killed, preventing the end of the world. However, 
 
 ## Technology at the limit
  
-The most terrifying thing about Saya no Uta isn't the stomach churning[^1] h-scenes or gore, but instead the implications it has for future developments in AI and biology.
+The most terrifying thing about Saya no Uta isn't the stomach churning h-scenes or gore, but instead the implications it has for future developments in AI and biology.
 
 As of writing, we understand the problem of intelligence quite well, with many proclaiming AGI is in the near future. However, even if AGI is here and human intelligence is taken over by machine intelligence, one thing that remains lacking is [robustness](https://en.wikipedia.org/wiki/Robustness) -- it is remarkably difficult to create a machine that can create itself.
 
@@ -51,8 +51,4 @@ Is the ending of saya no uta more a problem of optics then? What if instead saya
 
 ---
 
-[1] On that note, my thought during the first h-scene in the novel was "Holy shit this is awesome, I want to fucking puke"
-
----
-
-2024-06-06 - 2024-06-06
+2024-06-06 - 2024-06-08
