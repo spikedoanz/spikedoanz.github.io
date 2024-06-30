@@ -30,6 +30,10 @@ title: favorite links
 [Paul Graham - What I've worked on](https://paulgraham.com/worked.html)
 >Inspirational without being cringe
 
+[Tim Rogers - Action Button](https://www.youtube.com/channel/UCjKSoJlPgcK6BmoSqXpj5xQ)
+> If video game reviews could be literature
+
+
 ---
 
-last update: 2024-05-25
+last update: 2024-06-29
