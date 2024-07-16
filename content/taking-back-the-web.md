@@ -2,7 +2,7 @@
 title: taking back the web
 ---
 
-# Taking back the web
+# taking back the web
 
 ---
 
@@ -10,7 +10,7 @@ title: taking back the web
 - that was until, the algorithms hit. first google, then youtube, then reddit, then facebook, instagram, reddit and tiktok
 - with each step, people lose more and more control over what content they see
 - these algorithms attempt to predict what you would like, but what you like is dependent on what you see
-- this creates a feedback loop, a [wirehead](https://en.wikipedia.org/wiki/Wirehead_(science_fiction))
+- this creates a feedback loop, a [wirehead](https://en.wikipedia.org/wiki/wirehead_(science_fiction))
 - this drives both the algorithm itself, and you, towards the metric being optimized on -- watch time, retention, interactions, ...
 
 - but there is a way out
@@ -44,9 +44,9 @@ title: taking back the web
 ```
 sudo vim /etc/hosts
 ```
-2. adblock, I use [Ublock origin](https://ublockorigin.com/)
-3. own all your content. I now buy physical copies when possible, and download to local otherwise. nyaa, suwayomi, 1337x, libgen, all great
-4. quality reviewers/curation platforms. i've recently started using [mal](https://myanimelist.net/animelist/spikedoanzz?status=7&order=4&order2=0) again, and find it very freeing. here are some curators I trust:
+2. adblock, i use [ublock origin](https://ublockorigin.com/)
+3. own all your content. i now buy physical copies when possible, and download to local otherwise. nyaa, suwayomi, 1337x, libgen, all great
+4. quality reviewers/curation platforms. i've recently started using [mal](https://myanimelist.net/animelist/spikedoanzz?status=7&order=4&order2=0) again, and find it very freeing. here are some curators i trust:
 - [gwern](https://gwern.net/)
 - [yms](https://www.yourmoviesucks.org/)
 - [action button](https://www.actionbutton.net/)

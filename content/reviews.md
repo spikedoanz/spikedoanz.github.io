@@ -1,76 +1,77 @@
 ---
 title: reviews
 ---
-# Reviews
 
-This article is a compilation of my reviews of media as a whole. Ratings are non numerical and are in descending order.
+# reviews
 
-For numerical rankings, check out [my mal](https://myanimelist.net/animelist/spikedoanzz?status=7&order=4&order2=0)
+this article is a compilation of my reviews of media as a whole. ratings are non numerical and are in descending order.
 
----
-## Thought Provoking
-
-- [Neon Genesis Evangelion](https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion)
-- [Disco Elysium](https://en.wikipedia.org/wiki/Disco_Elysium)
-- [House of Leaves](https://en.wikipedia.org/wiki/House_of_Leaves)
-- [Houseki no Kuni](https://en.wikipedia.org/wiki/Land_of_the_Lustrous)
-- [[saya-no-uta|Saya no Uta]]
-- [Serial Experiments Lain](https://en.wikipedia.org/wiki/Serial_Experiments_Lain)
-- [It's Such A Beautiful Day](https://en.wikipedia.org/wiki/It%27s_Such_a_Beautiful_Day_(film))
-
-## Anime
-
-- [Perfect Blue](https://en.wikipedia.org/wiki/Perfect_Blue)
-- [Steins;Gate](https://en.wikipedia.org/wiki/Steins;Gate_(TV_series))
-- [Mushishi](https://en.wikipedia.org/wiki/Mushishi)
-- [Horimiya](https://en.wikipedia.org/wiki/Hori-san_to_Miyamura-kun)
-- [Parasyte](https://en.wikipedia.org/wiki/Parasyte)
-
-## Manga 
-
-- [To Your Eternity](https://en.wikipedia.org/wiki/To_Your_Eternity)
-- [Blue Period](https://en.wikipedia.org/wiki/Blue_Period_(manga))
-- [Mushoku Tensei](https://en.wikipedia.org/wiki/Mushoku_Tensei)
-- [Vinland Saga](https://en.wikipedia.org/wiki/Vinland_Saga_(manga))
-- [Made in Abyss](https://en.wikipedia.org/wiki/Made_in_Abyss)
-- [Goodbye, Eri](https://en.wikipedia.org/wiki/Goodbye,_Eri)
-
-## Movies
-
-- [Parasite](https://en.wikipedia.org/wiki/Parasite_(2019_film))
-- [The Father](https://en.wikipedia.org/wiki/The_Father_(2020_film))
-
-## Books
-
-- [Behave](https://en.wikipedia.org/wiki/Behave_(book))
-- [The Sympathizer](https://en.wikipedia.org/wiki/The_Sympathizer)
-- [There Is No Antimemetics Division](https://scp-wiki.wikidot.com/antimemetics-division-hub)
-- [Norwegian Wood](https://en.wikipedia.org/wiki/Norwegian_Wood_(novel))
-
-## Games
-
-- [Saya no Uta](https://en.wikipedia.org/wiki/Saya_no_Uta:_The_Song_of_Saya)
-- [Slay the Princess](https://en.wikipedia.org/wiki/Slay_the_Princess)
-- [Outer Wilds](https://en.wikipedia.org/wiki/Outer_Wilds)
-- [Pathologic 2](https://en.wikipedia.org/wiki/Pathologic_2)
-- [Before Your Eyes](https://en.wikipedia.org/wiki/Before_Your_Eyes)
-- [MyHouse.WAD](https://en.wikipedia.org/wiki/MyHouse.wad)
-
-## Music
-
-- [Yume](https://botanicalhouse.bandcamp.com/album/dream-2014)
-- [Mint Jams](https://en.wikipedia.org/wiki/Mint_Jams)
-- [Everything At The End Of Time](https://en.wikipedia.org/wiki/Everywhere_at_the_End_of_Time)
-
-
-## Video Essays
-
-- [Notes along Kentucky Route Zero](https://www.youtube.com/watch?v=pW3qZfF6JfI)
-- [Upsilon Dies Backwards](https://www.youtube.com/watch?v=B01HWsilRqs)
-- [action button reviews boku no natsuyasumi](https://www.youtube.com/watch?v=779coR-XPTw)
-- [the answer is not a hut in the woods](https://www.youtube.com/watch?v=PK2SMIOHYig)
-
+for numerical rankings, check out [my mal](https://myanimelist.net/animelist/spikedoanzz?status=7&order=4&order2=0)
 
 ---
+## thought provoking
 
-last update: 2024-05-26
+- [neon genesis evangelion](https://en.wikipedia.org/wiki/neon_genesis_evangelion)
+- [disco elysium](https://en.wikipedia.org/wiki/disco_elysium)
+- [house of leaves](https://en.wikipedia.org/wiki/house_of_leaves)
+- [houseki no kuni](https://en.wikipedia.org/wiki/land_of_the_lustrous)
+- [[saya-no-uta|saya no uta]]
+- [serial experiments lain](https://en.wikipedia.org/wiki/serial_experiments_lain)
+- [it's such a beautiful day](https://en.wikipedia.org/wiki/it%27s_such_a_beautiful_day_(film))
+
+## anime
+
+- [perfect blue](https://en.wikipedia.org/wiki/perfect_blue)
+- [steins;gate](https://en.wikipedia.org/wiki/steins;gate_(tv_series))
+- [mushishi](https://en.wikipedia.org/wiki/mushishi)
+- [horimiya](https://en.wikipedia.org/wiki/hori-san_to_miyamura-kun)
+- [parasyte](https://en.wikipedia.org/wiki/parasyte)
+
+## manga 
+
+- [to your eternity](https://en.wikipedia.org/wiki/to_your_eternity)
+- [blue period](https://en.wikipedia.org/wiki/blue_period_(manga))
+- [mushoku tensei](https://en.wikipedia.org/wiki/mushoku_tensei)
+- [vinland saga](https://en.wikipedia.org/wiki/vinland_saga_(manga))
+- [made in abyss](https://en.wikipedia.org/wiki/made_in_abyss)
+- [goodbye, eri](https://en.wikipedia.org/wiki/goodbye,_eri)
+
+## movies
+
+- [parasite](https://en.wikipedia.org/wiki/parasite_(2019_film))
+- [the father](https://en.wikipedia.org/wiki/the_father_(2020_film))
+
+## books
+
+- [behave](https://en.wikipedia.org/wiki/behave_(book))
+- [the sympathizer](https://en.wikipedia.org/wiki/the_sympathizer)
+- [there is no antimemetics division](https://scp-wiki.wikidot.com/antimemetics-division-hub)
+- [norwegian wood](https://en.wikipedia.org/wiki/norwegian_wood_(novel))
+
+## games
+
+- [saya no uta](https://en.wikipedia.org/wiki/saya_no_uta:_the_song_of_saya)
+- [slay the princess](https://en.wikipedia.org/wiki/slay_the_princess)
+- [outer wilds](https://en.wikipedia.org/wiki/outer_wilds)
+- [pathologic 2](https://en.wikipedia.org/wiki/pathologic_2)
+- [before your eyes](https://en.wikipedia.org/wiki/before_your_eyes)
+- [myhouse.wad](https://en.wikipedia.org/wiki/myhouse.wad)
+
+## music
+
+- [yume](https://botanicalhouse.bandcamp.com/album/dream-2014)
+- [mint jams](https://en.wikipedia.org/wiki/mint_jams)
+- [everything at the end of time](https://en.wikipedia.org/wiki/everywhere_at_the_end_of_time)
+
+
+## video essays
+
+- [notes along kentucky route zero](https://www.youtube.com/watch?v=pw3qzff6jfi)
+- [upsilon dies backwards](https://www.youtube.com/watch?v=b01hwsilrqs)
+- [action button reviews boku no natsuyasumi](https://www.youtube.com/watch?v=779cor-xptw)
+- [the answer is not a hut in the woods](https://www.youtube.com/watch?v=pk2smiohyig)
+
+
+---
+
+last update 2024-05-26
