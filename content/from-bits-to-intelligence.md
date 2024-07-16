@@ -9,7 +9,7 @@ title: from bits to intelligence
 
 ---
 
-let's consider the default stack. from loss.backward() all the way down to the hardware
+let's consider the default stack. from loss.backward() down to the hardware
 
 gpt 2 (500)[^1] written in 
 
@@ -23,7 +23,7 @@ linux (28.8 million)[^2] calling
 
 cuda kernels running on nvidia gpus written in an hdl
 
-this totals up to about 50 million lines of code, give and take a couple million[^3]
+this totals up to about 50 million loc, give and take a couple million[^3]
 
 while this gets you performance and reliability, it's not exactly educational. understanding this fully would be impossible
 
