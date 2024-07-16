@@ -74,13 +74,13 @@ in total, this would be 64950 lines of code. but lets round that up to 100,000
 
 that fits in a single repo. a single person could probably write all of this
 
-if you're interested, start [here](github.com/spikedoanz/from-bits-to-intelligence)
+if you're interested, start [here](https://github.com/spikedoanz/from-bits-to-intelligence)
 
 ---
 
 [^1]: yes i know gpt 2 was originally written in tensorflow 
 
-[^2]: all lines of code were collected with [loc](https://github.com/cgag/loc) from the repos [pytorch](https://github.com/pytorch/pytorch), [python](https://github.com/python/cpython), [linux](git@github.com:torvalds/linux.git)
+[^2]: all lines of code were collected with [loc](https://github.com/cgag/loc) from the repos [pytorch](https://github.com/pytorch/pytorch), [python](https://github.com/python/cpython), [gcc](https://github.com/gcc-mirror/gcc) [linux](https://github.com/torvalds/linux)
 
 [^3]: drivers, apis and the hdl for the gpus are closed source, so they've been omitted. but pulling ~ couple million lines out of a hat might not be [too far off](https://www.quora.com/How-large-is-the-HDL-source-code-of-a-modern-Intel-CPU)
 
