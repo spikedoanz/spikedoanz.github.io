@@ -72,13 +72,12 @@ i propose an alternate stack, one aimed not at raw performance, but instead inte
 ---
 
 
-in total, this would be 64950 lines of code. but lets round that up to 100,000
+in total, this would be 64950 lines of code. but lets round that up to 100000.
 
-that fits in a single repo. a single person could probably write all of this
+that fits in a single repo. a single person could probably write all of this.
 
-if you're interested, start [here](https://github.com/spikedoanz/from-bits-to-intelligence)
+if you're interested, start [here](https://github.com/spikedoanz/from-bits-to-intelligence).
 
----
 
 [^1]: yes i know gpt 2 was originally written in tensorflow 
 
