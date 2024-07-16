@@ -19,7 +19,7 @@ if you've gotten this far, come [say hi](https://x.com/spikedoanz). i'll be here
 
 ---
 
-[[reviews|tastes]]
+[[reviews-hub|tastes]]
 
 ---
 [github](https://github.com/spikedoanz)
