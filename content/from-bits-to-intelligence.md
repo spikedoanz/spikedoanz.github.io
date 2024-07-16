@@ -9,63 +9,65 @@ title: from bits to intelligence
 
 ---
 
-let's consider the default stack. from loss.backward() down to the hardware
+let's consider the default stack. from loss.backward() down to the hardware.
 
-gpt 2 (500)[^1] written in 
+- gpt 2 (500)[^1] written in 
 
-torch (2.3 million) running on 
+- torch (2.3 million) running on 
 
-python (1.7 million) running on 
+- python (1.7 million) running on 
 
-c compiled with gcc (10 million) running on 
+- c compiled with gcc (10 million) running on 
 
-linux (28.8 million)[^2] calling 
+- linux (28.8 million)[^2] calling 
 
-cuda kernels running on nvidia gpus written in an hdl
+- cuda kernels running on nvidia gpus written in an hdl
 
-this totals up to about 50 million loc, give and take a couple million[^3]
+this totals up to about 50 million loc, give and take a couple million[^3].
 
-while this gets you performance and reliability, it's not exactly educational. understanding this fully would be impossible
+while this gets you performance and reliability, it's not exactly educational. understanding this fully would be impossible.
 
 ---
 
-i propose an alternate stack, one aimed not at performance, but instead interpretability. consider this a [from the transistor](https://github.com/geohot/fromthetransistor), but for ml[^4]
+## the 100,000 line machine learning stack
+
+i propose an alternate stack, one aimed not at raw performance, but instead interpretability. consider this a [from the transistor](https://github.com/geohot/fromthetransistor), but for ml[^4].
 
 
 ### 1. hardware
 
-compute: gpu/dsp style chip, (verilog, 1000)[^5]
+- compute: gpu/dsp style chip, (verilog, 1000)[^5]
 
-host: cpu style chip, verilog (verilog, 1500)
+- host: cpu style chip, verilog (verilog, 1500)
 
-memory: mmu (verilog, 1000)
+- memory: mmu (verilog, 1000)
 
-storage: sd card driver (verilog, 150)
+- storage: sd card driver (verilog, 150)
 
 ### 2. software
 
-c compiler (python, 2000)[^6]
+- c compiler (python, 2000)[^6]
 
-python runtime (c, 50000)[^7]
+- python runtime (c, 50000)[^7]
 
-os (c, 2500)
+- os (c, 2500)
 
-file system: fat (c, 300)
+- file system: fat (c, 300)
 
-init, shell, download, cat, editor (c, 500)
+- user space: init, shell, download, cat, editor (c, 500)
 
 
 #### 3. tensors
 
-tensorlib: numpy-like (python, 500)
+- tensorlib: numpy-like (python, 500)
 
-autograd: (python, 5000)[^8]
+- autograd: (python, 5000)[^8]
 
 #### 4. machine learning
 
-data processing (500, python)
+- data processing (500, python)
 
-gpt 2 (500, python)
+- gpt 2 (500, python)
 
 ---
 

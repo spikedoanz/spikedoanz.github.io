@@ -2,13 +2,13 @@
 title: spike
 ---
 
----
 
 heya, i'm spike, ml researcher by day, neet at night
 
 if you've gotten this far, come [say hi](https://x.com/spikedoanz). i'll be here all day
 
----
+
+#### posts
 
 [[from-bits-to-intelligence|from bits to intelligence]]
 
@@ -17,7 +17,7 @@ if you've gotten this far, come [say hi](https://x.com/spikedoanz). i'll be here
 [[taking-back-the-web|taking back the web]]
 
 
----
+#### misc
 
 [[favorite-links|favorite links]]
 
