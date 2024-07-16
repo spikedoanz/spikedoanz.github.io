@@ -33,6 +33,10 @@ title: favorite links
 [gwern - the scaling hypothesis](https://gwern.net/scaling-hypothesis)
 >is agi just scale?
 
+[tim rogers - action button](https://www.youtube.com/channel/ucjksojlpgck6bmosqxpj5xq)
+> if video game reviews could be literature
+
+
 ---
 
-last update 2024-07-15
+last update: 2024-06-29
