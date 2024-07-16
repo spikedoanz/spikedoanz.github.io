@@ -10,7 +10,7 @@ if you've gotten this far, come [say hi](https://x.com/spikedoanz). i'll be here
 
 ---
 
-[[favorite-links|favorite links]]
+[[from-bits-to-intelligence|from bits to intelligence]]
 
 [[life-without-sudo|life without sudo]]
 
@@ -18,6 +18,8 @@ if you've gotten this far, come [say hi](https://x.com/spikedoanz). i'll be here
 
 
 ---
+
+[[favorite-links|favorite links]]
 
 [[reviews-hub|tastes]]
 
