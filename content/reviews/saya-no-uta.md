@@ -4,6 +4,7 @@ title: notes on saya no uta
 
 # notes on saya no uta
 
+---
 >[!important] spoilers
 > [saya no uta](https://en.wikipedia.org/wiki/saya_no_uta:_the_song_of_saya) is a [lovecraftian](https://en.wikipedia.org/wiki/lovecraftian_horror) [visual novel](https://en.wikipedia.org/wiki/visual_novel) written by [gen urobuchi](https://en.wikipedia.org/wiki/gen_urobuchi) and published by [nitroplus](https://en.wikipedia.org/wiki/nitroplus) (in)famous for its disturbing scenes. this article will largely avoid discussion of said scenes, instead focusing on the many difficult questions it provokes about technological progress, the fragile exterior of human values, and the difficulties of defining life.
 > 
@@ -19,7 +20,9 @@ in the bad ending, saya blooms, spreading her seeds throughout the planet. human
 
 in the 'good' ending, saya is killed, preventing the end of the world. however, the sole surviror's realization of saya's individual insignificance leaves him permanently traumatized. after all, saya was just a probe, summoned to earth on accident. what happens if her creators intentionally target us? what does it mean for our signficance if we aren't worth their attention?
 
-## technology at the limit
+---
+
+#### technology at the limit
  
 the most terrifying thing about saya no uta isn't the stomach churning h-scenes or gore, but instead the implications it has for future developments in ai and biology.
 
@@ -29,7 +32,9 @@ the problem is more fundamental than shrinking down a [fab](https://en.wikipedia
 
 assuming we crack both the problem of intelligence and self replication, are the machines we build going to look like the [fleshy](https://en.wikipedia.org/wiki/wetware_computer) saya? a giant server room doesn't look too gross, but what about a giant meat gpu?
 
-## stacks of life
+---
+
+#### stacks of life
 
 finding a divide between technology and life becomes extremely difficult once it becomes possible to artifically create self replicating technology. in having self replicating capabilities, isn't it by definition a form of life? if a machine could be construed as a form of life, what difference do we have from machines?
 
@@ -37,7 +42,9 @@ what room would there be for the creators of a superior species capable of both 
 
 despite being both a synthetic being and being an alien, saya possesses the distinctly human emotions of love, hate, curiosity, even humor. are these also just learnable functions? do we need the fleshy bits to have the human feelings? what if our silicon ai already possesses these feelings?
 
-## the 'bad' ending
+---
+
+#### the 'bad' ending
 
 it is somewhat common sentiment that if we were to be replaced by artifical life, then it is fine if that life is [conscious, robust, and intelligent](https://www.amazon.com/mind-children-future-robot-intelligence/dp/0674576187). saya no uta prompts the player with the following questions:
 - is this true?

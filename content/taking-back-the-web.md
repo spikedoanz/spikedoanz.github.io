@@ -5,6 +5,8 @@ title: taking back the web
 # taking back the web
 
 ---
+> what if using the internet could be nice?
+---
 
 - the internet used to be an amazing place
 - that was until, the algorithms hit. first google, then youtube, then reddit, then facebook, instagram, reddit and tiktok
