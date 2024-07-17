@@ -28,7 +28,7 @@ title: favorite links
 >most simultaneously wrong and right ideas about ai in history
 
 [paul graham - what i've worked on](https://paulgraham.com/worked.html)
->inspirational without being cringe
+>personal memoir and history of someone i deeply look up to
 
 [gwern - the scaling hypothesis](https://gwern.net/scaling-hypothesis)
 >is agi just scale?
