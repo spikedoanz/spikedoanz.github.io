@@ -21,8 +21,6 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 [[favorite-links|favorite links]]
 
-[[reviews-hub|favorite media]]
-
 ---
 [github](https://github.com/spikedoanz)
 [twitter](https://twitter.com/spikedoanz)
