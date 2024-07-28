@@ -36,7 +36,7 @@ i can program in a number of languages:
 
 i've been a graduate researcher at ⟪REDACTED⟫ since may 2023.
 
-i also intermittently offer consulting to startups.
+i also intermittently offer consulting to tech startups.
 
 before then, i spent all of my undergrad teaching math and programming.
 
