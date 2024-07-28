@@ -12,7 +12,7 @@ i wrote and currently manage [wirehead](https://github.com/neuroneural/wirehead)
 
 i accidentally wrote the fastest [tic-tac-toe](https://github.com/spikedoanz/tensor-tic-tac-toe) implementation in ~30 LOC.
 - written in tinygrad, runs on gpu.
-- generalizes to all 2d tic-tac-toe variants (extendedable to higher dimensions).
+- generalizes to all 2d variants (extendable to higher dimensions).
 
 i can write an [autograd engine](https://github.com/spikedoanz/weenygrad) from scratch.
 
@@ -74,6 +74,6 @@ i have a bachelor's degree from ⟪REDACTED⟫ with a summa cum laude.
 
 i can be reached at 
 
-spikedoanz at gmail.com 
+spikedoanz@gmail.com 
 
-x dot com slash spikedoanz 
+[x.com/spikedoanz](https://x.com/spikedoanz/)
