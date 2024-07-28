@@ -14,8 +14,6 @@ i accidentally wrote the fastest [tic-tac-toe](https://github.com/spikedoanz/ten
 - written in tinygrad, runs on gpu.
 - generalizes to all 2d tic-tac-toe variants (and can be extended to higher dimensions).
 
-i wrote [brainrot.nvim](https://github.com/spikedoanz/brainrot.nvim), a subway surfer extension for neovim.
-
 i can write an [autograd engine](https://github.com/spikedoanz/weenygrad) from scratch.
 
 i know how computers work pretty well. i can write:
@@ -24,6 +22,8 @@ i know how computers work pretty well. i can write:
 - a [compiler](https://x.com/spikedoanz/status/1810764530089132424).
 
 i wrote a [wandb clone](https://github.com/spikedoanz/wandbinhood) that looks exactly like robinhood.
+
+i wrote [brainrot.nvim](https://github.com/spikedoanz/brainrot.nvim), a subway surfer extension for neovim.
 
 i can program in a number of languages:
 - python (torch, tinygrad).
