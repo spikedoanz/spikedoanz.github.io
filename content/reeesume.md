@@ -26,9 +26,10 @@ i wrote a [wandb clone](https://github.com/spikedoanz/wandbinhood) that looks ex
 i wrote [brainrot.nvim](https://github.com/spikedoanz/brainrot.nvim), a subway surfer extension for neovim.
 
 i can program in a number of languages:
-- python (torch, tinygrad).
-- gpu (cuda, triton).
-- rust.
+- python (torch, tinygrad),
+- gpu (cuda, triton),
+- rust,
+- lean (poorly)
 
 ---
 
