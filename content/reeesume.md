@@ -6,7 +6,7 @@
 
 i wrote and currently manage [wirehead](https://github.com/neuroneural/wirehead), a distributed cache for scaling synthetic data generation. 
 - it scaled [synthseg](https://github.com/BBillot/SynthSeg), a fMRI brain scan generator by 170x baseline.
-- currently cooperating with some folks at MIT help them scale their other projects.
+- cooperated with some folks at MIT help them scale their other projects.
 - shortened experiment turnaround times from > 7 days to ~4 hours.
 - there is a paper (in peer review).
 
