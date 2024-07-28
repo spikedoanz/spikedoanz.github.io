@@ -1,5 +1,7 @@
 # resume 
 
+---
+
 ## work
 
 i wrote and currently manage [wirehead](https://github.com/neuroneural/wirehead), a distributed cache for scaling synthetic data generation. 
@@ -28,16 +30,19 @@ i can program in a number of languages:
 - gpu (cuda, triton).
 - rust.
 
+---
+
 ## jobs
 
 i've been a graduate researcher at ⟪REDACTED⟫ since may 2023.
 
 i also intermittently offer consulting to startups.
 
-before then, i spent much of my undergrad teaching math and programming.
+before then, i spent all of my undergrad teaching math and programming.
 
 before that, i was a certified [ESL](https://en.wikipedia.org/wiki/English_as_a_second_or_foreign_language) instructor with > 5 years of experience.
 
+---
 
 ## life 
 
