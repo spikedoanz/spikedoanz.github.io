@@ -74,4 +74,5 @@ i have a bachelor's degree from ⟪REDACTED⟫ with a summa cum laude.
 i can be reached at 
 
 spikedoanz at gmail.com 
+
 x dot com slash spikedaonz
