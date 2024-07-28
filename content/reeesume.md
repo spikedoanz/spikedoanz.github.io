@@ -75,4 +75,4 @@ i can be reached at
 
 spikedoanz at gmail.com 
 
-x dot com slash spikedaonz
+x dot com slash spikedoanz 
