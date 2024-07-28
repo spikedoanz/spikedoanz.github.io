@@ -59,8 +59,19 @@ i rock climb:
 
 i play bass, and piano
 
+---
+
 ## education
 
 i'm in grad school at ⟪REDACTED⟫, specializing in ml and hpc.
 
 i have a bachelor's degree from ⟪REDACTED⟫ with a summa cum laude.
+
+---
+
+## contacts
+
+i can be reached at 
+
+spikedoanz at gmail.com 
+x dot com slash spikedaonz
