@@ -22,9 +22,9 @@ Many have stood up to challenge this lack of data by inventing methods to genera
 
 ## I. Issues
 
-> If you'd like to skip ahead to the tutorial, go to chapter II.
+> If you'd like to skip ahead to the tutorial, go to section II.
 >
-> If you'd like to skip ahead to Wirehead's internal workings, go to chapter III.
+> If you'd like to skip ahead to Wirehead's internal workings, go to section VII.
 ---
 
 In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate their results by training a MeshNet on 300,000 synthetic samples[^3]. However, early into the experimentation process, we noted three key things:
