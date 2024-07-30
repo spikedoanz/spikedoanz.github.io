@@ -33,18 +33,6 @@ i can program in a number of languages:
 
 ---
 
-## jobs
-
-i've been a graduate researcher at ⟪REDACTED⟫ since may 2023.
-
-i also intermittently offer consulting to tech startups.
-
-before then, i spent all of my undergrad teaching math and programming.
-
-before that, i was a certified [ESL](https://en.wikipedia.org/wiki/English_as_a_second_or_foreign_language) instructor with > 5 years of experience.
-
----
-
 ## life 
 
 i speak:
