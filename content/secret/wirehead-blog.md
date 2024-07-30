@@ -8,7 +8,7 @@
 
 There is one unchanging constant in machine learning: "data is king." But what happens when you work in a field where the king doesn't always want to get out of bed every morning?
 
-Welcome to neuroimaging, where data is not only rare, but also massive[^1].
+Welcome to neuroimaging, where data is not only hard to come by, but also requries a ton of space[^1].
 
 Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work really well[^2], but it has
 
@@ -27,10 +27,10 @@ Many have stood up to challenge this lack of data by inventing methods to genera
 > If you'd like to skip ahead to Wirehead's internal workings, go to section VII.
 ---
 
-In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate their results by training a MeshNet on 300,000 synthetic samples[^3]. However, early into the experimentation process, we noted three key things:
+In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate the original results by training a MeshNet on 300,000 synthetic samples[^3]. However, early into the experimentation process, we noted three key things:
 
 1. **Generation time** was quite significant (2 seconds per sample on our A40). Generating that many samples using their setup (train -> generate) would have taken us **hundreds of hours.**
-2. **Data size was massive**, and to obtain the number of samples used by the SynthSeg team would overwhelm our cluster's storage system **(91 terabytes at 32 bit)**
+2. **Data size was massive**, the papers report training on 300,000 samples, which would have been 91 terabytes at 32 bit precision 
 3. **Hardware was greatly underutilized**. glancing at nvtop showed us that our gpus would be barely used during sample generation, before peaking for about 5 seconds while training on a new batch. On average, we got just **around 30% GPU utilization**
 
 
@@ -545,7 +545,8 @@ You can use these logs to get some figures for benchmarking
 
 ## VII. How to solve these issues while thinking about it
 
-So we looked at these problem and realized: What we need is a **distributed[^4] circular[^5] cache[^6]**. We made one, and called it [Wirehead](https://github.com/neuroneural/wirehead)
+> So we looked at these problem and realized: What we need is a **distributed[^4] circular[^5] cache[^6]**. We made one, and called it [Wirehead](https://github.com/neuroneural/wirehead)
+---
 
 Okay what do you need for a cache? You basically just need
 1. A way to **put** data in
