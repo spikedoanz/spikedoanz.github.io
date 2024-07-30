@@ -39,4 +39,4 @@ title: favorite links
 
 ---
 
-last update: 2024-06-29
+2024-06-29
