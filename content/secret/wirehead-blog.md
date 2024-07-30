@@ -10,7 +10,7 @@ There is one unchanging constant in machine learning: "data is king." But what h
 
 Welcome to neuroimaging, where data is not only rare, but also massive[^1].
 
-Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work[^n], but 
+Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work really well[^2], but it has
 
 <p align="center">.
 <p align="center">.
@@ -20,18 +20,16 @@ Many have stood up to challenge this lack of data by inventing methods to genera
 
 <br>
 
-## I. Issues, issues, issues
+## I. Issues
 
-> This first chapter describes the thought process behind creating Wirehead and the design goals we had in mind when creating it.
->
 > If you'd like to skip ahead to the tutorial, go to chapter II.
 >
 > If you'd like to skip ahead to Wirehead's internal workings, go to chapter III.
 ---
 
-In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate their results by training a MeshNet on 300,000 synthetic samples[^3]. However, quick into the experimentation process, we noted three key things:
+In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate their results by training a MeshNet on 300,000 synthetic samples[^3]. However, early into the experimentation process, we noted three key things:
 
-1. **Generation time** was quite significant (one sample per second on our A40). Generating that many samples using their setup (train -> generate) would have taken us at least **80 hours.**
+1. **Generation time** was quite significant (2 seconds per sample on our A40). Generating that many samples using their setup (train -> generate) would have taken us **hundreds of hours.**
 2. **Data size was massive**, and to obtain the number of samples used by the SynthSeg team would overwhelm our cluster's storage system **(91 terabytes at 32 bit)**
 3. **Hardware was greatly underutilized**. glancing at nvtop showed us that our gpus would be barely used during sample generation, before peaking for about 5 seconds while training on a new batch. On average, we got just **around 30% GPU utilization**
 
@@ -45,9 +43,9 @@ We could solve these issues by deploying the generator in parallel, but that pos
 
 <br>
 
-## II. TLDR (How can I solve this problem without thinking about it)
+## II. TLDR (how to solve this problem without thinking about it)
 
-> In short, we made Wirehead, a distributed, async cache that lets you arbitrarily scale your synthetic data generation. It does this with no net storage overehead, and minimal computational overhead.
+> In short, we made Wirehead, a distributed, async cache that lets you arbitrarily scale your synthetic data generation. It does this with no net storage overhead, and minimal compute requirements.
 >
 > If you'd like to follow along the unit tests and examples from our repo, go [here](https://github.com/neuroneural/wirehead).
 ---
@@ -133,16 +131,15 @@ source venv/bin/activate
 ### 3. Install wirehead
 
 ```bash
-git clone git@github.com:neuroneural/wirehead.git
-cd wirehead
-pip install -e .
+pip install wirehead
 ```
 
 ### 4. Doing a test run
 
 The unit test lives in examples/unit
 ```
-cd examples/unit
+git clone git@github.com:neuroneural/wirehead.git
+cd wirehead/examples/unit
 ```
 
 Configure the config.yaml file
@@ -156,7 +153,10 @@ SWAP_CAP: 10           # max size for write/read collection
 ```python
 from pymongo import MongoClient
 # replace with hostname=localhost and port=27017 for defaults on a local instance
-print("MongoDB is accessible" if MongoClient(host="your_hostname", port=your_port, serverSelectionTimeoutMS=2000).server_info() else "MongoDB is not accessible")
+print("MongoDB is accessible" if MongoClient(
+    host="your_hostname",
+    port=your_port, serverSelectionTimeoutMS=2000
+    ).server_info() else "MongoDB is not accessible")
 ```
 
 Run the test
@@ -309,7 +309,9 @@ WireheadGenerator will continue to push samples to the write collection as long 
 
 ## IV. Deployment
 
->Wirehead can be deployed both locally and on a SLURM-managed cluster. This section will guide you through both deployment scenarios.
+>Wirehead can be deployed both locally and on a SLURM managed cluster. 
+>
+>This section will guide you through both deployment scenarios.
 ---
 
 ### 1. Local
@@ -425,6 +427,126 @@ By using this SLURM setup, you can easily scale your data generation across mult
 ---
 <br>
 
+
+
+
+
+## VIII. Advanced userland tech
+
+>So far, Wirehead might seem quite barebones, having basically just the minimum to function as a reliable distributed data structure. 
+>
+>We decided to leave many of the decisions (such as how to manage and schedule generators) to the end user. 
+>
+>Accommodating all the different ways a generator could be handled, or deployed, would have significantly bloated our code. 
+---
+
+However, that doesn't mean we're going to leave you out for dry.
+
+Here are some advanced tech that we've found during testing to make your life a lot easier while scaling your synthetic data generators:
+
+### 1. Slurm tricks
+
+The first and most obvious one is to leverage many of the features that slurm provides out of the box to avoid having to having to heterogenize your generators.
+
+- [Slurm arrays](https://marcc-hpc.github.io/tutorials/shortcourse_jobarrays.html) for scheduling parallel jobs
+
+Example
+```bash
+#!/bin/bash
+
+#SBATCH --job-name=wirehead
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:A40:1
+#SBATCH --array=0-19  # << this lets you run 20 jobs in parallel, indexed 0..19
+
+python worker.py
+```
+
+You can also use the slurm worker_id (the index from the example above) within the python runtime. This is useful for selecting 
+```python
+import os
+worker_id = os.getenv("SLURM_ARRAY_TASK_ID", "0")
+training_seg = DATA_FILES[worker_id % len(DATA_FILES)] # selects a different segment to condition based on id
+```
+
+### 2. Running multiple python processes
+
+Assuming you don't have ergregious memory leaks, you can also deploy multiple generators in parallel in multiple python processes[^7]
+```bash
+#!/bin/bash
+                                                                               
+#SBATCH ...
+                                                                               
+NUM_GENERATORS=8
+conda init bash
+conda activate wirehead
+                                                                               
+for i in $(seq 0 $((NUM_GENERATORS-1))); do
+  python generator.py $NUM_GENERATORS $i &
+  pids+=($!)
+done
+                                                                               
+for pid in "${pids[@]}"; do
+  wait $pid
+done
+```
+
+### 3. Benchmarks and debugging
+
+#### a. Fetching single samples
+You can do this by using the MongoheadDataset class
+``` 
+(venv) examples/unit § python
+Python 3.10.14 (main, Jul 12 2024, 17:45:26)
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from wirehead import MongoheadDataset
+
+>>> dataset = MongoheadDataset("config.yaml")
+Dataset: config loaded from config.yaml
+Dataset: Data is ready
+
+>>> x, y = batch[0]['input'], batch[0]['label']
+
+>>> x.shape, y.shape
+(torch.Size([256, 256, 256]), torch.Size([256, 256, 256]))
+```
+
+#### b. WireheadManager will provide some logging information
+```
+Manager: SWAP!
+    Time: 1722356716.8162937 
+    Generated samples: 4800
+    Documents deleted: 0
+Manager: SWAP!
+    Time: 1722356737.930378 
+    Generated samples so far 4850
+    Documents deleted: 10
+```
+
+#### c. How to interpret results
+
+Every time there is a swap, the manager will log:
+```
+Time:               current unix time
+Generated samples:  how many samples generated in total so far
+Documents deleted:  how corrupted / incomplete samples were thrown away
+```
+
+You can use these logs to get some figures for benchmarking
+```python
+>>> 1722356737.930378-1722356716.8162937
+21.114      # seconds between swaps
+>>> 4850-4800
+50          # samples between swaps 
+>>> 50/21.114084243774414
+2.368       # samples per second
+>>> 21.114084243774414/50
+0.422       # seconds per sample
+```
+
+---
+<br>
+
 ## VI. How to solve these issues while thinking about it
 
 So we looked at these problem and realized: What we need is a **distributed[^4] circular[^5] cache[^6]**. We made one, and called it [Wirehead](https://github.com/neuroneural/wirehead)
@@ -447,7 +569,6 @@ So, all we have to do now is to write those three components, and let MongoDB ha
 
 ---
 <br>
-
 ## VII. Wirehead Internals
 
 ### 1. Put
@@ -545,88 +666,10 @@ def swap(self, generated):
 - How swaps happen safely
 - How swap latency doesn't matter (push back latency) (maybe insert a cute figure here)
 
----
-<br>
-
-## VIII. What should you expect to see
-
-### 1. Your experiments got linearly faster!
-
-The observed speedup in your experiments is a direct result of Wirehead's ability to distribute your workload across multiple machines.
-
-By leveraging N computers, Wirehead can process your tasks in parallel, leading to a substantial reduction in overall execution time.
-
-To illustrate this, consider a job that initially took 100 hours to complete. With Wirehead deployed on 20 computers, the same task can be completed in approximately 5 hours, resulting in a significant 20x speedup.
-
-
-### 2. Your compute budget did not go down
-
-While wirehead certainly **allows** you to parallelize your generators across many different computers, it doesn't really make any of them faster (except for when you decouple them from your training process).
-
-This is to be expected. However, one thing that wirehead does let you do is provide a framework for you to experiment easily with different scaling and optimization strategies.
-
-And because these compound with the gains of parallelizing the jobs, you can net a nice Nx Throughput increase improvement to whatever optimizations you implemented!
-
----
-<br>
-
-## IX. Advanced userland tech
-
->So far, Wirehead might seem quite barebones, having basically just the minimum to function as a reliable distributed data structure. 
->
->We decided to leave many of the decisions (such as how to manage and schedule generators) to the end user. 
->
->Accommodating all the different ways a generator could be handled, or deployed, would have significantly bloated our code. 
----
-
-However, that doesn't mean we're going to leave you out for dry.
-
-Here are some advanced tech that we've found during testing to make your life a lot easier while scaling your synthetic data generators:
-
-### 1. Slurm tricks
-
-The first and most obvious one is to leverage many of the features that slurm provides out of the box to avoid having to having to heterogenize your generators.
-
-- [Slurm arrays](https://marcc-hpc.github.io/tutorials/shortcourse_jobarrays.html) for scheduling parallel jobs
-
-Example
-```bash
-#!/bin/bash
-
-#SBATCH --job-name=wirehead
-#SBATCH --nodes=1
-#SBATCH --gres=gpu:A40:1
-#SBATCH --array=0-19  # << this lets you run 20 jobs in parallel, indexed 0..19
-
-python worker.py
-```
-
-You can also use the slurm worker_id (the index from the example above) within the python runtime. This is useful for selecting 
-```python
-import os
-worker_id = os.getenv("SLURM_ARRAY_TASK_ID", "0")
-training_seg = DATA_FILES[worker_id % len(DATA_FILES)] # selects a different segment to condition based on id
-```
-
-### 2. Running multiple python processes
-
-Assuming you don't have ergregious memory leaks, you can also deploy multiple generators in parallel in multiple python processes[^7]
-
-### 3. Benchmarks and debugging
-
-a. You can fetch a single sample from wirehead by using the MongoheadDataset class
-
-b. WireheadManager will pump out some logging information to stdout
-```
-
-```
-c. How to interpret results
-
-
 <br>
 
 [^1]: for a typical image of shape 256x256x256, at 32 bits per voxel, that's 64 megabytes
-[^2]: 300k is the number they cite to obtain an acceptable test dice score
+[^2]: https://arxiv.org/abs/2107.09559
 [^3]: see distributed computing
 [^4]: see circular buffers
 [^5]: see caches
