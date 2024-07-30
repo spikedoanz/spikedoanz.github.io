@@ -427,11 +427,7 @@ By using this SLURM setup, you can easily scale your data generation across mult
 ---
 <br>
 
-
-
-
-
-## VIII. Advanced userland tech
+## VI. Advanced userland tech
 
 >So far, Wirehead might seem quite barebones, having basically just the minimum to function as a reliable distributed data structure. 
 >
@@ -547,7 +543,7 @@ You can use these logs to get some figures for benchmarking
 ---
 <br>
 
-## VI. How to solve these issues while thinking about it
+## VII. How to solve these issues while thinking about it
 
 So we looked at these problem and realized: What we need is a **distributed[^4] circular[^5] cache[^6]**. We made one, and called it [Wirehead](https://github.com/neuroneural/wirehead)
 
@@ -569,7 +565,8 @@ So, all we have to do now is to write those three components, and let MongoDB ha
 
 ---
 <br>
-## VII. Wirehead Internals
+
+## VIII. Wirehead Internals
 
 ### 1. Put
 
