@@ -1,27 +1,35 @@
-# The Unreasonable Effectiveness of Horizontally Scaling Synthetic Data Generation
+# Scaling Synthetic Data Generation
 
-
-> Mike Doan
+---
+> REDACTED
 >
 > Jul XX, 2024
+---
 
 There is one unchanging constant in machine learning: "data is king." But what happens when you work in a field where the king doesn't always want to get out of bed every morning?
 
 Welcome to neuroimaging, where data is not only rare, but also massive[^1].
 
-Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work[^n], but ...
+Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work[^n], but 
+
+<p align="center">.
+<p align="center">.
+<p align="center">.
 
 ---
+
+<br>
+
 ## I. Issues, issues, issues
 
 > This first chapter describes the thought process behind creating Wirehead and the design goals we had in mind when creating it.
 >
-> If you'd like to skip ahead to the tutorial, go to chapter III.
+> If you'd like to skip ahead to the tutorial, go to chapter II.
 >
-> If you'd like to skip ahead to Wirehead's internal workings, go to chapter II.
+> If you'd like to skip ahead to Wirehead's internal workings, go to chapter III.
 ---
 
-In late 2023, we at TReNDS attempted to make use of one such generator, SynthSeg, to replicate their results by training a MeshNet on 300,000 synthetic samples[^3]. However, quick into the experimentation process, we noted three key things:
+In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate their results by training a MeshNet on 300,000 synthetic samples[^3]. However, quick into the experimentation process, we noted three key things:
 
 1. **Generation time** was quite significant (one sample per second on our A40). Generating that many samples using their setup (train -> generate) would have taken us at least **80 hours.**
 2. **Data size was massive**, and to obtain the number of samples used by the SynthSeg team would overwhelm our cluster's storage system **(91 terabytes at 32 bit)**
@@ -35,11 +43,14 @@ We could solve these issues by deploying the generator in parallel, but that pos
 
 ---
 
+<br>
+
 ## II. TLDR (How can I solve this problem without thinking about it)
 
-In short, we made Wirehead, a distributed, async cache that lets you arbitrarily scale your synthetic data generation. It does this with no net storage overehead, and minimal computational overhead.
-
-If you'd like to follow along the unit tests and examples from our repo, go [here](https://github.com/neuroneural/wirehead).
+> In short, we made Wirehead, a distributed, async cache that lets you arbitrarily scale your synthetic data generation. It does this with no net storage overehead, and minimal computational overhead.
+>
+> If you'd like to follow along the unit tests and examples from our repo, go [here](https://github.com/neuroneural/wirehead).
+---
 
 ### 1. Install MongoDB
 
@@ -160,11 +171,16 @@ All tests passed successfully!
 ```
 
 
+---
+
+<br>
+
 ## III. Configuration
 
-Deploying wirehead involves 3 main scripts (or utilities): A generator(s) (generator.py) a cache manager (manager.py) and a data fetcher (loader.py)
-
-All examples in this section can be found in wirehead/examples/unit
+>Deploying wirehead involves 3 main scripts (or utilities): A generator(s) (generator.py) a cache manager (manager.py) and a data fetcher (loader.py)
+>
+>All examples in this section can be found in wirehead/examples/unit
+---
 
 ### 1. config.yaml
 
@@ -287,10 +303,14 @@ def create_generator():
 
 WireheadGenerator will continue to push samples to the write collection as long as there are samples to yield. If your generator function fails or otherwise stops yielding, WireheadGenerator will self terminate.
 
+---
+
+<br>
 
 ## IV. Deployment
 
-Wirehead can be deployed both locally and on a SLURM-managed cluster. This section will guide you through both deployment scenarios.
+>Wirehead can be deployed both locally and on a SLURM-managed cluster. This section will guide you through both deployment scenarios.
+---
 
 ### 1. Local
 
@@ -388,6 +408,10 @@ Remember to modify the config.yaml file to point to the MongoDB instance on your
 
 By using this SLURM setup, you can easily scale your data generation across multiple nodes, significantly speeding up your workflow.
 
+---
+
+<br>
+
 ## V. Case study -- SynthSeg
 
 
@@ -398,6 +422,8 @@ By using this SLURM setup, you can easily scale your data generation across mult
 
 
 
+---
+<br>
 
 ## VI. How to solve these issues while thinking about it
 
@@ -418,6 +444,9 @@ Now the thing though, is that writing distributed systems software is [hard](htt
 So we didn't, and instead relied on some battle hardened enterprise software. Enter [MongoDB](https://www.mongodb.com/) -- distributed, non-blocking[^n], and basically nuclear proof[^n]. It was exactly what we needed.
 
 So, all we have to do now is to write those three components, and let MongoDB handle the ugly details of distributed systems reliability.
+
+---
+<br>
 
 ## VII. Wirehead Internals
 
@@ -517,6 +546,7 @@ def swap(self, generated):
 - How swap latency doesn't matter (push back latency) (maybe insert a cute figure here)
 
 ---
+<br>
 
 ## VIII. What should you expect to see
 
@@ -537,15 +567,23 @@ This is to be expected. However, one thing that wirehead does let you do is prov
 
 And because these compound with the gains of parallelizing the jobs, you can net a nice Nx Throughput increase improvement to whatever optimizations you implemented!
 
+---
+<br>
+
 ## IX. Advanced userland tech
 
-So far, Wirehead might seem quite barebones, having basically just the minimum to function as a reliable distributed data structure. We decided to leave many of the decisions (such as how to manage and schedule generators) to the end user. Accommodating all the different ways a generator could be handled, or deployed, would have significantly bloated our code. 
+>So far, Wirehead might seem quite barebones, having basically just the minimum to function as a reliable distributed data structure. 
+>
+>We decided to leave many of the decisions (such as how to manage and schedule generators) to the end user. 
+>
+>Accommodating all the different ways a generator could be handled, or deployed, would have significantly bloated our code. 
+---
 
 However, that doesn't mean we're going to leave you out for dry.
 
 Here are some advanced tech that we've found during testing to make your life a lot easier while scaling your synthetic data generators:
 
-1. Slurm tricks
+### 1. Slurm tricks
 
 The first and most obvious one is to leverage many of the features that slurm provides out of the box to avoid having to having to heterogenize your generators.
 
@@ -570,11 +608,11 @@ worker_id = os.getenv("SLURM_ARRAY_TASK_ID", "0")
 training_seg = DATA_FILES[worker_id % len(DATA_FILES)] # selects a different segment to condition based on id
 ```
 
-2. Running multiple python processes
+### 2. Running multiple python processes
 
 Assuming you don't have ergregious memory leaks, you can also deploy multiple generators in parallel in multiple python processes[^7]
 
-3. Benchmarks and debugging
+### 3. Benchmarks and debugging
 
 a. You can fetch a single sample from wirehead by using the MongoheadDataset class
 
@@ -585,7 +623,7 @@ b. WireheadManager will pump out some logging information to stdout
 c. How to interpret results
 
 
----
+<br>
 
 [^1]: for a typical image of shape 256x256x256, at 32 bits per voxel, that's 64 megabytes
 [^2]: 300k is the number they cite to obtain an acceptable test dice score
