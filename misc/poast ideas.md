@@ -1,6 +1,0 @@
-- oyakodon recipe
-- the correct number of eggs to eat is "more"
--  on porn addiction
-- mood regulation for neets
-- on memetic resiliance. how to find the memes that are useful
-- 
