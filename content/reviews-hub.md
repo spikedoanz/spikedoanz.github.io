@@ -2,6 +2,8 @@
 title: reviews
 ---
 
+[[index|spike]]
+
 # reviews
 
 ---

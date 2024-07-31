@@ -2,6 +2,8 @@
 title: life without sudo
 ---
 
+### [[index|supaiku dot com]]
+
 # life without sudo
 
 ---

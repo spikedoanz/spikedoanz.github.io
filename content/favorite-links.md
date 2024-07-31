@@ -2,6 +2,8 @@
 title: favorite links
 ---
 
+### [[index|supaiku dot com]]
+
 # favorite links
 
 ---

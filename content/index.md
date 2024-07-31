@@ -2,18 +2,22 @@
 title: spike
 ---
 
+### [[index|supaiku dot com]]
+
 heya! i'm [[index|spike]] -- ml researcher by day, neet by night.
 
 if you've gotten this far, feel free to say hi wherever you find me! you can DM me on [twitter](https://twitter.com/spikedoanz) or email me at spikedoanz at gmail dot com. 
 
 
-#### posts 
+### posts 
 
 [[from-bits-to-intelligence|from bits to intelligence]]
 
 [[taking-back-the-web|taking back the web]]
 
 [[life-without-sudo|life without sudo]]
+
+### misc 
 
 [[favorite-links|favorite links]]
 

@@ -2,6 +2,8 @@
 title: from bits to intelligence 
 ---
 
+### [[index|supaiku dot com]]
+
 # from bits to intelligence
 ---
 

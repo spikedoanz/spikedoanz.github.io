@@ -2,6 +2,8 @@
 title: taking back the web
 ---
 
+### [[index|supaiku dot com]]
+
 # taking back the web
 
 ---
