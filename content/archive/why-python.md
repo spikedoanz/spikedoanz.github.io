@@ -6,7 +6,7 @@ title: Why Python?
 ## Software
 
 ---
-> by Eric Raymond on April 30, 2000
+> by [Eric Raymond](https://en.wikipedia.org/wiki/Eric_S._Raymond) on April 30, 2000
 ---
 
 My first look at Python was an accident, and I didn't much like what I saw at the time. It was early 1997, and Mark Lutz's book Programming Python from O'Reilly & Associates had recently come out. O'Reilly books occasionally land on my doorstep, selected from among the new releases by some mysterious benefactor inside the organization using a random process I've given up trying to understand.
