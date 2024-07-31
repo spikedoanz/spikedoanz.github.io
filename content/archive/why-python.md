@@ -1,3 +1,6 @@
+---
+title: Why Python?
+---
 # Why Python?
 
 ## Software
@@ -40,7 +43,7 @@ I flirted with Tcl, only to discover quickly that it scales up even more poorly 
 
 My second look at Python was almost as accidental as my first. In October 1997, a series of questions on the fetchmail-friends mailing list made it clear that end users were having increasing trouble generating configuration files for my fetchmail utility. The file uses a simple, classically UNIX free-format syntax, but can become forbiddingly complicated when a user has POP3 and IMAP accounts at multiple sites. As an example, see Listing 1 for a somewhat simplified version of mine.
 
-[Listing 1](https://web.archive.org/web/20230929225422/https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/038/3882/3882l1.html)
+[[why-python_listing1|Listing 1]]
 
 I decided to attack the problem by writing an end-user-friendly configuration editor, fetchmailconf. The design objective of fetchmailconf was clear: to completely hide the control file syntax behind a fashionable, ergonomically correct GUI interface replete with selection buttons, slider bars and fill-out forms.
 
@@ -62,7 +65,7 @@ The parser for fetchmail's configuration file syntax is rather elaborate. It's a
 
 This problem stumped me for a while. Then I had an inspiration: I'd let fetchmailconf use fetchmail's own parser! I added a --configdump option to fetchmail that would parse .fetchmailrc and dump the result to standard output in the format of a Python initializer. For the file above, the result would look roughly like Listing 2 (to save space, some data not relevant to the example is omitted).
 
-[Listing 2](https://web.archive.org/web/20230930004620/https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/038/3882/3882l2.html)
+[[why-python_listing2|Listing 2]]
 
 Python could then evaluate the fetchmail --configdump output and have the configuration available as the value of the variable “fetchmail”.
 
@@ -76,9 +79,9 @@ What I really wanted was code that would analyze the shape and members of the in
 
 This kind of thing is called metaclass hacking and is generally considered fearsomely esoteric—deep black magic. Most object-oriented languages don't support it at all; in those that do (Perl being one), it tends to be a complicated and fragile undertaking. I had been impressed by Python's low coefficient of friction so far, but here was a real test. How hard would I have to wrestle with the language to get it to do this? I knew from previous experience that the bout was likely to be painful, even assuming I won, but I dived into the book and read up on Python's metaclass facilities. The resulting function is shown in Listing 3, and the code that calls it is in Listing 4.
 
-[Listing 3](https://web.archive.org/web/20230930003502/https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/038/3882/3882l3.html)
+[[why-python_listing3|Listing 3]]
 
-[Listing 4](https://web.archive.org/web/20230930002349/https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/038/3882/3882l4.html)
+[[why-python_listing4|Listing 4]]
 
 That doesn't look too bad for deep black magic, does it? Thirty-two lines, counting comments. Just from knowing what I've said about the class structure, the calling code is even readable. But the size of this code isn't the real shocker. Brace yourself: this code only took me about ninety minutes to write—and it worked correctly the first time I ran it.
 
