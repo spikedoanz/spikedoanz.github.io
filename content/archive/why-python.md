@@ -1,7 +1,10 @@
 # Why Python?
 
-Software
-by Eric Raymond on April 30, 2000
+## Software
+
+---
+> by Eric Raymond on April 30, 2000
+---
 
 My first look at Python was an accident, and I didn't much like what I saw at the time. It was early 1997, and Mark Lutz's book Programming Python from O'Reilly & Associates had recently come out. O'Reilly books occasionally land on my doorstep, selected from among the new releases by some mysterious benefactor inside the organization using a random process I've given up trying to understand.
 
@@ -37,7 +40,7 @@ I flirted with Tcl, only to discover quickly that it scales up even more poorly 
 
 My second look at Python was almost as accidental as my first. In October 1997, a series of questions on the fetchmail-friends mailing list made it clear that end users were having increasing trouble generating configuration files for my fetchmail utility. The file uses a simple, classically UNIX free-format syntax, but can become forbiddingly complicated when a user has POP3 and IMAP accounts at multiple sites. As an example, see Listing 1 for a somewhat simplified version of mine.
 
-Listing 1
+[Listing 1](https://web.archive.org/web/20230929225422/https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/038/3882/3882l1.html)
 
 I decided to attack the problem by writing an end-user-friendly configuration editor, fetchmailconf. The design objective of fetchmailconf was clear: to completely hide the control file syntax behind a fashionable, ergonomically correct GUI interface replete with selection buttons, slider bars and fill-out forms.
 
@@ -59,7 +62,7 @@ The parser for fetchmail's configuration file syntax is rather elaborate. It's a
 
 This problem stumped me for a while. Then I had an inspiration: I'd let fetchmailconf use fetchmail's own parser! I added a --configdump option to fetchmail that would parse .fetchmailrc and dump the result to standard output in the format of a Python initializer. For the file above, the result would look roughly like Listing 2 (to save space, some data not relevant to the example is omitted).
 
-Listing 2
+[Listing 2](https://web.archive.org/web/20230930004620/https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/038/3882/3882l2.html)
 
 Python could then evaluate the fetchmail --configdump output and have the configuration available as the value of the variable “fetchmail”.
 
@@ -73,9 +76,9 @@ What I really wanted was code that would analyze the shape and members of the in
 
 This kind of thing is called metaclass hacking and is generally considered fearsomely esoteric—deep black magic. Most object-oriented languages don't support it at all; in those that do (Perl being one), it tends to be a complicated and fragile undertaking. I had been impressed by Python's low coefficient of friction so far, but here was a real test. How hard would I have to wrestle with the language to get it to do this? I knew from previous experience that the bout was likely to be painful, even assuming I won, but I dived into the book and read up on Python's metaclass facilities. The resulting function is shown in Listing 3, and the code that calls it is in Listing 4.
 
-Listing 3
+[Listing 3](https://web.archive.org/web/20230930003502/https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/038/3882/3882l3.html)
 
-Listing 4
+[Listing 4](https://web.archive.org/web/20230930002349/https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/038/3882/3882l4.html)
 
 That doesn't look too bad for deep black magic, does it? Thirty-two lines, counting comments. Just from knowing what I've said about the class structure, the calling code is even readable. But the size of this code isn't the real shocker. Brace yourself: this code only took me about ninety minutes to write—and it worked correctly the first time I ran it.
 
@@ -89,7 +92,9 @@ So the real punchline of the story is this: weeks and months after writing fetch
 
 Perl still has its uses. For tiny projects (100 lines or fewer) that involve a lot of text pattern matching, I am still more likely to tinker up a Perl-regexp-based solution than to reach for Python. For good recent examples of such things, see the timeseries and growthplot scripts in the fetchmail distribution. Actually, these are much like the things Perl did in its original role as a sort of combination awk/sed/grep/sh, before it had functions and direct access to the operating system API. For anything larger or more complex, I have come to prefer the subtle virtues of Python—and I think you will, too.
 
-Resources
+---
+
+## Resources
 
 All listings referred to in this article are available by anonymous download in the file ftp.linuxjournal.com/pub/lj/listings/issue73/3882.tgz.
 
