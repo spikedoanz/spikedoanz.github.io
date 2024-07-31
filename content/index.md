@@ -15,8 +15,6 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 [[life-without-sudo|life without sudo]]
 
-#### misc
-
 [[favorite-links|favorite links]]
 
 [[archive-hub|archive]]
