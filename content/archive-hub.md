@@ -1,3 +1,7 @@
+---
+title: archive
+---
+
 ### [[index|supaiku dot com]]
 
 # archive
