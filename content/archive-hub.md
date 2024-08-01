@@ -3,7 +3,7 @@
 # archive
 
 ---
-> for amazing pages which are either inaccssible, link-rotted, or overall not to my liking in design
+> for amazing pages which are either inaccssible or not to my liking in design
 ---
 
 [[why-python|eric raymond -- why python?]]
