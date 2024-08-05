@@ -423,10 +423,11 @@ By using this SLURM setup, you can easily scale your data generation across mult
 
 ![wirehead parallel](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/parallel.png)
 
+Recall this diagram. This section will be discussing the use of wirehead for scaling SynthSeg data generation.
 
-Recall this diagram. This section will be discussing the use of wirehead for massively scaling SynthSeg data generation.
+First, let's start with a baseline: (running SynthSeg generation on a loop and measuring the samples per second)
 
-First, let's start with a baseline: (running SynthSeg generation on a loop and)
+### 1. Baseline
 
 We need to modify our [generator.py](#4-generatorpy) script to accept the SynthSeg generator:
 
@@ -449,13 +450,13 @@ def create_generator(file_id=0):
         randomise_res=False,
     )
     print(f"Generator {file_id}: SynthSeg is using {training_seg}", flush=True)
-    curr = time() # for benchmarking
+    start = time() # for benchmarking
     while True:
         img, lab = preprocessing_pipe(brain_generator.generate_brain())
         yield (img, lab)
         gc.collect() # for memory stability, will be important later
-        print(curr - time())
-        curr = time()
+        print(f"Time diff : {start - time()}")
+        start = time()
 
 if __name__ == "__main__":
     brain_generator = create_generator()
@@ -467,8 +468,89 @@ if __name__ == "__main__":
 
 Basically, the exact same thing as the example above, just with some extra stuff for preprocessing, and feeding in a special data file for conditioning the generator.
 
-Let's run it and see how fast this is
+For comparison reasons, we'll be measuring using the time between swaps. Spinning up an instance of that gives us the following times:
+
 ```
+Manager: Time: 1722892244.7662659 Generated samples so far 100
+Manager: Time: 1722892408.0713165 Generated samples so far 200
+Manager: Time: 1722892570.7747226 Generated samples so far 300
+Manager: Time: 1722892734.1165183 Generated samples so far 400
+```
+
+Subtracting time between swaps, we get on average 162 seconds per 100 samples, or 1.62 seconds per sample (0.62 samples per second). This is now our baseline
+
+## 2. Process parallelism
+
+Surely, we can fit more processes on the same node, how about 8? We can do this by just launching 8 python processes in parallel in the terminal
+
+```bash
+#!/bin/bash
+
+NUM_GENERATORS=8
+conda init bash
+conda activate wirehead
+                                                                                                            
+for i in $(seq 0 $((NUM_GENERATORS-1))); do
+    python generator.py $NUM_GENERATORS $i &
+    pids+=($!)
+done
+                                                                                                            
+for pid in "${pids[@]}"; do
+    wait $pid
+done
+```
+
+Doing this nets us these times
+
+```
+Manager: Time: 1722891632.5399084 Generated samples so far 100
+Manager: Time: 1722891671.506585 Generated samples so far 200
+Manager: Time: 1722891710.6051934 Generated samples so far 300
+Manager: Time: 1722891749.7454906 Generated samples so far 400
+```
+
+On average, we're getting about 39 seconds per 100 samples. This means the generator is going at 0.39 seconds per sample (aka 2.56 samples per second). This translates to a 4.1x speedup. Not quite linear, but SynthSeg is quite resource intensive so.
+
+
+## 3. Node paralellism
+
+Let's kick it up a notch. We can deploy multiple jobs in parallel using SLURM, how about we fire up 8 jobs?
+
+```bash
+#!/bin/bash
+
+#SBATCH --job-name=wirehead
+#SBATCH --nodes=1
+#SBATCH -c 64
+#SBATCH --mem=128g
+#SBATCH --gres=gpu:A40:1
+#SBATCH --array=0-7 # this means 8 nodes will be allocated 
+
+NUM_GENERATORS=8
+conda init bash
+conda activate wirehead
+
+for i in $(seq 0 $((NUM_GENERATORS-1))); do
+  python generator.py $NUM_GENERATORS $i &
+  pids+=($!)
+done
+
+for pid in "${pids[@]}"; do
+  wait $pid
+done
+```
+
+Doing so nets us these times
+```bash
+
+```
+
+**drum rolls please** here's the numbers:
+```bash
+
+```
+
+
 
 
 <br>
@@ -506,6 +588,7 @@ The first and most obvious one is to leverage many of the features that slurm pr
 - [Slurm arrays](https://marcc-hpc.github.io/tutorials/shortcourse_jobarrays.html) for scheduling parallel jobs
 
 Example
+
 ```bash
 #!/bin/bash
 
