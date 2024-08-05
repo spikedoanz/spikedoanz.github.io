@@ -7,8 +7,6 @@ title: archive
 # archive
 
 ---
-> for amazing pages which are either inaccssible or not to my liking in design
----
 
 [[why-python|eric raymond -- why python?]]
 > on python's top class abstractions and hackability
