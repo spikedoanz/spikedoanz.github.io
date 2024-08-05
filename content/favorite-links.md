@@ -37,8 +37,3 @@ title: favorite links
 
 [tim rogers -- action button](https://www.youtube.com/channel/ucjksojlpgck6bmosqxpj5xq)
 > if video game reviews could be literature
-
-
----
-
-2024-06-29

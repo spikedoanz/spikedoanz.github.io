@@ -96,7 +96,3 @@ if you're interested, start [here](https://github.com/spikedoanz/from-bits-to-in
 [^7]: [micropython](https://github.com/micropython/micropython)
 
 [^8]: [tinygrad](https://github.com/tinygrad/tinygrad)
-
----
-
-2024-07-16
