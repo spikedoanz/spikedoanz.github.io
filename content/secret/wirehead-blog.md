@@ -1,10 +1,11 @@
-# Scaling Synthetic Data Generation
+# Scaling Synthetic Data Generation with Wirehead
 
 ---
 > REDACTED
 >
 > Jul XX, 2024
 ---
+![wirehead parallel](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/parallel.png)
 
 There is one unchanging constant in machine learning: "data is king." But what happens when you work in a field where the king doesn't always want to get out of bed every morning?
 
@@ -50,9 +51,11 @@ We could solve these issues by deploying the generator in parallel, but that pos
 > If you'd like to follow along the unit tests and examples from our repo, go [here](https://github.com/neuroneural/wirehead).
 ---
 
+![wirehead components](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/wirehead.png)
+
 ### 1. Install MongoDB
 
-This is the onlty real dependency we have for wirehead. Here are some ways to get it up and running on a local instance or a cluster.
+This is the only real dependency we have for wirehead. Here are some ways to get it up and running on a local instance or a cluster.
 
 - [Ubuntu Setup](#a-quick-mongodb-setup-ubuntu)
 - [macOS Setup](#b-quick-mongodb-setup-macos)
@@ -176,6 +179,8 @@ All tests passed successfully!
 <br>
 
 ## III. Configuration
+
+![wirehead state](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/config.png)
 
 >Deploying wirehead involves 3 main scripts (or utilities): A generator(s) (generator.py) a cache manager (manager.py) and a data fetcher (loader.py)
 >
@@ -416,16 +421,70 @@ By using this SLURM setup, you can easily scale your data generation across mult
 
 ## V. Case study -- SynthSeg
 
+![wirehead parallel](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/parallel.png)
 
 
+Recall this diagram. This section will be discussing the use of wirehead for massively scaling SynthSeg data generation.
+
+First, let's start with a baseline: (running SynthSeg generation on a loop and)
+
+We need to modify our [generator.py](#4-generatorpy) script to accept the SynthSeg generator:
+
+```python
+from time import time
+from nobrainer.processing.brain_generator import BrainGenerator
+from preprocessing import preprocessing_pipe # just simple label maps and normalization
+
+DATA_FILES = ["example.nii.gz"]
+
+def create_generator(file_id=0):
+    """Creates an iterator that returns data for mongo.
+    Should contain all the dependencies of the brain generator
+    Preprocessing should be applied at this phase
+    yields : Tuple(np.ndarray, np.ndarray)
+    """
+    training_seg = DATA_FILES[file_id]
+    brain_generator = BrainGenerator(
+        training_seg,
+        randomise_res=False,
+    )
+    print(f"Generator {file_id}: SynthSeg is using {training_seg}", flush=True)
+    curr = time() # for benchmarking
+    while True:
+        img, lab = preprocessing_pipe(brain_generator.generate_brain())
+        yield (img, lab)
+        gc.collect() # for memory stability, will be important later
+        print(curr - time())
+        curr = time()
+
+if __name__ == "__main__":
+    brain_generator = create_generator()
+    wirehead_generator = WireheadGenerator(
+        generator=brain_generator, config_path="config.yaml"
+    )
+    wirehead_generator.run_generator()
+```
+
+Basically, the exact same thing as the example above, just with some extra stuff for preprocessing, and feeding in a special data file for conditioning the generator.
+
+Let's run it and see how fast this is
+```
 
 
-
-
-
+<br>
 
 ---
-<br>
+
+**Warning: Advanced Section Ahead**
+=====================================
+
+> **Proceed with Caution**
+> 
+> The following section is intended for advanced users who are already comfortable with deploying and using wirehead for normal training purposes.
+> 
+> None of these are necessary for normal usage of wirehead, but might be necessary for pushing the boundaries of what is possible with scaling wirehead, as well as benchmarking and debugging purposes.
+
+---
 
 ## VI. Advanced userland tech
 
@@ -554,24 +613,21 @@ Okay what do you need for a cache? You basically just need
 3. A way to **swap** old data with fresh data
 
 Why a cache? And not some other strategy? Well, a circular cache:
-- Eliminates the storage issue. Using a cache means we toss out the data after we're done using it for training
-- Provides a convenient way to deal with the coordination issue. Using a cache means that we have a way to hook up our many generators to our training job.
-- Eliminates the issue of low GPU utilization[^7]. Our training job would always have samples to train on.
+- **Eliminates the storage issue**. Using a cache means we toss out the data after we're done using it for training
+- **Provides a convenient way to deal with the coordination issue**. Using a cache means that we have a way to hook up our many generators to our training job.
+- **Eliminates the issue of low GPU utilization**. Our training job would always have samples to train on.
 
 Now the thing though, is that writing distributed systems software is [hard](http://nil.csail.mit.edu/6.824/2020/). If we did this from scratch, it would likely crash and burn every 5 minutes.
 
-So we didn't, and instead relied on some battle hardened enterprise software. Enter [MongoDB](https://www.mongodb.com/) -- distributed, non-blocking[^n], and basically nuclear proof[^n]. It was exactly what we needed.
+So we didn't, and instead relied on some battle hardened enterprise software. Enter [MongoDB](https://www.mongodb.com/) -- distributed, non-blocking, and basically nuclear proof. It was exactly what we needed.
 
-So, all we have to do now is to write those three components, and let MongoDB handle the ugly details of distributed systems reliability.
+So all we have to do now is to write those three components, and let MongoDB handle the ugly details of distributed systems reliability. (not really true, we still have to do some careful distributed system design)
 
----
-<br>
-
-## VIII. Wirehead Internals
+Here are the parts that we wrote, and a brief explanation of how they work.
 
 ### 1. Put
 
-```
+```python
 def generate_and_insert(self):
     """ Fetch from generator and inserts into mongodb """
     # 0. Fetch data from generator
@@ -590,7 +646,7 @@ def generate_and_insert(self):
 - Pushing, and guardrails
 
 ### 2. Get
-```
+```python
 def __getitem__(self, batch):
     """
     Fetch all samples for ids in the batch and return as tuples
@@ -627,7 +683,7 @@ def __getitem__(self, batch):
 - Data recreation
 
 ### 3. Swap
-```
+```python
 def swap(self, generated):
     """
     Moves data from write collection to read collection
@@ -668,8 +724,7 @@ def swap(self, generated):
 
 [^1]: for a typical image of shape 256x256x256, at 32 bits per voxel, that's 64 megabytes
 [^2]: https://arxiv.org/abs/2107.09559
-[^3]: see distributed computing
-[^4]: see circular buffers
-[^5]: see caches
-[^6]: Note about how this is a complicated topic. Overfitting, mitigations by increasing generation throughput, etc.
+[^4]: see distributed computing
+[^5]: see circular buffers
+[^6]: see caches
 [^7]: We tried python's multiprocessing library but found the gains not worth it in exchange for their added cost to complexity.
