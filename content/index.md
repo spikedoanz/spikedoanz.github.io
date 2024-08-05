@@ -11,11 +11,9 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 ### posts 
 
-[[from-bits-to-intelligence|from bits to intelligence]]
+2024-07-16 [[from-bits-to-intelligence|from bits to intelligence]]
 
-[[taking-back-the-web|taking back the web]]
-
-[[life-without-sudo|life without sudo]]
+2024-05-25 [[taking-back-the-web|taking back the web]]
 
 ### misc 
 
