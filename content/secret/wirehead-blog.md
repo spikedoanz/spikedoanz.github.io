@@ -502,7 +502,7 @@ done
 
 Doing this nets us these times
 
-```
+```bash
 Manager: Time: 1722891632.5399084 Generated samples so far 100
 Manager: Time: 1722891671.506585 Generated samples so far 200
 Manager: Time: 1722891710.6051934 Generated samples so far 300
@@ -540,18 +540,10 @@ for pid in "${pids[@]}"; do
 done
 ```
 
-Doing so nets us these times
-```bash
-
-```
-
 **drum rolls please** here's the numbers:
 ```bash
 
 ```
-
-
-
 
 <br>
 
@@ -560,11 +552,9 @@ Doing so nets us these times
 **Warning: Advanced Section Ahead**
 =====================================
 
-> **Proceed with Caution**
+> The following section is intended for users who are already comfortable with deploying and using wirehead for normal training jobs.
 > 
-> The following section is intended for advanced users who are already comfortable with deploying and using wirehead for normal training purposes.
-> 
-> None of these are necessary for normal usage of wirehead, but might be necessary for pushing the boundaries of what is possible with scaling wirehead, as well as benchmarking and debugging purposes.
+> None of these are necessary for normal usage of wirehead, but might be necessary for experiments with scaling using wirehead, as well as benchmarking and debugging purposes.
 
 ---
 
@@ -685,7 +675,7 @@ You can use these logs to get some figures for benchmarking
 ---
 <br>
 
-## VII. How to solve these issues while thinking about it
+## VII. Wirehead Internals
 
 > So we looked at these problem and realized: What we need is a **distributed[^4] circular[^5] cache[^6]**. We made one, and called it [Wirehead](https://github.com/neuroneural/wirehead)
 ---
