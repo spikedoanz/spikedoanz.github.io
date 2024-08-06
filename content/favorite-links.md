@@ -44,3 +44,6 @@ favorite links
 
 [naval ravikant -- meditation thread](https://x.com/naval/status/1261481222359801856)
 > short, concise, practical advice for meditation
+
+[naval ravikant -- how to get rich without getting lucky](https://x.com/naval/status/1002103360646823936)
+> wealth is not a zero sum game
