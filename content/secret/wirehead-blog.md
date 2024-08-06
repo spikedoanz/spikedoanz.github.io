@@ -515,7 +515,7 @@ On average, we're getting about 39 seconds per 100 samples. This means the gener
 
 ## 3. Node paralellism
 
-Let's kick it up a notch. We can deploy multiple jobs in parallel using SLURM, how about we fire up 10 jobs?
+Let's kick it up a notch. We can deploy multiple jobs in parallel using SLURM, how about we fire up 8 jobs?
 
 We're also moving the swap cap up to 1000, since otherwise our cache would be flushed out far too quickly to even read.
 
@@ -527,7 +527,7 @@ We're also moving the swap cap up to 1000, since otherwise our cache would be fl
 #SBATCH -c 64
 #SBATCH --mem=128g
 #SBATCH --gres=gpu:A40:1
-#SBATCH --array=0-9 # this means 10 nodes will be allocated 
+#SBATCH --array=0-7 # this means 8 nodes will be allocated 
 
 NUM_GENERATORS=8
 conda init bash
@@ -545,7 +545,12 @@ done
 
 **drum rolls please** here's the numbers:
 ```bash
+Manager: Time: 1722963423.3219192 Generated samples so far 100 
+Manager: Time: 1722963429.7547336 Generated samples so far 200 
+Manager: Time: 1722963436.3038187 Generated samples so far 300 
 ```
+
+So an average of about 0.06 seconds per sample or 15.4 samples per second. So about a 24x speedup compared to baseline, and a 6x speedup compared to the process parallel example.
 
 <br>
 
