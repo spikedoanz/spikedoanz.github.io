@@ -4,7 +4,10 @@ title: archive
 
 ### [[index|supaiku dot com]]
 
-# archive
+<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
+archive
+</h1>
+
 
 ---
 

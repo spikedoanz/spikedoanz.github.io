@@ -4,7 +4,11 @@ title: favorite links
 
 ### [[index|supaiku dot com]]
 
-# favorite links
+
+
+<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
+favorite links   
+</h1>
 
 ---
 

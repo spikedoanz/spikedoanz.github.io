@@ -4,7 +4,10 @@ title: aesthetics
 
 ### [[index|supaiku dot com]]
 
-# aesthetics
+<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
+aesthetics
+</h1>
+
 
 ---
 > pretty stuff.

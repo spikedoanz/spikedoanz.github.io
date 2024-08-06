@@ -4,7 +4,9 @@ title: taking back the web
 
 ### [[index|supaiku dot com]]
 
-# taking back the web
+<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
+taking back the web   
+</h1>
 
 ---
 > what if using the internet could be nice?

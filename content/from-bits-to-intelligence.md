@@ -4,7 +4,10 @@ title: from bits to intelligence
 
 ### [[index|supaiku dot com]]
 
-# from bits to intelligence
+<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
+    from bits to intelligence
+</h1>
+
 ---
 
 > how many lines of code do you need to train gpt 2?
