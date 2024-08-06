@@ -5,9 +5,9 @@ title: spike
 ### [[index|supaiku dot com]]
 
 heya! i'm [[index|spike]] -- ml researcher by
-<a onclick="document.getElementById('darkmode-toggle').click();">day</a>, 
+<b onclick="document.getElementById('darkmode-toggle').click();">day</b>, 
 neet by
-<a onclick="document.getElementById('darkmode-toggle').click();">night</a>.
+<b onclick="document.getElementById('darkmode-toggle').click();">night</b>.
 
 if you've gotten this far, feel free to say hi wherever you find me! you can DM me on [twitter](https://twitter.com/spikedoanz) or email me at spikedoanz at gmail dot com. 
 
