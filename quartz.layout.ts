@@ -17,6 +17,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
   ],
   right: [
+    Component.Darkmode()
   ],
 }
 
@@ -29,6 +30,5 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
   ],
   right: [
-    Component.Darkmode(),
   ],
 }

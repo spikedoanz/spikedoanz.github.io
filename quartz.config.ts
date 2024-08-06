@@ -19,27 +19,27 @@ const config: QuartzConfig = {
         code: "JetBrains Mono",
       },
       colors: {
-        lightMode: {
-          light: "#dce0e8",     // background
-          lightgray: "#ccd0da", // dashed lines
-          gray: "#eff1f5",
-          darkgray: "#7c7f93",  // regular text
-          dark: "#4c4f69",      // bold text
-          secondary: "#f38ba8", // hyperlinks and site header
-          tertiary: "#9ca0b0",  // cursor highlight
-          highlight: "rgba(0, 0, 0, 0)",
-        },
-        // darkMode: { // catpuccin mocha
-        //   light: "#11111b",
-        //   lightgray: "#6c7086",
-        //   gray: "#1e1e2e",
-        //   darkgray: "#b1b1b1",
-        //   dark: "#cdd6f4",
-        //   secondary: "#f38ba8",
-        //   tertiary: "#45475a",
+        // lightMode: {
+        //   light: "#dce0e8",     // background
+        //   lightgray: "#ccd0da", // dashed lines
+        //   gray: "#eff1f5",
+        //   darkgray: "#7c7f93",  // regular text
+        //   dark: "#4c4f69",      // bold text
+        //   secondary: "#f38ba8", // hyperlinks and site header
+        //   tertiary: "#9ca0b0",  // cursor highlight
         //   highlight: "rgba(0, 0, 0, 0)",
         // },
-        darkMode: { // rosepine dawn 
+        darkMode: { // catpuccin mocha
+          light: "#11111b",
+          lightgray: "#6c7086",
+          gray: "#1e1e2e",
+          darkgray: "#b1b1b1",
+          dark: "#cdd6f4",
+          secondary: "#f38ba8",
+          tertiary: "#45475a",
+          highlight: "rgba(0, 0, 0, 0)",
+        },
+        lightMode: { // rosepine dawn 
           light: "#faf4ed",
           lightgray: "#cecacd",
           gray: "#575279",
