@@ -28,4 +28,7 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 ### links
 
-[github](https://github.com/spikedoanz) :: [twitter](https://twitter.com/spikedoanz) :: [email](mailto:spikedoanz@gmail.com)
+[github](https://github.com/spikedoanz) :: 
+[twitter](https://twitter.com/spikedoanz) :: 
+[email](mailto:spikedoanz@gmail.com) :: 
+[[about]]

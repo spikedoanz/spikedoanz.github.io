@@ -4,7 +4,7 @@ title: tempalte
 
 ### [[index|supaiku dot com]]
 
-<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
+<h1 onclick="document.getElementById('darkmode-toggle').click();">
 template
 </h1>
 
