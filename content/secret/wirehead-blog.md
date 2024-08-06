@@ -520,8 +520,6 @@ On average, we're getting about 39 seconds per 100 samples. This means the gener
 
 Let's kick it up a notch. We can deploy multiple jobs in parallel using SLURM, how about we fire up 8 jobs?
 
-We're also moving the swap cap up to 1000, since otherwise our cache would be flushed out far too quickly to even read.
-
 ```bash
 #!/bin/bash
 
@@ -548,12 +546,12 @@ done
 
 **drum rolls please** here's the numbers:
 ```bash
-Manager: Time: 1722963423.3219192 Generated samples so far 100 
-Manager: Time: 1722963429.7547336 Generated samples so far 200 
-Manager: Time: 1722963436.3038187 Generated samples so far 300 
+Manager: Time: 1722969207.606956 Generated samples so far 30000
+Manager: Time: 1722969256.0353918 Generated samples so far 31000
+Manager: Time: 1722969305.0466542 Generated samples so far 32000
 ```
 
-So an average of about 0.06 seconds per sample or 15.4 samples per second. So about a 24x speedup compared to baseline, and a 6x speedup compared to the process parallel example.
+So an average of about 0.049 seconds per sample or 20.4 samples per second. So about a 32x speedup compared to baseline, and a LINEAR 8x speedup compared to the process parallel example.
 
 <br>
 
