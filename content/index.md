@@ -18,7 +18,7 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 2024-05-25 :: [[taking-back-the-web|taking back the web]]
 
-### alpha
+### share 
 
 2024-06-29 :: [[favorite-links|favorite links]]
 
