@@ -36,14 +36,20 @@ favorite links
 [paul graham -- what i've worked on](https://paulgraham.com/worked.html)
 >personal memoir and history of someone i deeply look up to
 
+[paul graham -- how to make wealth](https://paulgraham.com/wealth.html)
+>wealth is not a zero sum game
+
 [gwern -- the scaling hypothesis](https://gwern.net/scaling-hypothesis)
 >is agi just scale?
 
-[tim rogers -- action button](https://www.youtube.com/channel/ucjksojlpgck6bmosqxpj5xq)
-> if video game reviews could be literature
+[takashi murakami -- earth in my window](https://gwern.net/doc/anime/eva/little-boy/2005-murakami)
+>how does otakudom relate to post ww2 japanese culture?
 
-[naval ravikant -- meditation thread](https://x.com/naval/status/1261481222359801856)
-> short, concise, practical advice for meditation
+[tim rogers -- action button](https://www.youtube.com/channel/ucjksojlpgck6bmosqxpj5xq)
+>if video game reviews could be literature
 
 [naval ravikant -- how to get rich without getting lucky](https://x.com/naval/status/1002103360646823936)
-> wealth is not a zero sum game
+>if naval ravikant were a twitter thread
+
+[naval ravikant -- meditation thread](https://x.com/naval/status/1261481222359801856)
+>short, concise, practical advice for meditation

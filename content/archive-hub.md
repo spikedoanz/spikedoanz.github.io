@@ -11,5 +11,7 @@ archive
 
 ---
 
-[[why-python|eric raymond -- why python?]]
-> on python's top class abstractions and hackability
+2024-08-06 :: [[staring-into-the-singularity| eliezer yudkowsky -- staring into the singularity]]
+
+2024-08-01 :: [[why-python|eric raymond -- why python?]]
+

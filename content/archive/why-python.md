@@ -1,7 +1,11 @@
 ---
 title: Why Python?
 ---
-# Why Python?
+
+<h1 onclick="document.getelementbyid('darkmode-toggle').click();">
+Why Python?
+</h1>
+
 
 ## Software
 
