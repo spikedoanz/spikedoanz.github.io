@@ -1,4 +1,7 @@
-# Scaling Synthetic Data Generation with Wirehead
+<h1 onclick="document.getElementById('darkmode-toggle').click();">
+Scaling Synthetic Data Generation with Wirehead
+</h1>
+
 
 ---
 > REDACTED
