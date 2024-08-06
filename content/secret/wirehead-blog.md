@@ -140,7 +140,7 @@ pip install wirehead
 ### 4. Doing a test run
 
 The unit test lives in examples/unit
-```
+```bash
 git clone git@github.com:neuroneural/wirehead.git
 cd wirehead/examples/unit
 ```
@@ -163,7 +163,7 @@ print("MongoDB is accessible" if MongoClient(
 ```
 
 Run the test
-```
+```bash
 chmod +x test.sh
 ./test.sh
 ```
@@ -190,14 +190,14 @@ All tests passed successfully!
 ### 1. config.yaml
 
 All three of these scripts source a single config.yaml file, which consists of:
-```
+```yaml
 MONGOHOST: "localhost"          # hostname or ip of node hosting mongodb
 DBNAME: "unit-test"             # name of database inside mongodb
 SWAP_CAP: 10                    # max size for write/read collection
 ```
 
 as well as some advanced configs (explained in a later section)
-```
+```yaml
 SAMPLE: ["data", "label"]       # string key associated with your samples
 WRITE_COLLECTION: "write"       # name of write collecion on mongodb 
 READ_COLLECTION: "read"         # name of read collection 
@@ -215,7 +215,7 @@ This is the simplest, and doesn't have to be changed if you're running it as a s
 WireheadManager doesn't consume much compute, and thus can be deployed anywhere you want.
 
 The only thing you need to specify is the path to your config file (in this case, "config.yaml")
-```
+```python
 from wirehead import WireheadManager
 
 if __name__ == "__main__":
@@ -230,7 +230,8 @@ This script is provides a simple way to fetch a single sample from Wirehead
 We provide two kinds of datasets for fetching dataL MongoheadDataset (dictionary-like) and MongoTupleheadDataset (tuple-like)
 
 Similar to manager.py, it's pretty much plug and play, and you can insert this into anywhere you'd like in your regular training script. the only thing you need to specify is the path to your config file (again, it is "config.yaml" in this example)
-```
+
+```python
 import torch
 from wirehead import MongoheadDataset, MongoTupleheadDataset
 
@@ -248,7 +249,7 @@ sample, label = data[0], data[1]
 ### 4. generator.py
 
 This is the heart of the operation, and where some explanation has to be done:
-```
+```python
 import numpy as np
 from wirehead import WireheadGenerator 
 
@@ -270,7 +271,7 @@ if __name__ == "__main__":
 Like the manager and dataset, you need to specify your config_path ("config.yaml" in this example)
 
 But one thing that's different, is that now you also have to specify a [generator function](https://wiki.python.org/moin/Generators) which **yields** a tuple containing your data. In this case, that generator looks like:
-```
+```python
 def create_generator():
     while True: 
         img = np.random.rand(256,256,256)
@@ -282,7 +283,7 @@ Wirehead has to serialize the data before sending it off, and in this case we de
 
 
 Then, all you have to do is plug an instance of your generator function, and the path to your config file into WireheadGenerator
-```
+```python
 brain_generator     = create_generator()
 wirehead_runtime    = WireheadGenerator(
     generator = brain_generator,
@@ -291,13 +292,13 @@ wirehead_runtime    = WireheadGenerator(
 ```
 
 And then press play (this runs an infinite loop)
-```
+```python
 wirehead_runtime.run_generator()
 ```
 
 
 If you'd prefer to generate only N samples instead of running an infinite loop, you can specify that in your generator function:
-```
+```python
 N = 10000
 def create_generator():
     for _ in range(N):  # generate 10000 samples
@@ -514,7 +515,9 @@ On average, we're getting about 39 seconds per 100 samples. This means the gener
 
 ## 3. Node paralellism
 
-Let's kick it up a notch. We can deploy multiple jobs in parallel using SLURM, how about we fire up 8 jobs?
+Let's kick it up a notch. We can deploy multiple jobs in parallel using SLURM, how about we fire up 10 jobs?
+
+We're also moving the swap cap up to 1000, since otherwise our cache would be flushed out far too quickly to even read.
 
 ```bash
 #!/bin/bash
@@ -524,7 +527,7 @@ Let's kick it up a notch. We can deploy multiple jobs in parallel using SLURM, h
 #SBATCH -c 64
 #SBATCH --mem=128g
 #SBATCH --gres=gpu:A40:1
-#SBATCH --array=0-7 # this means 8 nodes will be allocated 
+#SBATCH --array=0-9 # this means 10 nodes will be allocated 
 
 NUM_GENERATORS=8
 conda init bash
@@ -542,7 +545,6 @@ done
 
 **drum rolls please** here's the numbers:
 ```bash
-
 ```
 
 <br>
