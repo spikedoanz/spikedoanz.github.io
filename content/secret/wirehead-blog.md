@@ -22,6 +22,23 @@ Many have stood up to challenge this lack of data by inventing methods to genera
 
 ---
 
+I. [Issues with synthetic data generators](#i-issues)
+
+II. [Wirehead Tutorial](#ii-tldr-how-to-solve-this-problem-without-thinking-about-it)
+
+III. [Configuration](#iii-configuration)
+
+IV. [Deployment](#iv-deployment)
+
+V. [Case study, SynthSeg](#v-case-study--synthseg)
+
+VI. [Advanced tech](#vi-advanced-userland-tech)
+
+VII. [Wirehead Internals](#vii-wirehead-internals)
+
+---
+
+
 <br>
 
 ## I. Issues
