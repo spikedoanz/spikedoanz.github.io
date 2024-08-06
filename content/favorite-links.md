@@ -41,3 +41,6 @@ favorite links
 
 [tim rogers -- action button](https://www.youtube.com/channel/ucjksojlpgck6bmosqxpj5xq)
 > if video game reviews could be literature
+
+[naval ravikant -- meditation thread](https://x.com/naval/status/1261481222359801856)
+> short, concise, practical advice for meditation
