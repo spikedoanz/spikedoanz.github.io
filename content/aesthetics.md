@@ -29,4 +29,6 @@ aesthetics
 
 [awesomemovies.life](https://awesome-movies.life/)
 
+[x86re.com](https://x86re.com/)
+
 [rsrch.space](https://www.rsrch.space/)
