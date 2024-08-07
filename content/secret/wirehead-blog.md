@@ -10,20 +10,6 @@ Scaling Synthetic Data Generation with Wirehead
 ---
 ![wirehead parallel](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/parallel.png)
 
-There is one unchanging constant in machine learning: "data is king." But what happens when you work in a field where the king doesn't always want to get out of bed every morning?
-
-Welcome to neuroimaging, where data is not only hard to come by, impossible to get manually labeled[^1], but also requires a ton of space[^2].
-
-Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work really well[^3], but it has 
-
-<p align="center">.
-<p align="center">.
-<p align="center">.
-
-![totally interpretable analogy](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/differential.gif)
-
-<p align="center">(pictured: physical analogy of wirehead)
-
 ---
 
 I. [Issues with synthetic data generators](#i-issues)
@@ -44,6 +30,12 @@ VII. [Wirehead Internals](#vii-wirehead-internals)
 
 
 <br>
+
+There is one unchanging constant in machine learning: "data is king." But what happens when you work in a field where the king doesn't always want to get out of bed every morning?
+
+Welcome to neuroimaging, where data is not only hard to come by, impossible to get manually labeled[^1], but also requires a ton of space[^2].
+
+Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work really well[^3], but it has ... 
 
 ## I. Issues
 
@@ -67,6 +59,11 @@ We could solve these issues by deploying the generator in parallel, but that pos
 - **How would we maintain high GPU utilization for training?** The problem was clear -- Our GPUs would idle if they didn't have a sample to train on. Perfectly syncing up the throughput of generation to training is practically impossible, and overloading the training job with more samples than it needs would be wasteful of compute. So a workaround had to be figured out.
 
 ---
+
+![totally interpretable analogy](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/differential.gif)
+
+<p align="center">(pictured: physical analogy of wirehead)
+
 
 <br>
 
