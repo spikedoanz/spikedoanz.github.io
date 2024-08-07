@@ -500,6 +500,17 @@ Manager: Time: 1722892734.1165183 Generated samples so far 400
 
 Subtracting time between swaps, we get on average 162 seconds per 100 samples, or 1.62 seconds per sample (0.62 samples per second). This is now our baseline.
 
+For reference, let's also check out the hardware utilization plots, this is [nvitop](https://github.com/XuehaiPan/nvitop) btw
+
+![wh one process](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/1process-wirehead.gif)
+
+Notice anything?
+
+- GPU util: bottom right plot: Spotty, varying from 0-80%, averaging 30%. -- WEAK
+- GPU mem:  top right plot. stable 11%. -- WEAK
+- CPU util: top left plot ~9% -- WEAK
+- CPU mem: bottom left plot 9.4 GB -- WEAK
+
 ## 2. Process parallelism
 
 Surely, we can fit more processes on the same node, how about 8? We can do this by just launching 8 python processes in parallel in the terminal:
@@ -531,6 +542,17 @@ Manager: Time: 1722891749.7454906 Generated samples so far 400
 ```
 
 On average, we're getting about 39 seconds per 100 samples. This means the generator is going at 0.39 seconds per sample (aka 2.56 samples per second). This translates to a 4.1x speedup. Not quite linear, but SynthSeg is quite resource intensive so.
+
+Let's look at the hardware util plots again
+
+![wh eight process](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/8process-wirehead.gif)
+
+Notice anything?
+
+- GPU util: bottom right plot: > 90% utilization always -- STRONG
+- GPU mem:  top right plot. 77.7% -- STRONG
+- CPU util: ~23% -- STRONGER
+- CPU mem: 24 GB -- STRONG
 
 
 ## 3. Node paralellism
@@ -602,7 +624,7 @@ The first and most obvious one is to leverage many of the features that slurm pr
 
 - [Slurm arrays](https://marcc-hpc.github.io/tutorials/shortcourse_jobarrays.html) for scheduling parallel jobs:
 
-Example
+Example:
 
 ```bash
 #!/bin/bash
@@ -725,7 +747,7 @@ Some terminology before we dive into the explanations:
 
 - swap time: refers to the operations and time during which swap from write to read happens.
 - read time: refers to the operations and time during which a read operation happens.
-- chunkified: turning a large file of N bytes into N / CHUNKSIZE chunks 
+- chunkified: turning a large file of N bytes into N / CHUNKSIZE chunks.
 
 Here are the parts that we wrote, and a brief explanation of how they work.
 
@@ -829,7 +851,7 @@ In short, to fetch a batch of data from Wirehead, the following operations are e
 1. Get chunk indeces of samples from collection given index.
 2. Create a batch to store samples into.
 3. Fetch chunks from chunk indeces fetched in # 1.
-4. Reassemble data from chunks
+4. Reassemble data from chunks.
 
 
 ### 3. Swap
