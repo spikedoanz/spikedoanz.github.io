@@ -48,7 +48,9 @@ VII. [Wirehead Internals](#vii-wirehead-internals)
 > If you'd like to skip ahead to Wirehead's internal workings, go to section VII.
 ---
 
-In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate the original results by training a MeshNet, our parameter-efficient model that's very different from UNet used in the reference paper, on 300,000 synthetic samples[^3]. However, early into the experimentation process, we noted three key things:1. **Generation time** was quite significant (2 seconds per sample on our A40). Generating that many samples using their setup (train -> generate) would have taken us **hundreds of hours.**
+In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate the original results by training a MeshNet, our parameter-efficient model that's very different from UNet used in the reference paper, on 300,000 synthetic samples[^3]. However, early into the experimentation process, we noted three key things:
+
+1. **Generation time** was quite significant (2 seconds per sample on our A40). Generating that many samples using their setup (train -> generate) would have taken us **hundreds of hours.**
 
 2. **Data size was massive**, the papers report training on 300,000 samples, which would have been 91 terabytes at 32 bit precision .
 3. **Hardware was greatly underutilized**. glancing at nvtop showed us that our GPUs would be barely used during sample generation, before peaking for about 5 seconds while training on a new batch. On average, we got just **around 30% GPU utilization**
@@ -202,7 +204,7 @@ All tests passed successfully!
 
 ![wirehead state](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/config.png)
 
->Deploying wirehead involves 3 main scripts (or utilities): A generator(s) (generator.py) a cache manager (manager.py) and a data fetcher (loader.py). In fact, loader is your favorite model training script and is fully decoupled from wirehead as long as you use out Dataset class (provided, but also part of our other package [mindfultensors](https://pypi.org/project/mindfultensors/)).
+>Deploying wirehead involves 3 main scripts (or utilities): A generator(s) (generator.py) a cache manager (manager.py) and a data fetcher (loader.py). In fact, loader is basically your favorite model training script and is fully decoupled from wirehead as long as you use our Dataset class (provided, but also part of our other package [mindfultensors](https://pypi.org/project/mindfultensors/)).
 >
 >All examples in this section can be found in wirehead/examples/unit.
 ---
@@ -514,7 +516,9 @@ Notice anything?
 
 ## 2. Process parallelism
 
-Surely, we can fit more processes on the same node, how about 8? We can do this by just launching 8 python processes in parallel in the terminal:
+Surely we can fit more processes on the same node. How about 8? 
+
+We can do this by just launching 8 python processes in parallel in the terminal:
 
 ```bash
 #!/bin/bash
@@ -661,7 +665,7 @@ training_seg = DATA_FILES[worker_id % len(DATA_FILES)] # selects a different seg
 
 ### 2. Running multiple python processes
 
-Assuming you don't have ergregious memory leaks, you can also deploy multiple generators in parallel in multiple python processes[^7]
+Assuming you don't have egregious memory leaks, you can also deploy multiple generators in parallel in multiple python processes[^7]
 ```bash
 #!/bin/bash
                                                                                
@@ -786,7 +790,7 @@ For every sample created by a generator, the following steps are applied to that
 
 1. A corresponding index is fetched for the sample.
 2. The data is turned into chunks of CHUNKSIZE megabytes.
-3. The chunks are pushed in order into MongoDB.
+3. The chunks are pushed in order into MongoDB. (to be reassembled later)
 
 #### a. What is index?
 
@@ -969,8 +973,8 @@ def __getitem__(self, batch):
 
 <br>
 
-[^1]: a typical image of shape 256x256x256, at 32 bits per voxel is **64 megabytes**.
-[^2]: unless you want to pay about $300/hour for a time of a radiologist that has better things to do than carefully assigning $256^3$ voxels to 18 classes
+[^1]: unless you want to pay about \$300/hour for a time of a radiologist that has better things to do than carefully assigning $256^3$ voxels to 18 classes
+[^2]: a typical image of shape 256x256x256, at 32 bits per voxel is **64 megabytes**.
 [^3]: https://arxiv.org/abs/2107.09559
 [^4]: https://en.wikipedia.org/wiki/Distributed_computing
 [^5]: https://en.wikipedia.org/wiki/Circular_buffer
