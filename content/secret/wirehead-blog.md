@@ -606,7 +606,7 @@ Here's an example of one of our experiments training on synthetic data with wire
 
 Both are training on the same hardware (1xA100).
 
-With a faster data generation rate, a multi-node training session lasting only 40 minutes can achieve better results than a single-node training session that runs for 4 hours.
+With a faster data generation rate, a node parallel wirehead session serving a training process on the same GPU in just 40 minutes can achieve better results than a training session served by a non-parallel wirehead session that runs for 4 hours.
 
 <div style="display: flex; justify-content: space-between;">
     <img src="https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/wh-naive-loss.png" alt="First Image Description" width="45%">
