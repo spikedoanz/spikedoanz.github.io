@@ -18,7 +18,7 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 2024-08-14 :: github for human wellbeing
 
-2024-08-07 :: [[unix-llm|llm is the the new unix hood classic]]
+2024-08-07 :: [[llm-unix|llm is the the new unix hood classic]]
 
 2024-07-16 :: [[from-bits-to-intelligence|from bits to intelligence]]
 
