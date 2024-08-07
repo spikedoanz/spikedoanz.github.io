@@ -11,7 +11,7 @@ archive
 
 ---
 
-2024-08-06 :: [[staring-into-the-singularity| eliezer yudkowsky -- staring into the singularity]]
+1996-00-00 :: [[staring-into-the-singularity| eliezer yudkowsky -- staring into the singularity]]
 
-2024-08-01 :: [[why-python|eric raymond -- why python?]]
+2000-04-30 :: [[why-python|eric raymond -- why python?]]
 

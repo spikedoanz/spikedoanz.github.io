@@ -12,9 +12,9 @@ Scaling Synthetic Data Generation with Wirehead
 
 There is one unchanging constant in machine learning: "data is king." But what happens when you work in a field where the king doesn't always want to get out of bed every morning?
 
-Welcome to neuroimaging, where data is not only hard to come by, but also requires a ton of space[^1].
+Welcome to neuroimaging, where data is not only hard to come by, impossible to get manually labeled[^1], but also requires a ton of space[^2].
 
-Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work really well[^2], but it has
+Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work really well[^3], but it has
 
 <p align="center">.
 <p align="center">.
@@ -48,12 +48,12 @@ VII. [Wirehead Internals](#vii-wirehead-internals)
 > If you'd like to skip ahead to Wirehead's internal workings, go to section VII.
 ---
 
-In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate the original results by training a MeshNet on 300,000 synthetic samples[^3]. However, early into the experimentation process, we noted three key things:
+In late 2023, we at TReNDS attempted to make use of one such generator, [SynthSeg](https://arxiv.org/abs/2107.09559), to replicate the original results by training a MeshNet, our parameter-efficient model that's very different from UNet used in the reference paper, on 300,000 synthetic samples[^3]. However, early into the experimentation process, we noted three key things:1. **Generation time** was quite significant (2 seconds per sample on our A40). Generating that many samples using their setup (train -> generate) would have taken us **hundreds of hours.**
 
-1. **Generation time** was quite significant (2 seconds per sample on our A40). Generating that many samples using their setup (train -> generate) would have taken us **hundreds of hours.**
 2. **Data size was massive**, the papers report training on 300,000 samples, which would have been 91 terabytes at 32 bit precision .
-3. **Hardware was greatly underutilized**. glancing at nvtop showed us that our gpus would be barely used during sample generation, before peaking for about 5 seconds while training on a new batch. On average, we got just **around 30% GPU utilization**.
+3. **Hardware was greatly underutilized**. glancing at nvtop showed us that our GPUs would be barely used during sample generation, before peaking for about 5 seconds while training on a new batch. On average, we got just **around 30% GPU utilization**
 
+![wh one process](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/1process-wirehead.gif)
 
 We could solve these issues by deploying the generator in parallel, but that posed its own set of issues:
 - **Where would we store the data?** We still only had that much space on the cluster, and storing all of them at once would be infeasible. Some kind of **cache** was necessary.
@@ -202,7 +202,7 @@ All tests passed successfully!
 
 ![wirehead state](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/config.png)
 
->Deploying wirehead involves 3 main scripts (or utilities): A generator(s) (generator.py) a cache manager (manager.py) and a data fetcher (loader.py).
+>Deploying wirehead involves 3 main scripts (or utilities): A generator(s) (generator.py) a cache manager (manager.py) and a data fetcher (loader.py). In fact, loader is your favorite model training script and is fully decoupled from wirehead as long as you use out Dataset class (provided, but also part of our other package [mindfultensors](https://pypi.org/project/mindfultensors/)).
 >
 >All examples in this section can be found in wirehead/examples/unit.
 ---
@@ -235,6 +235,7 @@ This is the simplest, and doesn't have to be changed if you're running it as a s
 WireheadManager doesn't consume much compute, and thus can be deployed anywhere you want.
 
 The only thing you need to specify is the path to your config file (in this case, "config.yaml").
+
 ```python
 from wirehead import WireheadManager
 
@@ -245,7 +246,7 @@ if __name__ == "__main__":
 
 ### 3. loader.py
 
-This script is provides a simple way to fetch a single sample from Wirehead.
+This script provides a simple way, an example really, to fetch a single sample from Wirehead
 
 We provide two kinds of datasets for fetching dataL MongoheadDataset (dictionary-like) and MongoTupleheadDataset (tuple-like).
 
@@ -506,8 +507,8 @@ For reference, let's also check out the hardware utilization plots, this is [nvi
 
 Notice anything?
 
-- GPU util: bottom right plot: Spotty, varying from 0-80%, averaging 30%. -- WEAK
-- GPU mem:  top right plot. stable 11%. -- WEAK
+- GPU util: bottom right plot: Spotty, varying from 0-80%, averaging 30% -- WEAK
+- GPU mem:  top right plot. stable 11% -- WEAK
 - CPU util: top left plot ~9% -- WEAK
 - CPU mem: bottom left plot 9.4 GB -- WEAK
 
@@ -543,7 +544,7 @@ Manager: Time: 1722891749.7454906 Generated samples so far 400
 
 On average, we're getting about 39 seconds per 100 samples. This means the generator is going at 0.39 seconds per sample (aka 2.56 samples per second). This translates to a 4.1x speedup. Not quite linear, but SynthSeg is quite resource intensive so.
 
-Let's look at the hardware util plots again
+Let's look at the hardware util plots again:
 
 ![wh eight process](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/8process-wirehead.gif)
 
@@ -592,6 +593,19 @@ Manager: Time: 1722969305.0466542 Generated samples so far 32000
 
 So an average of about 0.049 seconds per sample or 20.4 samples per second. So about a 32x speedup compared to baseline, and a LINEAR 8x speedup compared to the process parallel example.
 
+
+Here's an example of one of our experiments training on synthetic data with wirehead. Left plot is unoptimized, single node synthseg. Right plot is multi node, multi node wirehead.
+
+Both are training on the same hardware (1xA100).
+
+Note how by just increasing the data generation throughput, the multi node example surpasses the left node's peak (0.4 eval dice after 4 hours) in just 40 minutes.
+
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/wh-naive-loss.png" alt="First Image Description" width="45%">
+    <img src="https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/wh-dist-loss.png" alt="Second Image Description" width="45%">
+</div>
+
+
 <br>
 
 ---
@@ -614,7 +628,8 @@ So an average of about 0.049 seconds per sample or 20.4 samples per second. So a
 >Accommodating all the different ways a generator could be handled, or deployed, would have significantly bloated our code. 
 ---
 
-However, that doesn't mean we're going to leave you out for dry.
+
+However, that doesn't mean we're going to leave you out to dry.
 
 Here are some advanced tech that we've found during testing to make your life a lot easier while scaling your synthetic data generators:
 
@@ -794,19 +809,20 @@ This ensures that every generated sample will have a unique id before being push
 #### b. What is chunkifying doing?
 
 ```python
-chunks = []
-        binobj = data
-        kinds = self.sample
-        for i, kind in enumerate(kinds):
-            chunks += list(
-                chunk_binobj(
-                    tensor2bin(torch.from_numpy(binobj[i])),
-                    index,
-                    kind,
-                    self.chunksize,
-                )
+def chunkify(self, data, index):
+    chunks = []
+    binobj = data
+    kinds = self.sample
+    for i, kind in enumerate(kinds):
+        chunks += list(
+            chunk_binobj(
+                tensor2bin(torch.from_numpy(binobj[i])),
+                index,
+                kind,
+                self.chunksize,
             )
-        return chunks
+        )
+    return chunks
 ```
 
 Because MongoDB has a collection size cap of [16MB](https://www.mongodb.com/docs/v5.2/reference/limits/), we have to chunkify our data into multiple chunks. The size of our chunks is determined by the CHUNKSIZE variable in config.yaml.
@@ -819,7 +835,7 @@ def __getitem__(self, batch):
     """
     Fetch all samples for ids in the batch and return as tuples
     """
-    # 1. Get chunk indeces of samples from collection given index
+    # 1. Get chunk indices of samples from collection given index
     samples = list(self.collection["bin"].find(
         {   self.id: { 
                 "$in": [ self.indices[_] for _ in batch] },
@@ -830,7 +846,7 @@ def __getitem__(self, batch):
     # 2. Create a batch to store samples into
     results = []
     for id in batch:
-        # 3. Fetch chunks from chunk indeces fetched in # 1.
+        # 3. Fetch chunks from chunk indices fetched in # 1.
         samples_for_id = [
             sample for sample in samples if sample[self.id] == self.indices[id]
         ]
@@ -848,9 +864,9 @@ def __getitem__(self, batch):
 
 In short, to fetch a batch of data from Wirehead, the following operations are executed:
 
-1. Get chunk indeces of samples from collection given index.
+1. Get chunk indices of samples from collection given index.
 2. Create a batch to store samples into.
-3. Fetch chunks from chunk indeces fetched in # 1.
+3. Fetch chunks from chunk indices fetched in # 1.
 4. Reassemble data from chunks.
 
 
@@ -868,7 +884,7 @@ def swap(self, generated):
     # 1. Rename the write collection to a temporary collection for processing
     self.db[self.collectionw].rename(self.collectiont, dropTarget=True)
 
-    # 2. Reset the counter collection, push indeces are now at 0 and resumed
+    # 2. Reset the counter collection, push indices are now at 0 and resumed
     self.reset_counter_and_collection()
 
     # 3. Remove excess chunks from the temporary collection
@@ -954,7 +970,8 @@ def __getitem__(self, batch):
 <br>
 
 [^1]: a typical image of shape 256x256x256, at 32 bits per voxel is **64 megabytes**.
-[^2]: https://arxiv.org/abs/2107.09559
+[^2]: unless you want to pay about $300/hour for a time of a radiologist that has better things to do than carefully assigning $256^3$ voxels to 18 classes
+[^3]: https://arxiv.org/abs/2107.09559
 [^4]: https://en.wikipedia.org/wiki/Distributed_computing
 [^5]: https://en.wikipedia.org/wiki/Circular_buffer
 [^6]: https://en.wikipedia.org/wiki/Cache_(computing)
