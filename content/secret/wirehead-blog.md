@@ -602,7 +602,7 @@ Here's an example of one of our experiments training on synthetic data with wire
 
 Both are training on the same hardware (1xA100).
 
-Note how by just increasing the data generation throughput, the multi node example surpasses the left node's peak (0.4 eval dice after 4 hours) in just 40 minutes.
+With a faster data generation rate, a multi-node training session lasting only 40 minutes can achieve better results than a single-node training session that runs for 4 hours.
 
 <div style="display: flex; justify-content: space-between;">
     <img src="https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/wh-naive-loss.png" alt="First Image Description" width="45%">
