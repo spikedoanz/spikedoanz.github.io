@@ -14,11 +14,15 @@ There is one unchanging constant in machine learning: "data is king." But what h
 
 Welcome to neuroimaging, where data is not only hard to come by, impossible to get manually labeled[^1], but also requires a ton of space[^2].
 
-Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work really well[^3], but it has
+Many have stood up to challenge this lack of data by inventing methods to generate synthetic data -- SynthSeg, SynthStrip, Synth, etc. They work really well[^3], but it has 
 
 <p align="center">.
 <p align="center">.
 <p align="center">.
+
+![totally interpretable analogy](https://raw.githubusercontent.com/spikedoanz/public/master/wirehead/differential.gif)
+
+<p align="center">(pictured: physical analogy of wirehead)
 
 ---
 
