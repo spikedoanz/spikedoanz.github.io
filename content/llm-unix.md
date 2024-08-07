@@ -16,7 +16,7 @@ llm is the new unix hood classic
 
 you can pipe stuff into it, for example, to get the tldr of this article:
 
-> curl https://supaiku.com/llm-unix | llm -s "tldr this essay please"
+> _**§** curl https://supaiku.com/llm-unix | llm -s "tldr this essay please"_
 
 **this makes it absurdly powerful.**
 
@@ -32,17 +32,17 @@ have you ever **READ**?
 
 would you like to never **READ** anything ever again?
 
-introducing
+**--INTRODUCING--**
 
-> llm -s "summarize this into bullet points, provide urls where appropriate"
+> _llm -s "summarize this into bullet points, provide urls where appropriate"_
 
 [orange site](https://news.ycombinator.com/) bad, yes yes, but what if you wanted to get some news from it?
 
 simply pipe it in
 
-> § curl https://news.ycombinator.com/ | clean-html | llm -s "summarize this into bullet points, provide urls where appropriate"
+> _**§** curl https://news.ycombinator.com/ | clean-html | llm -s "summarize this into bullet points, provide urls where appropriate"_
 >
-> ===========================================================================
+>===========================================================================
 >
 > Here are the top news stories from Hacker News in bullet points, with URLs where appropriate:
 >
@@ -70,7 +70,7 @@ take an rss url, for example my mal rss feed: https://myanimelist.net/rss.php?ty
 
 curl into rss cleaning tool into llm
 
-> § curl "https://myanimelist.net/rss.php?type=rw&u=spikedoanzz" | clean-rss | llm -s "what anime is this person watching"
+> _**§** curl "https://myanimelist.net/rss.php?type=rw&u=spikedoanzz" | clean-rss | llm -s "what anime is this person watching"_
 >
 > ===========================================================================
 >
@@ -102,7 +102,7 @@ short and sweet, code and writing sanity checker in the terminal.
 
 cat, pipe, edit, repeat.
 
-> cat llm-unix.md | llma -s "proofread this real quick, whatever you respond with will be put into the vibe check section obviously"
+> _**§** cat llm-unix.md | llma -s "proofread this real quick, whatever you respond with will be put into the vibe check section obviously"_
 >
 >
 > ===========================================================================
