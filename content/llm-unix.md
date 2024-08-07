@@ -120,4 +120,6 @@ cat, pipe, edit, repeat.
 
 ---
 
-if you have any questions, suggestions or feedback, do DM me over on [twitter](https://x.com/spikedoanz)
+if you have any questions, suggestions or feedback, you can DM me on [twitter](https://x.com/spikedoanz)
+
+or email me at spikedoanz@gmail.com
