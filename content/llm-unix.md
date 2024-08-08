@@ -41,9 +41,7 @@ would you like to never **READ** anything ever again?
 simply pipe it in
 
 > _**§** curl https://news.ycombinator.com/ | clean-html | llm -s "summarize this into bullet points, provide urls where appropriate"_
->
->===========================================================================
->
+
 > Here are the top news stories from Hacker News in bullet points, with URLs where appropriate:
 >
 > **Prevention of HIV**: A new article on Science.org explores the latest research and advancements in preventing HIV. [https://www.science.org/content/prevention-hiv](https://www.science.org/content/prevention-hiv)
@@ -57,8 +55,6 @@ simply pipe it in
 > **Show HN: 3D Apartment Generator**: The creator of a web app that generates 3D apartments is seeking feedback from users. [https://roometron.com/](https://roometron.com/)
 >
 > **Official Proposal for Type Unions in C#**: Microsoft has proposed type unions for C#, a feature that would allow developers to specify multiple types for a variable. [https://github.com/dotnet/csharplang/issues/134](https://github.com/dotnet/csharplang/issues/134)
->
-> ===========================================================================
 
 ---
 
@@ -71,9 +67,7 @@ take an rss url, for example my mal rss feed: https://myanimelist.net/rss.php?ty
 curl into rss cleaning tool into llm
 
 > _**§** curl "https://myanimelist.net/rss.php?type=rw&u=spikedoanzz" | clean-rss | llm -s "what anime is this person watching"_
->
-> ===========================================================================
->
+
 >This person is watching several anime shows, but here are the ones they seem to be actively following:
 >
 >1. **Monogatari Series: Off & Monster Season**: Watching, but not sure how many episodes are in the season (5 of ?).
@@ -81,8 +75,6 @@ curl into rss cleaning tool into llm
 >2. **Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san**: Also on episode 5 of 12.
 >
 >3. **Make Heroine ga Oosugiru!**: On episode 3 of 12.
->
-> ===========================================================================
 
 this works for all sorts of rss feeds. go crazy.
 
@@ -103,9 +95,7 @@ short and sweet, code and writing sanity checker in the terminal.
 cat, pipe, edit, repeat.
 
 > _**§** cat llm-unix.md | llma -s "proofread this real quick, whatever you respond with will be put into the vibe check section obviously"_
->
->
-> ===========================================================================
+
 >I've reviewed the content and it looks good overall. Here are a few minor suggestions:
 >
 >1. Consider capitalizing "LLM" consistently throughout the text, as it's an acronym.
@@ -117,11 +107,11 @@ cat, pipe, edit, repeat.
 >4. Consider adding a brief conclusion or wrap-up section to tie everything together.
 >
 >Overall, the content is engaging and informative, with a good mix of humor and practical examples. The formatting and structure are clear and easy to follow.
->
-> ===========================================================================
 
 ---
 
 if you have any questions, suggestions or feedback, you can DM me on [twitter](https://x.com/spikedoanz)
 
 or email me at spikedoanz@gmail.com
+
+or [leave anonymous feedback](https://docs.google.com/forms/d/e/1FAIpQLSf-6VD0DNGgLSeFmMInbvmZrmVspTCItEESMpeQaqgop4HfBg/viewform?usp=sf_link)
