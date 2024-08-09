@@ -24,8 +24,6 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 2024-06-29 :: [[favorite-links|favorite links]]
 
-2024-08-05 :: [[aesthetics]]
-
 2024-08-01 :: [[archive-hub|archive]]
 
 #### links
