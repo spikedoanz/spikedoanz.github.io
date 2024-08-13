@@ -55,24 +55,30 @@ Syndex the cli is a minimal command-line interface (CLI) which provides three fu
 ```
 
 ## 4. Syndex, the browser extension
-- Syndex the browser extension is also a minimal piece of software that simply:
-    - Yanks whatever url you're currently on
-    - Gives you a box to insert a title, description
-    - Formats a curl request, sends it off to listening syndex cli session.
+Syndex the browser extension is also a minimal piece of software that simply:
+- Yanks whatever url you're currently on
+- Gives you a box to insert a title, description
+- Formats a curl request, sends it off to listening syndex cli session.
 
-## 5. Forking
+## 5. Hosting
+Because this entire spec is just some rss files managed by git, it can be hosted directly on github/gitlab and inherits all of the nice features that provides.
+- Very high uptime
+- Integration into existing dev pipelines
+- No need for a separate authentication system, just use the one you're using for git
+
+## 6. Forking
 
 Syndexes can be extended by forking them through github.
 
 They can be combined by creating multi repos.
 
-## 6. User Space
+## 7. User Space
 - All downloading, filtering, and search tools should be implemented in the user space, independent of the spec in this document.
     - TODO: Search
     - TODO: RAG
     - TODO: Recommendation
 
-## 7. Community managed syndexes
+## 8. Community managed syndexes
 - Software that lets people merge two syndexes automatically would be interesting:
     - Deduplication.
     - PRs as the system to insert new bookmarks.
