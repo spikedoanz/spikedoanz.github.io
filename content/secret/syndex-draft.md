@@ -78,8 +78,13 @@ They can be combined by creating multi repos.
     - TODO: RAG
     - TODO: Recommendation
 
-## 8. Community managed syndexes
-- Software that lets people merge two syndexes automatically would be interesting:
-    - Deduplication.
-    - PRs as the system to insert new bookmarks.
-    - Train a model to learn how to do PRs -> Autofiltering preference model?
+## 8. Dual private / public use
+For private use, syndex is a lightweight protocol for platform agnostic bookmarking -- think Obsidian Markdown vs whatever Notion has
+
+For public use, syndex is a dream for sharers. They can expose their RSS feeds and enable others to fork, merge, and manipulate the bookmark collections. This opens up possibilities like building search engines across community syndexes.
+
+## 9. Community managed syndex
+Software that lets people merge two syndexes automatically would be interesting:
+- Deduplication.
+- PRs as the system to insert new bookmarks.
+- Train a model to learn how to do PRs -> Autofiltering preference model?
