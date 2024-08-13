@@ -35,20 +35,21 @@ You can spread things out to as many files you want (TODO: is this ideal or is a
     - TODO: need a spec for twitter and reddit
 
 ## 3. Syndex, the cli 
-- Syndex the cli is a minimal command-line interface (CLI) which provides three functionalities:
-    - bookmark : creates an item in a the rss file with some title and some description (optional in that order)
+
+Syndex the cli is a minimal command-line interface (CLI) which provides three functionalities:
+- bookmark : creates an item in a the rss file with some title and some description (optional in that order)
 
 ```bash
         syndex [file-path] [url] [title] [description]
 ```
 
-    - validation: -v --validate:  will check if links are curlable
+- validation: -v --validate:  will check if links are curlable
 
 ```bash
         syndex -v [file-paths]
 ```
 
-    - listen: -l --listen: will start a local http server which lets you append things to the rss file.
+- listen: -l --listen: will start a local http server which lets you append things to the rss file.
 ```bash
         syndex file-path -l
 ```
