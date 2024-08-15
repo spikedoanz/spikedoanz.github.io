@@ -49,6 +49,30 @@ const config: QuartzConfig = {
           tertiary: "#dfdad9",
           highlight: "rgba(0, 0, 0, 0)",
         },
+        // darkMode: { // catpuccin mocha
+        //   light: "black",
+        //   lightgray: "grey",
+        //   gray: "white",
+        //   darkgray: "white",
+        //   dark: "white",
+        //   secondary: "grey",
+        //   tertiary: "grey",
+        //   highlight: "rgba(0, 0, 0, 0)",
+        // },
+        // lightMode: { // rosepine dawn 
+        //   light: "white",
+        //   lightgray: "grey",
+        //   gray: "black",
+        //   darkgray: "black",
+        //   dark: "black",
+        //   secondary: "grey",
+        //   tertiary: "grey",
+        //   highlight: "rgba(0, 0, 0, 0)",
+        // },
+
+
+
+
       },
     },
   },
