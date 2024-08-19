@@ -13,9 +13,10 @@ title: anime reviews
 
 ### [[index|supaiku dot com]]
 
-<h1 onclick="document.getelementbyid('darkmode-toggle').click();">
+<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
 anime reviews
 </h1>
+
 
 ---
 > this page contains a compilation of my anime reviews. it is compiled from my [myanimelist](https://myanimelist.net/profile/spikedoanzz). reviews are sorted by rating, then alphabetically within ratings.
@@ -38,8 +39,11 @@ def generate_markdown(anime_list):
     toc = ""
     notes_section = ""
     for score in range(10, 8, -1):
+        if score == 10:
+            toc += "## 10/10\n---\n"
+        if score == 9:
+            toc += "## 9/10\n---\n"
         if score in anime_list:
-            toc += f"{score}/10\n"
             for title, notes in sorted(anime_list[score], key=lambda x: re.sub(r'^(a|an|the)\s+', '', x[0].lower())):
                 if notes and notes.strip():
                     safe_title = re.sub(r'[^\w\- ]', '', title).replace(' ', '-').lower()
@@ -50,7 +54,11 @@ def generate_markdown(anime_list):
                 else:
                     toc += f"* {title}\n"
             
-            toc += "\n---\n"
+            toc += "\n"
+
+    ret = "" 
+    ret += toc
+    ret += notes_section
     return toc + notes_section
 
 # __main__

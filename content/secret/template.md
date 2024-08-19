@@ -1,15 +1,15 @@
+
 ---
-title: tempalte
+title: tespaste 
 ---
 
 ### [[index|supaiku dot com]]
 
-<h1 onclick="document.getelementbyid('darkmode-toggle').click();">
-template
+<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
+teplatem
 </h1>
+
 
 ---
 > sub
 ---
-
-content
