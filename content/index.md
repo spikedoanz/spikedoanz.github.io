@@ -24,6 +24,8 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 2024-06-29 :: [[favorite-links|favorite links]]
 
+2024-08-19 :: [[anime-reviews|anime reviews]]
+
 2024-08-05 :: [[aesthetics]]
 
 
@@ -32,6 +34,5 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 [github](https://github.com/spikedoanz) :: 
 [twitter](https://twitter.com/spikedoanz) :: 
 [email](mailto:spikedoanz@gmail.com) ::
-[mal](https://myanimelist.net/animelist/spikedoanzz?status=7&order=4&order2=0)
 <!-- :: [[about]] :: -->
 <!-- [anonymous feedback](https://docs.google.com/forms/d/e/1FAIpQLSf-6VD0DNGgLSeFmMInbvmZrmVspTCItEESMpeQaqgop4HfBg/viewform?usp=sf_link) -->
