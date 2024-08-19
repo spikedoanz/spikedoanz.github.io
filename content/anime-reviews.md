@@ -5,9 +5,10 @@ title: anime reviews
 
 ### [[index|supaiku dot com]]
 
-<h1 onclick="document.getelementbyid('darkmode-toggle').click();">
+<h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
 anime reviews
 </h1>
+
 
 ---
 > this page contains a compilation of my anime reviews. it is compiled from my [myanimelist](https://myanimelist.net/profile/spikedoanzz). reviews are sorted by rating, then alphabetically within ratings.
