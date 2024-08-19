@@ -36,28 +36,22 @@ anime reviews
 * Bocchi the Rock!
 * [Byousoku 5 Centimeter](#byousoku-5-centimeter)
 * Death Note
-* Horimiya: Piece
 * Hotaru no Haka
 * Houseki no Kuni
 * Howl no Ugoku Shiro
-* Jujutsu Kaisen 2nd Season
 * [Katanagatari](#katanagatari)
 * Kimi no Na wa.
 * Kiseijuu: Sei no Kakuritsu
 * Kizumonogatari III: Reiketsu-hen
-* Lycoris Recoil
-* Mahou Shoujo Madoka★Magica
 * Majo no Takkyuubin
 * Mushishi
 * Mushoku Tensei: Isekai Ittara Honki Dasu
 * Mushoku Tensei: Isekai Ittara Honki Dasu Part 2
 * Nichijou
 * Ookami to Koushinryou
-* Ookami to Koushinryou II
 * Ousama Ranking
 * Owarimonogatari 2nd Season
 * Sen to Chihiro no Kamikakushi
-* Shin Evangelion Movie:||
 * Shingeki no Kyojin Season 3 Part 2
 * Shingeki no Kyojin: The Final Season - Kanketsu-hen
 * Sono Bisque Doll wa Koi wo Suru
