@@ -36,7 +36,7 @@ PREAMBLE={
         9: """
 ## 9/10
 ---
->amazing, even flawless shows, that nontheless lack that special spark that would otherwise make them masterpieces.
+>amazing, even flawless shows,which nonetheless lack that special spark that would otherwise make them masterpieces.
 ---
 
 """,
