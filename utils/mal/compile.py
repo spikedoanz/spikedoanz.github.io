@@ -29,14 +29,14 @@ PREAMBLE={
         10: """
 ## 10/10
 ---
->excellent shows that are at once deeply though provoking, personally, and culturally foundational.
+>excellent shows that are at once deeply thought provoking, personal, and culturally foundational.
 ---
 
 """,
         9: """
 ## 9/10
 ---
->amazing, even flawless shows,which nonetheless lack that special spark that would otherwise make them masterpieces.
+>amazing, even flawless shows, which nonetheless lack that special spark that would otherwise make them masterpieces.
 ---
 
 """,
