@@ -12,9 +12,15 @@ anime reviews
 
 ---
 > this page contains a compilation of my anime reviews. it is compiled from my [myanimelist](https://myanimelist.net/profile/spikedoanzz). reviews are sorted by rating, then alphabetically within ratings.
+>
+> many of the factors impacting my reviews are largely external to the shows themselves. all are excellent in their own right, but the best are often colored by the when and where they found me.
 ---
+
 ## 10/10
 ---
+>excellent shows that are at once deeply though provoking, personally, and culturally foundational.
+---
+
 * Akira
 * Cowboy Bebop
 * [Horimiya](#horimiya)
@@ -30,8 +36,12 @@ anime reviews
 * Sousou no Frieren
 * Steins;Gate
 
+
 ## 9/10
 ---
+>amazing, even flawless shows, that nontheless lack that special spark that would otherwise make them masterpieces.
+---
+
 * [Bakemonogatari](#bakemonogatari)
 * Bocchi the Rock!
 * [Byousoku 5 Centimeter](#byousoku-5-centimeter)
@@ -55,7 +65,6 @@ anime reviews
 * Shingeki no Kyojin Season 3 Part 2
 * Shingeki no Kyojin: The Final Season - Kanketsu-hen
 * Sono Bisque Doll wa Koi wo Suru
-* Tengen Toppa Gurren Lagann
 * Vinland Saga
 * Vinland Saga Season 2
 
@@ -111,9 +120,9 @@ This is Makoto Shinkai's best work in my eyes, even though I'd say I enjoyed _wa
 ---
 Katanagatari is, in many ways, Nishio Isshin-lite.
 
-The story is much more straight forward (maybe too straight forward, since they manage to spoil the goddamn thing at the end of every previous episode), the characters a lot more transparent, and the themes a lot more sharp.
+The story is much more straight forward, the characters a lot more transparent, and the themes a lot more pronounced. The story is about collecting 12 swords. The title, 刀語(katana gatari), literally just means 'sword-story.'
 
-It's honestly a more interesting work meta-contextually than it is textually. Much of the fun comes from it playing with your expectations, then slyly making fun of you for having been played, and then you playing along anyway because _WHO_ spoils a major plot beat out of nowhere like 5 times, then has the absolute gall and confidence to still make the spoiled episode just as good anyway.
+It's so straightfoward that maybe it's honestly a more interesting work meta-contextually than it is textually. Much of the fun comes from it playing with your expectations, then slyly making fun of you for having been played, and then you playing along anyway because _WHO_ spoils a major plot beat out of nowhere like 5 times, then has the absolute gall and confidence to still make the spoiled episode just as good anyway.
 
 Fun on first watch, and I suspect it'll be just as fun on rewatch.
 

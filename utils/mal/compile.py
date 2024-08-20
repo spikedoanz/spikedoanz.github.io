@@ -20,8 +20,27 @@ anime reviews
 
 ---
 > this page contains a compilation of my anime reviews. it is compiled from my [myanimelist](https://myanimelist.net/profile/spikedoanzz). reviews are sorted by rating, then alphabetically within ratings.
+>
+> many of the factors impacting my reviews are largely external to the shows themselves. all are excellent in their own right, but the best are often colored by the when and where they found me.
 ---
 """
+
+PREAMBLE={
+        10: """
+## 10/10
+---
+>excellent shows that are at once deeply though provoking, personally, and culturally foundational.
+---
+
+""",
+        9: """
+## 9/10
+---
+>amazing, even flawless shows, that nontheless lack that special spark that would otherwise make them masterpieces.
+---
+
+""",
+}
 
 def parse_anime_list(xml_content):
     root = ET.fromstring(xml_content)
@@ -39,10 +58,8 @@ def generate_markdown(anime_list):
     toc = ""
     notes_section = ""
     for score in range(10, 8, -1):
-        if score == 10:
-            toc += "## 10/10\n---\n"
-        if score == 9:
-            toc += "## 9/10\n---\n"
+        if score in PREAMBLE.keys():
+            toc += PREAMBLE[score]
         if score in anime_list:
             for title, notes in sorted(anime_list[score], key=lambda x: re.sub(r'^(a|an|the)\s+', '', x[0].lower())):
                 if notes and notes.strip():
@@ -63,7 +80,7 @@ def generate_markdown(anime_list):
 
 # __main__
 # Find the newest XML or gzipped XML file in the exports directory
-exports_dir = 'exports'
+exports_dir = 'utils/mal/exports'
 xml_files = sorted([f for f in os.listdir(exports_dir) if f.endswith('.xml') or f.endswith('.xml.gz')], reverse=True)
 
 if not xml_files:
@@ -89,7 +106,7 @@ markdown_output += HEADER
 markdown_output += generate_markdown(anime_list)
 
 # Write the markdown to a file
-name = '../../content/anime-reviews.md'
+name = 'content/anime-reviews.md'
 with open(name, 'w', encoding='utf-8') as file:
     file.write(markdown_output)
 
