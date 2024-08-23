@@ -24,7 +24,7 @@ favorite links
 [scott alexander -- meditations on molloch](https://slatestarcodex.com/2014/07/30/meditations-on-moloch/)
 >on the hard problem of coordination
 
-[elizer yudkowsky -- staring into the singularity](https://slatestarcodex.com/2014/07/30/meditations-on-moloch/)
+[elizer yudkowsky -- staring into the singularity](http://www.fairpoint.net/~jpierce/staring_into_the_singularity.htm)
 >"you can start a religion with this"
 
 [curtis yarvin --  a techno-pessimist manifesto](https://graymirror.substack.com/p/a-techno-pessimist-manifesto)
