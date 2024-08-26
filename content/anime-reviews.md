@@ -33,6 +33,7 @@ anime reviews
 * Serial Experiments Lain
 * Shinseiki Evangelion
 * Shinseiki Evangelion Movie: Air/Magokoro wo, Kimi ni
+* [Sonny Boy](#sonny-boy)
 * Sousou no Frieren
 * Steins;Gate
 
@@ -75,7 +76,7 @@ My all time favorite comfort media.
 
 Years ago, back when I was a bit more prone to bouts of weekend depression, I remember telling friends: "If you hear anything about me re-watching/reading Horimiya, it's a call for help."
 
-And though I no longer watch it as often anymore (both because I'm in a much better place mentally now, thanks for asking; and because it got to the point where I started memorizing whole episodes line by line), Horimiya still holds strong in my mind as one of the best well oiled pieces of story telling machinery ever put to animation.
+And though I no longer watch it as often anymore (both because I'm in a much better place mentally now, thanks for asking; and because it got to the point where I started memorizing whole episodes line by line), Horimiya still holds strong in my mind as one of the best oiled pieces of story telling machinery ever put to animation.
 
 
 ## Pale Cocoon
@@ -90,6 +91,37 @@ There's a definition of the word 'creative' that I heard a long time ago that I 
 >For a creative, this number is 10 fold. Leave a creative a tiny little interesting breadcrumb, and they'll retort back with new, interesting ideas so fast that you can hardly believe they hadn't heard the thing before.
 
 Certain works have the power to make me feel like a creative. Pale Cocoon is one such case. For 20 minutes, every second, and every scene, and every piece of technology and skyline and faded photograph and facial expression and fragment of history, tastes, like how I imagine, one of those creative breadcrumbs tastes.
+
+
+## Sonny Boy
+---
+I didn't really enjoy watching Sonny Boy.
+
+I get that that might sound weird seeing the 10 right next to this review, but hear me out.
+
+Sonny Boy is a show that's good only after you watch it.
+
+There's a decent number of shows that I remember fondly for nostaligic reasons -- Gurren Lagann, Steins;Gate, FLCL, etc. These shows are obviously good, but my liking of them are biased, both because of the personal impact they had at the time, and how my life has colored their memory in the years since I've watched them.
+
+And I rewatch these shows, I'm almost always disappointed. They never live up to how good they are in my memories. The hue just isn't right. In some sense, what made these shows good wasn't their actual text, but my memories of them. Of course, the shows didn't become an instant 0 or whatever upon rewatch, but that brings me to my point:
+
+> Sonny Boy is a show exclusively made of memories.
+
+When I graduated high school, I felt this a void well up inside me where I thought an emotion should have been.
+
+"Shouldn't I be a bit more proud? Or accomplished? Or something?"
+
+Finishing Sonny Boy felt like much the same. Everything about the show felt like it was one of the greats. Yet when credits rolled, I didn't really feel much of anything.
+
+Some time after I finished Sonny Boy, out of nowhere, I suddenly remembered the date of my graduation.
+
+My parents didn't show up that day, busy with work, what not. I didn't mind. I picked my graduation certificate, listened to a droning speech by the principal, and went about the rest of my day without much of a thought.
+
+But I knew something significant had happened, I just hadn't felt it yet.
+
+In the years to come, as old friends and memories drifted, reuinted, then drifted again, I slowly pieced together what that feeling was supposed to be.
+
+Sonny Boy was the first piece of media to make me feel exactly like that brewing feeling I have about graduation. It gave me a new piece of emotional vocabulary I could call back on, and touch, and talk about -- like I'm doing right now.
 
 
 ## Bakemonogatari

@@ -22,7 +22,7 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 2024-06-29 :: [[favorite-links|favorite links]]
 
-2024-08-19 :: [[anime-reviews|anime reviews]]
+**2024-08-25** :: [[anime-reviews|anime reviews]]
 
 2024-08-05 :: [[aesthetics]]
 
