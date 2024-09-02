@@ -21,7 +21,7 @@ favorite links
 [richard hamming -- you and your research](https://gwern.net/doc/science/1986-hamming)
 > why aren't you doing the most important work in your field?
 
-[robert sapolsky -- human behavioral biology course](https://www.youtube.com/watch?v=nnnigh9g6fa&list=pl848f2368c90ddc3d)
+[robert sapolsky -- human behavioral biology course](https://www.youtube.com/watch?v=NNnIGh9g6fA)
 > human biology from a systems engineer standpoint
 
 [near asara -- favorite links](https://near.blog/my-favorite-links/)
