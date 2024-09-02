@@ -20,7 +20,7 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 #### share 
 
-2024-08-29 :: [[favorite-links|favorite links]]
+2024-09-02 :: [[favorite-links|favorite links]]
 
 2024-08-25 :: [[anime-reviews|anime reviews]]
 

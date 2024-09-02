@@ -56,3 +56,6 @@ favorite links
 
 [naval ravikant -- meditation thread](https://x.com/naval/status/1261481222359801856)
 > practical advice to meditation
+
+[sergey slotin -- algorithms for modern hardware](https://en.algorithmica.org/hpc/)
+> everything i know about computers is from here
