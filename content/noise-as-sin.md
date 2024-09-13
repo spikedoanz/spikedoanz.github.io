@@ -15,7 +15,7 @@ noise as sin
 ---
 
 
-for most of human history, memetics has never been a problem.
+for most of human history, [memetics](https://en.wikipedia.org/wiki/Memetics) has never been a problem.
 
 this is because for most of human history, the amount of diverse memes you came across was very limited.
 
@@ -30,9 +30,9 @@ the cost of information production was also pretty high-- if you wanted to sprea
 
 ## the original sin
 
-then gutenberg came along with his goddamn printing press.
+then [gutenberg](https://en.wikipedia.org/wiki/Johannes_Gutenberg) came along with his goddamn printing press.
 
-the cost of information production collapsed to basically 0. and the rate of information consumption also collapsed.
+the cost of information production collapsed to basically 0.
 
 something something fake news, something something celebrity gossip, something something television.
 
@@ -53,13 +53,13 @@ the cost of moving bits dropped to 0.
 
 the cost of consuming memes is also collapsing.
 
-this isn't a strict science, so take whatever i say with a grain of salt. but there is a degree of 'difficulty' when it comes to what medium your memes came packaged in.
+there is a degree of 'difficulty' when it comes to what medium your memes came packaged in.
 
 books are hard to consume. audiobooks are a bit easier. videos are easier than that. and tiktoks are the easiest form we have right now.
 
 this means that the cost of consuming memes is also rapidly reaching 0.
 
-i can make a meme, post it on twitter, and have someone from Bangladesh (shoutouts to my followers from Bangladesh) see it within 60 seconds flat.
+i can make a meme, post it on twitter, and have someone from Bangladesh (shoutouts to my moots from bangladesh <3) see it within 60 seconds flat.
 
 this is insane.
 
@@ -88,7 +88,7 @@ so basically, at this point:
 - the cost of moving memes is 0.
 - the speed of moving memes is 0.
 - the cost of making memes is 0.
-- the cost of consuming memes is rapdily approaching 0.
+- the cost of consuming memes is rapidly approaching 0.
 - and the infectiousness of memes will only get higher from here.
 
 
@@ -114,7 +114,7 @@ have you ever read infinite jest?
 
 we risk entertaining ourselves to death.
 
-we risk creating the actual hedonic treadmil, and strapping ourselves to it for the rest of eternity.
+we risk creating the actual hedonic treadmill, and strapping ourselves to it for the rest of eternity.
 
 and for what? how much enjoyment have you actually derived from instagram reels? or tiktoks? or youtube shorts? how much value do you think a human life composed 99% of consuming content is worth? how much value is a humanity composed 99% of these humans worth?
 
