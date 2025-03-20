@@ -17,9 +17,88 @@ attention is logarithmic, actually
 > time complexity.
 ---
 
+time complexity is taught to every cs student in every cs program. 
+it is the default model that most people have when it comes to whether
+an algorithm is "fast" or "slow".
+
+back in the 80s, when every computer had only one core and no one besides
+a couple of weirdos knew what a simd was, this was largely a correct model.
+
+an algorithm which had 10 times more multiplies would take 10 times longer,
+regardless of the structure of those 10 multiples, because every operation
+was implicitly blocking if you only have one computational unit.
+
+but the year is now 2025. it is very hard to find computers with a single core.
+even smartphones have 4-8 cores [source needed].
+
+and as a result, time complexity largely fails as a measure of how fast or slow
+certain algorithms are, and sometimes, is entirely misleading.
+
+worse of all, time complexity is sometimes still used as an attribute for
+inherently parallel algorithms, like every linear algebra operation ever.
+
+i think this is ridiculous. we need a better way to think about the "complexity"
+of different algorithms. the work-depth model of analysis provides a good
+level of abstraction for thinking about the theoretical lower bound complexity of
+algorithms not as the number of operations with respect to input size.
+
+instead, it's better to think about the depth of the computation graph with respect
+to input size, or in other words, the minumum number of non-parallelizable
+sequential operations.
+
+these are truly not parallelizable, and **demand** that the previous steps in
+the computation graph have been completed before it can proceed.
+
+my expertise is mostly in performance engineering of ml systems, so the focus of
+this article will mostly relate to algorithms that apply to tensors.
+
+this model is not perfect, and i will detail why in a [later section], but to
+start off, the best question to ask is:
+
+> what is the time complexity of element wise multiplication?
+
+from which we will eventually work up to my thesis, which is that **vanilla**
+attention as it is implemented in transformers, should be considered logarithmic
+in computational complexity.
 
 
 ## case 1: element wise multiplication
+
+
+given a vector a and a vector b with the same number of elements.
+
+element wise multiplication takes every element in a and multiplies it
+with the matching index in b and stores it in a new vector c (or in place)
+
+the pseudo code will look like:
+
+```
+n   = <big integer>
+a,b = arange(n), arange(n)
+c   = zeros(n)
+for i in range(n):
+  c[i] = a[i] * b[i]
+```
+
+time complexity wise, this is obviously linear. and performed on a single thread,
+this is true!
+
+however if you take a closer look, you'll realize that in the computation graph
+of this problem, none of the steps in range(n) depend on one another. they're
+entirely independent.
+
+so ... why not do them in parallel?
+
+which is exactly what every linear algebra/tensor library does under the hood.
+
+and you quickly find out that, the problem isn't linear at all! it actually
+looks like constant time until a mysterious cutoff point (that we will detail
+later).
+
+[insert benchmark]
+
+more concretely, we can analyze the work and depth of element wise
+multiplication:
 
 ```
         *--------*-------*-----------------*------*----------------*
@@ -34,9 +113,13 @@ attention is logarithmic, actually
         *--------*-------*-----------------*------*----------------*
         |  TOTAL |   4   |                 |  4n  |        4n      |
         *--------*-------*-----------------*------*----------------*
-        |  ASYMP |  O(1) |                 | O(n) |                |
+        |  ASYMP |  o(1) |                 | o(n) |                |
         *--------*-------*-----------------*------*----------------*
 ```
+
+every operation required in the algorithm: load, mul, store, all have
+constant depth, and given enough parallel compute (up to the magical cutoff
+point mentioned above), all of them can effectively be done in constant time.
 
 
 
@@ -90,6 +173,11 @@ attention is logarithmic, actually
 
 
 ## case 6: attention
+
+
+## notes on assumptions
+
+## speculations on future compute
 
 
 ---
