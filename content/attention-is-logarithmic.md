@@ -13,8 +13,8 @@ attention is logarithmic, actually
 ---
 > time complexity is a very bad model when working with parallelism.
 >
-> in which i make the case for [work-depth](https://www.cs.cmu.edu/~scandal/cacm/node1.html#SECTION00010000000000000000) analysis instead of
-> time complexity.
+> in which i make the case for [work-depth](https://www.cs.cmu.edu/~scandal/cacm/node1.html)
+> analysis instead of time complexity.
 ---
 
 time complexity is taught to every cs student in every cs program. 
@@ -22,7 +22,9 @@ it is the default model that most people have when it comes to whether
 an algorithm is "fast" or "slow".
 
 back in the 80s, when every computer had only one core and no one besides
-a couple of weirdos knew what a simd was, this was largely a correct model.
+a couple of [weirdos](https://en.wikipedia.org/wiki/Thinking_Machines_Corporation)
+knew what a [simd](https://en.wikipedia.org/wiki/Single_instruction,_multiple_data)
+was, this was largely a correct model.
 
 an algorithm which had 10 times more multiplies would take 10 times longer,
 regardless of the structure of those 10 multiples, because every operation
@@ -35,10 +37,13 @@ and as a result, time complexity largely fails as a measure of how fast or slow
 certain algorithms are, and sometimes, is entirely misleading.
 
 worse of all, time complexity is sometimes still used as an attribute for
-inherently parallel algorithms, like every linear algebra operation ever.
+inherently parallel algorithms, like every 
+[linear algebra operation ever](https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication).
 
 i think this is ridiculous. we need a better way to think about the "complexity"
-of different algorithms. the work-depth model of analysis provides a good
+of different algorithms. the 
+[work-depth model](https://www.cs.cmu.edu/~scandal/cacm/node1.html) 
+of analysis provides a good
 level of abstraction for thinking about the theoretical lower bound complexity of
 algorithms not as the number of operations with respect to input size.
 
@@ -61,6 +66,8 @@ from which we will eventually work up to my thesis, which is that **vanilla**
 attention as it is implemented in transformers, should be considered logarithmic
 in computational complexity.
 
+
+-------------------------------------------------------------------------------
 
 ## case 1: element wise multiplication
 
@@ -122,8 +129,43 @@ constant depth, and given enough parallel compute (up to the magical cutoff
 point mentioned above), all of them can effectively be done in constant time.
 
 
+-------------------------------------------------------------------------------
 
 ## case 2: vector summation (aka contraction)
+
+
+summation is a bit more complicated than elementwise operations. here, we clearly
+see that there is a dependency between two steps (since accumulation requires calling
+into c's state). and this cannot be done emberassingly in parallel.
+
+```
+n = <big integer>
+a = arange(n)
+c = 0
+for i in range(n):
+  c += a[i]
+```
+
+fortunately though, if you look a bit closer, you'll realize that this is only
+a dependency between every *two* steps, or pairs.
+
+it is in fact still possible to parallelize this operation, by instead of doing
+every elementwise operation in parallel in one step, doing every **pairwise**
+operation in one step.
+
+for a list of length n, the progression is as follows:
+
+1. sum up every adjacent even and odd pair of numbers in the list (there are
+n/2 of such pairs), and store them into either the even or odd index of the pair.
+
+2. sum up every adjacent **summed pair**, and do the same index trick (there are
+n/4 of such pairs of pairs)
+
+3. pairs of pairs of ... pairs
+
+4. after log_2(n) steps, you'll have a single number that is the sum every element
+in the list.
+
 ```
     *------------*---------*-----------------------------------*------------*
     |  op        |  depth  |                  input            |    work    |
@@ -144,6 +186,8 @@ point mentioned above), all of them can effectively be done in constant time.
     |  ASYMP     | O(log n)|                                   |     O(n)   |
     *------------*---------*-----------------------------------*------------*
 ```
+
+
 
 
 ## case 3: tensor product
@@ -186,3 +230,13 @@ point mentioned above), all of them can effectively be done in constant time.
 
 ## case 7: sorting is logarithmic
 
+
+
+----
+
+@misc{doan2025attnislogarithmic,
+  author = {Doan, Mike},
+  title = {Attention is logarithmic, actually},
+  url = {https://supaiku.com/attention-is-logarithmic},
+  year = {2025}
+}
