@@ -299,7 +299,6 @@ can happen async.
 
 ```
 @misc{doan2025attnislogarithmic,
-  author = {Doan, Mike},
   title = {Attention is logarithmic, actually},
   url = {https://supaiku.com/attention-is-logarithmic},
   year = {2025}
