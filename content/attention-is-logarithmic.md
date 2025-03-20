@@ -17,27 +17,30 @@ attention is logarithmic, actually
 > analysis instead of time complexity.
 ---
 
-time complexity is taught to every cs student in every cs program. 
-it is the default model that most people have when it comes to whether
+time complexity is the default model brought up when discussing whether
 an algorithm is "fast" or "slow".
 
 back in the 80s, when every computer had only one core and no one besides
 a couple of [weirdos](https://en.wikipedia.org/wiki/Thinking_Machines_Corporation)
 knew what a [simd](https://en.wikipedia.org/wiki/Single_instruction,_multiple_data)
-was, this was largely a correct model.
+was, this was largely correct.
 
-an algorithm which had 10 times more multiplies would take 10 times longer,
+for instance, an algorithm which had 10 times more multiplies would take 10 times longer,
 regardless of the structure of those 10 multiples, because every operation
 was implicitly blocking if you only have one computational unit.
 
 but the year is now 2025. it is very hard to find computers with a single core.
-even smartphones have 4-8 cores [source needed].
+even smartphones have 4-8 cores [source needed]. as a result, 
+time complexity largely fails as a measure of how fast or slow
+certain algorithms are.
 
-and as a result, time complexity largely fails as a measure of how fast or slow
-certain algorithms are, and sometimes, is entirely misleading.
+using time complexity, there is no way to distinguish between an 
+algorithm that requires O(n^3) operations that is 
+[emberassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel)
+, versus one that is irreducibly sequential
 
-worse of all, time complexity is sometimes still used as an attribute for
-inherently parallel algorithms, like every 
+worse yet, time complexity is sometimes still used to describe
+inherently parallel algorithms, such as every 
 [linear algebra operation ever](https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication).
 
 i think this is ridiculous. we need a better way to think about the "complexity"
@@ -47,12 +50,11 @@ of analysis provides a good
 level of abstraction for thinking about the theoretical lower bound complexity of
 algorithms not as the number of operations with respect to input size.
 
-instead, it's better to think about the depth of the computation graph with respect
+instead of thinking about the raw numbers of operations an algorithm performs, or **work**,
+, it's better to think about the **depth** of the computation graph with respect
 to input size, or in other words, the minumum number of non-parallelizable
-sequential operations.
-
-these are truly not parallelizable, and **demand** that the previous steps in
-the computation graph have been completed before it can proceed.
+sequential operations. as these are irreducibly blocking, no matter how many cores you
+have in your computer.
 
 my expertise is mostly in performance engineering of ml systems, so the focus of
 this article will mostly relate to algorithms that apply to tensors.
@@ -108,20 +110,20 @@ more concretely, we can analyze the work and depth of element wise
 multiplication:
 
 ```
-        *--------*-------*-----------------*------*----------------*
-        |  op    | depth |     input       | work | parallelizable |
-        *--------*-------*-----------------*------*----------------*
-        |        |       |                 |      |                |
-        |  LOAD  |   1   | [a₁ a₂ ... aᵢ]  |  n   |        n       |
-        |  LOAD  |   1   | [b₁ b₂ ... bᵢ]  |  n   |        n       |
-        |  MUL   |   1   |  *  *      *    |  n   |        n       |
-        |  STORE |   1   | [c₁ c₂ ... cᵢ]  |  n   |        n       |
-        |        |       |                 |      |                |
-        *--------*-------*-----------------*------*----------------*
-        |  TOTAL |   4   |                 |  4n  |        4n      |
-        *--------*-------*-----------------*------*----------------*
-        |  ASYMP |  o(1) |                 | o(n) |                |
-        *--------*-------*-----------------*------*----------------*
+    *--------*-------*-----------------*------*----------------*
+    |  op    | depth |     input       | work | parallelizable |
+    *--------*-------*-----------------*------*----------------*
+    |        |       |                 |      |                |
+    |  LOAD  |   1   | [a₁ a₂ ... aᵢ]  |  n   |        n       |
+    |  LOAD  |   1   | [b₁ b₂ ... bᵢ]  |  n   |        n       |
+    |  MUL   |   1   |  *  *      *    |  n   |        n       |
+    |  STORE |   1   | [c₁ c₂ ... cᵢ]  |  n   |        n       |
+    |        |       |                 |      |                |
+    *--------*-------*-----------------*------*----------------*
+    |  TOTAL |   4   |                 |  4n  |        4n      |
+    *--------*-------*-----------------*------*----------------*
+    |  ASYMP |  o(1) |                 | o(n) |                |
+    *--------*-------*-----------------*------*----------------*
 ```
 
 every operation required in the algorithm: load, mul, store, all have
@@ -191,52 +193,115 @@ in the list.
 
 
 ## case 3: tensor product
+
 ```
 
-        *--------*-------*------------------------*------*----------------*
-        |  op    | depth |     input              | work | parallelizable |
-        *--------*-------*------------------------*------*----------------*
-        |        |       |                        |      |                |
-        |  LOAD  |   1   | [a₁₁ a₁₂ ⋯ a₁ⱼ ⋯ aᵢⱼ]  |  n   |        n       |
-        |  LOAD  |   1   | [b₁₁ b₁₂ ⋯ b₁ⱼ ⋯ bᵢⱼ]  |  n   |        n       |
-        |  MUL   |   1   |  *  *      *     *     |  n   |        n       |
-        |  STORE |   1   | [c₁₁ c₁₂ ⋯ c₁ⱼ ⋯ cᵢⱼ]  |  n   |        n       |
-        |        |       |                        |      |                |
-        *--------*-------*------------------------*------*----------------*
-        |  TOTAL |   4   |                        |  4n  |        4n      |
-        *--------*-------*------------------------*------*----------------*
-        |  ASYMP |  O(1) |                        | O(n) |                |
-        *--------*-------*------------------------*------*----------------*
+    *--------*-------*--------------------------------*--------*
+    |  op    | depth |     input                      |  work  |
+    *--------*-------*--------------------------------*--------*
+    |        |       |                                |        |
+    |  LOAD  |   1   | [a₁₁ a₁₂ ⋯ a₁ⱼ ⋯ aᵢⱼ]          |  n²    |
+    |  LOAD  |   1   | [b₁₁ b₁₂ ⋯ b₁ₖ ⋯ bⱼₖ]          |  n²    |
+    |  MUL   |   1   |  *   *     *     *             |  n³    |
+    |  STORE |   1   | [c₁₁₁ c₁₁₂ ⋯ c₁ⱼₖ ⋯ cᵢⱼₖ]      |  n³    |
+    |        |       |                                |        |
+    *--------*-------*--------------------------------*--------*
+    |  TOTAL |   4   |                                | 2n²+2n³|
+    *--------*-------*--------------------------------*--------*
+    |  ASYMP |  O(1) |                                | O(n³)  |
+    *--------*-------*--------------------------------*--------*
+
 ```
 
 
 ## case 4: matrix multiplication
 
+```
+    *--------------*-----------*--------------------------*--------*
+    |  op          | depth     |     input                | work   |
+    *--------------*-----------*--------------------------*--------*
+    |              |           |                          |        |
+    |  LOAD        |   1       | [a₁₁ a₁₂ ⋯ a₁ⱼ ⋯ aᵢⱼ]    |  n²    |
+    |  LOAD        |   1       | [b₁₁ b₁₂ ⋯ b₁ₖ ⋯ bⱼₖ]    |  n²    |
+    | TENSOR       |   1       |       "ij,jk->ijk"       |  n³    |
+    |              |           |                          |        |
+    | CONTRACTION  | log n     |        "ijk->ik"         |  n³    |
+    | STORE        |   1       | [d₁₁ d₁₂ ⋯ d₁ₖ ⋯ dᵢₖ]    |  n²    |
+    |              |           |                          |        |
+    *--------------*-----------*--------------------------*--------*
+    |  TOTAL       | logn +4   |                          | 2n²+2n³|
+    *--------------*-----------*--------------------------*--------*
+    |  ASYMP       | O(log n)  |                          | O(n³)  |
+    *--------------*-----------*--------------------------*--------*
+```
+
+
 
 ## case 5: softmax
 
+```
+    *--------------*-----------*--------------------------------*--------*
+    |  op          | depth     |     input                      | work   |
+    *--------------*-----------*--------------------------------*--------*
+    |  LOAD        |   1       | x ∈ ℝⁿ                         |   n    |
+    |  MAX         |  log n    | m = max(x)                     |   n    |
+    |  SUB         |   1       | x' = x - m                     |   n    |
+    |  EXP         |   1       | e = exp(x')                    |   n    |
+    |  SUM         |  log n    | s = sum(e)                     |   n    |
+    |  DIV         |   1       | y = e / s                      |   n    |
+    |  STORE       |   1       | y ∈ ℝⁿ                         |   n    |
+    *--------------*-----------*--------------------------------*--------*
+    |  TOTAL       | 2log n+5  |                                |  7n    |
+    *--------------*-----------*--------------------------------*--------*
+    |  ASYMP       | O(log n)  |                                | O(n)   |
+    *--------------*-----------*--------------------------------*--------*
+```
 
 ## case 6: attention
 
+```
+    *--------------*-----------*--------------------------------*-----------*
+    |  op          | depth     |     input                      |   work    |
+    *--------------*-----------*--------------------------------*-----------*
+    |  LOAD        |   1       | X ∈ ℝᵇˣⁿˣᵈ                     |  bnd      |
+    |  LOAD        |   1       | Wq,Wk,Wv ∈ ℝᵈˣᵈ                |  3d²      |
+    |  MATMUL      | 3log d    | Q = X·Wq ; K = X·Wk ; V = X·Wv |  3bnd²    |
+    |  MATMUL      | log d     | S = Q·Kᵀ                       |  bn²d     |
+    |  DIV         |   1       | S' = S / √d                    |  bn²      |
+    |  SOFTMAX     | log n     | A = softmax(S')                |  bn²      |
+    |  MATMUL      | log n     | O = A·V                        |  bn²d     |
+    |  STORE       |   1       | O ∈ ℝᵇˣⁿˣᵈ                     |  bnd      |
+    *--------------*-----------*--------------------------------*-----------*
+    |  TOTAL       | 4log d +  |                                |           |
+    |              | 2log n + 5|                                |  ≈ bn²d   |
+    *--------------*-----------*--------------------------------*-----------*
+    |  ASYMP       | O(logd)   |                                | O(bn²d)   |
+    |              | if d >>n  |                                |           |
+    *--------------*-----------*--------------------------------*-----------*
+```
 
 ## notes on assumptions
 
+
 ## speculations on future compute
 
+- most algos are still memory bound
+- BUT, nn weights are completely static during inference
+    - and MOSTLY static during training (gradient step is a very small % of the
+    training cycle)
+- therefore, it seems likely that future chips (if things that look like transformers
+are still king, will most likely look like FPGAs (where the weights are flashed onto
+the circuit as static memory) and inputs just blow through. gradient calculuations
+can happen async.
 
----
 
-# extra hot takes
+-------------------------------------------------------------------------------
 
-## case 7: sorting is logarithmic
-
-
-
-----
-
+```
 @misc{doan2025attnislogarithmic,
   author = {Doan, Mike},
   title = {Attention is logarithmic, actually},
   url = {https://supaiku.com/attention-is-logarithmic},
   year = {2025}
 }
+```
