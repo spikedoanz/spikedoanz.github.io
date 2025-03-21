@@ -360,29 +360,49 @@ to the composition. here's the depth analysis:
 +---------+------------+--------------------------------+---------+
 ```
 
+as we can see, through the sequential composition of an integer number of matmuls
+contractions, and a bunch of elementwise unary ops, attention has asymptotic
+depth complexity of just O(logn) + O(logd), where n and d are sequence length
+and embedding dim respectively.
+
+in practice, this usually means O(log sequence_length), since sequence_length is
+usually far greater than embedding_dim.
+
 ## limitations
 
 however, depth analysis isn't perfect, and the problem becomes immediately
 apparent when taking into account memory access patterns and cache friendliness.
 
-- max width of tree << computation units (whatever cores are).
-- memory access patterns are relatively contiguous, vectorizable?
-- materialized variables play nice with memory hierarchy.
+in particular, this model fails when:
+- max width of tree >> computation units (whatever cores are).
+- memory access patterns are not contiguous / vectorizable?
+- materialized variables don't play nice with memory hierarchy.
 
 in practice, this mostly means that the size of your materialized tensors must
-stay within L2-ish cache for the depth complexity bounds to hold.
+stay within L2-ish cache for the depth complexity bounds to hold. nice memory
+patterns usually come for free for (dense) tensors.
 
-## speculations on future compute
+## speculations on future compute?
 
-- most algos are still memory bound
-- BUT, nn weights are completely static during inference
-    - and MOSTLY static during training (gradient step is a very small % of the
-    training cycle)
-- therefore, it seems likely that future chips (if things that look like transformers
-are still king, will most likely look like FPGAs (where the weights are flashed onto
-the circuit as static memory) and inputs just blow through. gradient calculuations
-can happen async.
+so, what does this mean for current chips and future chips?
 
+i think it means quite a lot, assuming one key fact, **that 
+training paradigms remain largely non-concurrent** (i.e looks like
+forward -> backward passes on a loop, or some mix like
+[dualpipe](https://github.com/deepseek-ai/DualPipe))
+
+why? because if this is the case, then the weights of the neural net
+(what makes up the majority of the volume of movement ops in a nn pass)
+are largely static, and can have increasing amounts of locality to compute units.
+
+we already see this happening. weights used to be offloaded to disk, or saved to ram,
+and only launched to the gpu for specialized kernels.
+
+then everyone and their grandma now trains fully on device memory (VRAM or HBM).
+
+and now chip manufacturers have caught on, and realized that they can get another OOM
+(by effectively chopping off whole sections where the depth complexity analysis fails)
+by moving weights onto even faster memory, like L2. (**cough**, gr*q).
 
 -------------------------------------------------------------------------------
 
