@@ -190,6 +190,7 @@ in the list.
 +------------+----------+---------------------------------------+------+
 ```
 
+-------------------------------------------------------------------------------
 
 ## case 3: tensor product
 
@@ -235,6 +236,7 @@ every batched operation, etc etc. everything is just some variant of
 tensor product -> some variant of contraction.
 
 
+-------------------------------------------------------------------------------
 
 ## case 4: matrix multiplication
 
@@ -297,6 +299,7 @@ depth complexity O(1) and O(logn) respectively:
 +----------+----------+---------------------------+---------+
 ```
 
+-------------------------------------------------------------------------------
 
 ## case 5: softmax
 
@@ -327,6 +330,7 @@ here's the depth complexity analysis as usual:
 ```
 
 
+-------------------------------------------------------------------------------
 
 
 ## case 6: attention
@@ -352,7 +356,7 @@ to the composition. here's the depth analysis:
 |         | 2log n + 5 |                                |         |
 |         |            |                                |         |
 |  ASYMP  |  O(logn)   |                                | O(bn²d) |
-|         |  if n >>d  |                                |         |
+|         |  + O(logd) |                                |         |
 +---------+------------+--------------------------------+---------+
 ```
 
