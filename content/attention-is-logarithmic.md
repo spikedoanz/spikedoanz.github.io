@@ -52,7 +52,7 @@ level of abstraction for thinking about the theoretical lower bound complexity o
 algorithms not as the number of operations with respect to input size.
 
 instead of thinking about the raw numbers of operations an algorithm performs, or **work**,
-, it's better to think about the **depth** of the computation graph with respect
+it's better to think about the **depth** of the computation graph with respect
 to input size, or in other words, the minumum number of non-parallelizable
 sequential operations. as these are irreducibly blocking, no matter how many cores you
 have in your computer.
