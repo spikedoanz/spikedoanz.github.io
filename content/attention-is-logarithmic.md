@@ -361,7 +361,7 @@ to the composition. here's the depth analysis:
 
 as we can see, through the sequential composition of an integer number of matmuls
 contractions, and a bunch of elementwise unary ops, attention has asymptotic
-depth complexity of just O(logn) + O(logd), where n and d are sequence length
+depth complexity of just O(logn + logd), where n and d are sequence length
 and embedding dim respectively.
 
 in practice, this usually means O(log sequence_length), since sequence_length is
