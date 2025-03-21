@@ -410,7 +410,7 @@ are largely static, and can have increasing amounts of locality to compute units
 we already see this happening. weights used to be offloaded to disk, or saved to ram,
 and only launched to the gpu for specialized kernels.
 
-then everyone and their grandma now trains fully on device memory (VRAM or HBM).
+then everyone and their grandma started training fully on device memory (VRAM or HBM).
 
 and now chip manufacturers have caught on, and realized that they can get another OOM
 (by effectively chopping off whole sections where the depth complexity analysis fails)
@@ -419,6 +419,10 @@ by moving weights onto even faster memory, like L2. (**cough**, gr*q).
 -------------------------------------------------------------------------------
 
 [^1]: this is my reductionist take for what flash attention is.
+
+[^2]: but then again, neither does a turing machine have an infinite tape, nor
+algorithms run with "asymptotic" input sizes that blur out giant time
+complexity constants.
 
 ```
 @misc{doan2025attnislogarithmic,
