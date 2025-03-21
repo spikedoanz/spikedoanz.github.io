@@ -17,6 +17,28 @@ attention is logarithmic, actually
 > analysis instead of [time complexity](https://en.wikipedia.org/wiki/Time_complexity).
 ---
 
+```
++---------+------------+--------------------------------+---------+
+|    OP   |   DEPTH    |             INPUT              |   WORK  |
++---------+------------+--------------------------------+---------+
+|   LOAD  |     1      |           X ∈ ℝᵇˣⁿˣᵈ           |   bnd   |
+|   LOAD  |     1      |        Wq,Wk,Wv ∈ ℝᵈˣᵈ         |   3d²   |
+|  MATMUL |   3log d   | Q = X·Wq ; K = X·Wk ; V = X·Wv |  3bnd²  |
+|  MATMUL |   log d    |            S = Q·Kᵀ            |   bn²d  |
+|   DIV   |     1      |          S' = S / √d           |   bn²   |
+| SOFTMAX |   log n    |        A = softmax(S')         |   bn²   |
+|  MATMUL |   log n    |            O = A·V             |   bn²d  |
+|  STORE  |     1      |           O ∈ ℝᵇˣⁿˣᵈ           |   bnd   |
+|         |            |                                |         |
++---------+------------+--------------------------------+---------+
+|  TOTAL  |  4log d +  |                                |  ≈ bn²d |
+|         | 2log n + 5 |                                |         |
+|         |            |                                |         |
+|  ASYMP  |  O(logn)   |                                | O(bn²d) |
+|         |  if n >>d  |                                |         |
++---------+------------+--------------------------------+---------+
+```
+
 [time complexity](https://en.wikipedia.org/wiki/Time_complexity)
 is the default model brought up when discussing whether
 an algorithm is "fast" or "slow".
