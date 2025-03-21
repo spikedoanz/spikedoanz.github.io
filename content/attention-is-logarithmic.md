@@ -138,6 +138,7 @@ point mentioned above), all of them can effectively be done in constant time.
 
 
 summation (henceforth referred to as CONTRACT)
+
 is a bit more complicated than elementwise operations. here, we clearly
 see that there is a dependency between two steps (since accumulation requires calling
 into c's state). and this cannot be done emberassingly in parallel.
@@ -194,8 +195,6 @@ in the list.
 ```
 
 
-
-
 ## case 3: tensor product
 
 ```
@@ -215,8 +214,74 @@ in the list.
 +-------+-------+-------------------------------+---------+
 ```
 
+the [tensor product](https://en.wikipedia.org/wiki/Tensor_product)
+(henceforth called TENSOR) is a fundamental operation on tensors.
+basically, it takes all indeces of two tensors and does element wise
+multiplication over all of the requested indeces, (some of which can 
+be shared).
+
+in the case of the tensor product of two matrices with one shared axis,
+this materializes a cubic tensor. but since the only operations required
+are a parallel load, store and elementwise multiplication, this also
+has constant depth.
+
+caveat: it only has constant depth only if the materialized tensor (or
+the materialized sections) fits neatly into cache). every time the
+tensor doesn't fit into cache, this becomes an irreducible depth and
+the problem becomes at least sequential at that cache level.
+
+the tensor product is not talked about very often in machine learning,
+but it is a much more elegant way to think about most tensor operations
+than the 20+ ways of thinking about tensors.
+
+instead of having permute, sum, matmul, hadamard product, direct product,
+every batched operation, etc etc. everything is just some variant of 
+tensor product -> some variant of contraction.
+
+
 
 ## case 4: matrix multiplication
+
+the [matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication)
+(MATMUL), is one such tensor operation that is elegantly
+described using the tensor product into a contraction.
+
+given two tensors A,B of dimensionality (i j) and (j k), the tensor product
+constructs a tensor C that has elements C[i,j,k] = A[i,j] * B[j,k], and then sums (contracts)
+along the j dimension into a matrix D of shape (i k). (for efficiency, C is usually never fully
+materialized, instead the contraction is fused between shards of the tensor product)
+
+this can be trivially batched / broadcasted by simply ignoring the outer axes. in short,
+the matmul is described as 
+
+```
+einsum("...ij, ...jk -> ...ik", A, B)
+```
+
+pseudocode for stuff under the hood:
+
+```
+A = some matrix of shape (i j)
+B = some matrix of shape (j k)
+C = zeros of shape (i j k)
+
+for _i in range i:
+  for _j in range j:
+    for _k in range k:
+      C[_i,_j,_k] = A[_i,_j] * B[_j,_k] # element wise multiply
+
+
+D = zeros of shape (i k)
+
+for _i in range i:
+  for _j in range j:
+    for _k in range k:
+      D[_i,_k] += C[_i,_j,_k]           # contraction
+
+```
+
+note that this is just a sequential composition of TENSOR into CONTRACT, which have
+depth complexity O(1) and O(logn) respectively:
 
 ```
 +----------+----------+---------------------------+---------+
@@ -237,8 +302,13 @@ in the list.
 ```
 
 
-
 ## case 5: softmax
+
+
+softmax is not at all special. elementwise application of e^x, 
+followed by a contraction, followed by a element wise division.
+
+here's the depth complexity analysis as usual:
 
 ```
 +-------+----------+-------------+------+
@@ -260,7 +330,13 @@ in the list.
 +-------+----------+-------------+------+
 ```
 
+
+
+
 ## case 6: attention
+
+and without further ado, attention. at this point we're probably already used
+to the composition. here's the depth analysis:
 
 ```
 +---------+------------+--------------------------------+---------+
@@ -279,8 +355,8 @@ in the list.
 |  TOTAL  |  4log d +  |                                |  ≈ bn²d |
 |         | 2log n + 5 |                                |         |
 |         |            |                                |         |
-|  ASYMP  |  O(logd)   |                                | O(bn²d) |
-|         |  if d >>n  |                                |         |
+|  ASYMP  |  O(logn)   |                                | O(bn²d) |
+|         |  if n >>d  |                                |         |
 +---------+------------+--------------------------------+---------+
 ```
 
