@@ -418,7 +418,7 @@ by moving weights onto even faster memory, like L2. (**cough**, gr*q).
 
 -------------------------------------------------------------------------------
 
-[1]: this is my reductionist take for what flash attention is.
+[^1]: this is my reductionist take for what flash attention is.
 
 ```
 @misc{doan2025attnislogarithmic,
