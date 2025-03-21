@@ -13,7 +13,7 @@ attention is logarithmic, actually
 ---
 > time complexity is a very bad model when working with parallelism.
 >
-> in which i make the case for [work-depth](https://www.cs.cmu.edu/~scandal/cacm/node1.html)
+> in which i make the case for [work-depth](https://en.wikipedia.org/wiki/Analysis_of_parallel_algorithms)
 > analysis instead of [time complexity](https://en.wikipedia.org/wiki/Time_complexity).
 ---
 
