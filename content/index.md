@@ -14,6 +14,8 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 #### posts 
 
+2025-03-20 :: [[attention-is-logarithmic|attention is logarithmic]]
+
 2024-07-16 :: [[from-bits-to-intelligence|from bits to intelligence]]
 
 2024-05-25 :: [[taking-back-the-web|taking back the web]]
