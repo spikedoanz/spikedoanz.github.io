@@ -137,7 +137,8 @@ point mentioned above), all of them can effectively be done in constant time.
 ## case 2: vector summation (aka contraction)
 
 
-summation is a bit more complicated than elementwise operations. here, we clearly
+summation (henceforth referred to as CONTRACT)
+is a bit more complicated than elementwise operations. here, we clearly
 see that there is a dependency between two steps (since accumulation requires calling
 into c's state). and this cannot be done emberassingly in parallel.
 
