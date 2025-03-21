@@ -23,7 +23,7 @@ an algorithm is "fast" or "slow".
 
 back in the 80s, when every computer had only one core and no one besides
 a couple of [weirdos](https://en.wikipedia.org/wiki/Thinking_Machines_Corporation)
-knew what a [simd](https://en.wikipedia.org/wiki/Single_instruction,_multiple_data)
+knew what a [SIMD](https://en.wikipedia.org/wiki/Single_instruction,_multiple_data)
 was, this was largely correct.
 
 but the year is now 2025. it is very hard to find computers with a single core.
@@ -33,7 +33,7 @@ certain algorithms are.
 
 using time complexity, there is no way to distinguish between an 
 algorithm that requires O(n^3) operations that is 
-[emberassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel)
+[embarrassingly parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel)
 , versus one that is irreducibly sequential
 
 worse yet, time complexity is sometimes still used to describe
@@ -49,14 +49,14 @@ algorithms not as the number of operations with respect to input size.
 
 instead of thinking about the raw numbers of operations an algorithm performs, or **work**,
 it's better to think about the **depth** of the computation graph with respect
-to input size, or in other words, the minumum number of non-parallelizable
+to input size, or in other words, the minimum number of non-parallelizable
 sequential operations. as these are irreducibly blocking, no matter how many cores you
 have in your computer.
 
 my expertise is mostly in performance engineering of ml systems, so the focus of
 this article will mostly relate to algorithms that apply to tensors.
 
-this model is not perfect, and i will detail why in a [later section], but to
+this model is not perfect, and i will detail why in a [later section](#limitations), but to
 start off, the best question to ask is:
 
 > what is the time complexity of element wise multiplication?
@@ -354,8 +354,8 @@ to the composition. here's the depth analysis:
 |  TOTAL  |  4log d +  |                                |  ≈ bn²d |
 |         | 2log n + 5 |                                |         |
 |         |            |                                |         |
-|  ASYMP  |  O(logn)   |                                | O(bn²d) |
-|         |  + O(logd) |                                |         |
+|  ASYMP  |  O(logn +  |                                | O(bn²d) |
+|         |    logd)   |                                |         |
 +---------+------------+--------------------------------+---------+
 ```
 
@@ -381,6 +381,19 @@ in practice, this mostly means that the size of your materialized tensors must
 stay within L2-ish cache for the depth complexity bounds to hold. nice memory
 patterns usually come for free for (dense) tensors.
 
+
+## so why isn't attention logarithmic?
+
+the truth is, since attention requires at least partially materializing QK^T (which
+is usually (very big integer, very big integer) this will almost certainly overfill
+your L2 cache (which either forces you to do compute in memory an OOM slower, or,
+forces you to turn it into a sequential problem by **sharding the QK^T matrix into
+partially associative chunks to pass into softmax**[^1]).
+
+which means that for regular computers, the depth complexity for attention is more
+something like O(n log n). though this in no way is an irreducible problem, for which
+i have some speculative solutions in the next section.
+
 ## speculations on future compute?
 
 so, what does this mean for current chips and future chips?
@@ -405,6 +418,8 @@ by moving weights onto even faster memory, like L2. (**cough**, gr*q).
 
 -------------------------------------------------------------------------------
 
+[1]: this is my reductionist take for what flash attention is.
+
 ```
 @misc{doan2025attnislogarithmic,
   title = {Attention is logarithmic, actually},
@@ -412,3 +427,4 @@ by moving weights onto even faster memory, like L2. (**cough**, gr*q).
   year = {2025}
 }
 ```
+
