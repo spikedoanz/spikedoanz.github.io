@@ -26,10 +26,6 @@ a couple of [weirdos](https://en.wikipedia.org/wiki/Thinking_Machines_Corporatio
 knew what a [simd](https://en.wikipedia.org/wiki/Single_instruction,_multiple_data)
 was, this was largely correct.
 
-for instance, an algorithm which had 10 times more multiplies would take 10 times longer,
-regardless of the structure of those 10 multiples, because every operation
-was implicitly blocking if you only have one computational unit.
-
 but the year is now 2025. it is very hard to find computers with a single core.
 even smartphones have 4-8 cores [source needed]. as a result, 
 time complexity largely fails as a measure of how fast or slow
@@ -44,7 +40,7 @@ worse yet, time complexity is sometimes still used to describe
 inherently parallel algorithms, such as every 
 [linear algebra operation ever](https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication).
 
-i think this is ridiculous. we need a better way to think about the "complexity"
+this is ridiculous. we need a better way to think about the "complexity"
 of different algorithms. the 
 [work-depth model](https://www.cs.cmu.edu/~scandal/cacm/node1.html) 
 of analysis provides a good
@@ -362,12 +358,15 @@ to the composition. here's the depth analysis:
 
 ## limitations
 
+however, depth analysis isn't perfect, and the problem becomes immediately
+apparent when taking into account memory access patterns and cache friendliness.
+
 - max width of tree << computation units (whatever cores are).
 - memory access patterns are relatively contiguous, vectorizable?
 - materialized variables play nice with memory hierarchy.
 
-in practice, this mostly means that the size of your materialized tensors stays
-within L2-ish cache.
+in practice, this mostly means that the size of your materialized tensors must
+stay within L2-ish cache for the depth complexity bounds to hold.
 
 ## speculations on future compute
 
