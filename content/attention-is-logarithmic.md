@@ -101,7 +101,6 @@ and you quickly find out that, the problem isn't linear at all! it actually
 looks like constant time until a mysterious cutoff point (that we will detail
 later).
 
-[insert benchmark]
 
 more concretely, we can analyze the work and depth of element wise
 multiplication:
