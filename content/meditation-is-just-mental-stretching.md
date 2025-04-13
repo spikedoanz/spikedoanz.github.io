@@ -221,7 +221,7 @@ so as long as you make sure two things are happening:
 
 ---
 
-## what does this buy you?
+## so what does this buy you?
 
 so why do all of this work? what's the point of all this?
 
