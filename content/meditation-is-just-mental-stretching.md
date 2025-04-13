@@ -241,8 +241,8 @@ or engineering.
 
 and the inkling of a couple more that i'll detail in a future part:
 - resolving years old mental anguish.
-- unlocking the "happy" button.
 - understanding the atomic components of consciousness.
+- unlocking the ["happy" button](https://en.wikipedia.org/wiki/Dhyana_in_Buddhism#The_jh%C4%81na/dhyana-stages).
 - and much more!
 
 ---
