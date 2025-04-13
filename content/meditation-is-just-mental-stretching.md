@@ -196,7 +196,7 @@ keep this brief so you don't have to check the instructions every 30 seconds:
 1. sit down.
 2. pay attention how your body feels.
 3. keep your attention on that feeling.
-4. notice how this is like, really hard.
+4. notice how this is like, **really hard.**
 
 that "really hard", is at the heart of why meditation is so helpful to people. and making it less hard
 almost perfectly correlates to being happy, content and focused.
@@ -230,7 +230,7 @@ me in the 5-6ish years of on and off meditation practice:
 
 - heightened mind body connection: unsurprisingly, doing the thing makes you better at the thing.
 this has helped for physical skill acquisition (playing instruments, rock climbing, lifting to name a few)
-- mental clarity: going through the really hard step 4 of the meditation exercise basically acts
+- mental clarity: going through the **really hard** step of the meditation exercise basically acts
 like [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) for the mind.
 most persistent thoughts don't go away until they're resolved, and they're usually not resolved until
 i sit down and mull over them for a while. meditation is a really good place to do just that.
