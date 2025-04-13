@@ -196,10 +196,28 @@ keep this brief so you don't have to check the instructions every 30 seconds:
 1. sit down.
 2. pay attention how your body feels.
 3. keep your attention on that feeling.
-4. notice how this is really hard.
+4. notice how this is like, really hard.
 
 that "really hard", is at the heart of why meditation is so helpful to people. and making it less hard
-essentially perfectly correlates to being happy, content and focused.
+almost perfectly correlates to being happy, content and focused.
+
+
+## 3.4 errata
+
+note on chronology: these sorts of sessions can last anywhere from 5-10 minutes, to hours. your milage may
+vary. i usually go for 20 minutes (until i descend into deeper meditation, or get up and
+do something else)
+
+note on geography: it doesn't usually matter too much where you meditate. with enough skill, you can in
+fact just meditate during your morning commute and effectively time skip. but until then, sitting down
+in a quiet room is a good middle ground. there is no "best", and there's lots of fun to be found in
+experimenting with meditation in different locations and scenarios. (my favorite is time skipping during
+commutes)
+
+note on "doing it right": fortunately, there really isn't a wrong way to meditate
+so as long as you make sure two things are happening:
+- you aren't doing anything distracting, like scrolling tiktok.
+- you're paying attention to what you feel.
 
 ---
 
