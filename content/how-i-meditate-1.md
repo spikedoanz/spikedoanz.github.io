@@ -1,19 +1,19 @@
 
 ---
-title: how i meditate, part 1 -- mind-body
+title: meditation is just mental stretching
 ---
 
 ### [[index|supaiku dot com]]
 
 <h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
-how i meditate, part 1 -- mind-body
+meditation is just mental stretching
 </h1>
 
 
 ---
-> what if there existed a no nonsense guide for meditation?
->
-> or: meditation without spiritual mumbo jumbo
+> alternate title: meditation without spiritual mumbo jumbo.
+
+> part one of a series of essays on meditation.
 ---
 
 meditation requires a combination of extreme focus as well as extreme relaxation.
@@ -21,10 +21,9 @@ in large part, this is why it's so difficult to teach, learn, and generally desc
 
 one way that's made it really easy for me to think about meditation, is to imagine it
 as stretching for the mind -- similarly strenuous, but requires the exact same combination
-of extreme focus and relaxation.
-
-i suspect that it's for this reason that many meditation practices focus heavily on yoga
-(which are essentially stretching and balancing exercises) before full meditation.
+of extreme focus and relaxation. i suspect that it's for this reason that many 
+meditation practices focus heavily on yoga (which are essentially stretching 
+and balancing exercises) before full meditation.
 
 this, and the upcoming series of essays will go over how i personally meditate. note that
 i am an entirely self taught meditator. then again, this essay is in no way intended
@@ -32,6 +31,9 @@ to be prescriptive, so make of this what you will!
 
 these articles primarily meant for people who would like to get into meditation, but can't
 find a practical guide that doesn't involve reincarnation or some other spiritual stuff[^1].
+
+this first essay will focus on the "mind body connection": what it is, how to get it, how to
+use it, and how to use it as a springboard for meditation.
 
 ---
 
@@ -44,7 +46,7 @@ notice how your weight presses down on your chair (or bed, floor, bed of knives,
 notice the temperature difference between your skin and whatever you're sitting on. is it hotter?
 colder? the same?
 
-notice how these sensations change as you subtly sway back and fourth while breathing, or when
+notice how these sensations change as you subtly sway back and forth while breathing, or when
 you adjust how you sit because your neck feels weird.
 
 it's at this point, that your brain starts paying attention to some other stuff in your body:
@@ -54,8 +56,7 @@ telling you to moisturize more often).
 
 "this", in essence, is all there is to the "mind body connection." it's paying attention to your
 body, how it feels, and having thoughts about those feelings. while meditation looks more like
-a "mind mind" connection (well, eventually it's a mind-nothing connection, then a "nothing-nothing" connection,
-but let's not get ahead of ourselves), cultivating a decent connection between your mind and your body
+a "mind mind" connection[^2], cultivating a decent connection between your mind and your body
 serves as a good springboard for the other kinds of sensations that you'll be feeling over the 
 course of a meditation practice.
 
@@ -73,7 +74,7 @@ so everyone actually understands that there is such a thing as "being less atten
 well, obviously, that implies that there is such a thing as "being more attentive" -- a state in which
 you essentially have a higher "resolution" view of the world.
 
-that brings us to stretching[^2]. stretching is one way to force yourself to gain a higher resolution
+that brings us to stretching[^3]. stretching is one way to force yourself to gain a higher resolution
 view of your body. it's effective because stretching acts as an enforced tutorial for developing
 a more sensitive body.
 
@@ -84,7 +85,7 @@ you feel how the back of your thighs (your hamstrings) starts burning?
 okay, i'll give you a pro tip: you have to release the tension in your hamstrings, and let the
 weight of your body pull yourself down to your toes.
 
-you might notice at this point that it's kinda not enough to get to your toes[^3]. so what do?
+you might notice at this point that it's kinda not enough to get to your toes[^4]. so what do?
 
 now this is the hard part: you have to also lightly pull down with your quads (the muscles in the
 front of your thighs).
@@ -141,7 +142,7 @@ your senses, and gives some time for you to mull over some compulsive thoughts -
 are really helpful for keeping focus later on when meditating.
 
 my flavor of prep is already described in this article -- stretching. i usually focus on the ones
-that are the most tense[^5]. i won't go into too much detail on how to do these[^6], so i'll just
+that are the most tense[^6]. i won't go into too much detail on how to do these[^7], so i'll just
 list the muscle groups i focus on:
 
 - hamstring stretches.
@@ -162,11 +163,27 @@ effective ways to get rid of them in a future blog post, but for now, just note 
 while i promised no mumbo-jumbo, i made no such promise for scientific concepts. here's one really useful one:
 
 [propioception](https://en.wikipedia.org/wiki/Proprioception) -- a.k.a the "sense" of your body. the 
-most prominent of which is its sense of location. for this meditation tutorial boss, you'll
+most prominent of which is its sense of location. if this is a bit confusing, think a bit about this
+question:
+
+**"where are you?"**
+
+i'm not talking about what building or zip code obviously. but instead about where is it that you feel
+"you" are most located. it's very unlikely that it'll be your arms. for a lot of modern people, it's
+most likely going to be the head.
+
+funnily enough, it doesn't even have to be your head! it can even be your 
+[liver](https://psyche.co/ideas/to-ancient-assyrians-the-liver-was-the-seat-of-happiness). or your
+heart.
+
+if this is a bit too abstract, try using your center of mass, that usually also works fine for this
+exercise. in fact, "center of mass" is just one special case of propioception.
+
+for this meditation tutorial boss, you'll
 want to just pay attention to how your body sits.
 
 while it sounds trivial, propioception forms the basis of what i feel is 
-the effective form of meditation[^7] .
+the effective form of meditation[^8] .
 
 this is simple by design. i've tried a handful of other meditation methods (breathwork and third eye
 meditation specifically), and my sense is that these require too many variables ("oh no my nose is stuck",
@@ -198,7 +215,7 @@ this has helped for physical skill acquisition (playing instruments, rock climbi
 like [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) for the mind.
 most persistent thoughts don't go away until they're resolved, and they're usually not resolved until
 i sit down and mull over them for a while. meditation is a really good place to do just that.
-- creative ideation: much like taking long walks, or showevers, meditation is where a lot of my good
+- creative ideation: much like taking long walks, or showers, meditation is where a lot of my good
 ideas spring up. it's not a conscious action by any means. i think the combination of attentiveness plus
 the clearing up of mental gunk creates a good environment for my brain to iron out a couple ideas for writing
 or engineering.
@@ -211,24 +228,27 @@ and the inkling of a couple more that i'll detail in a future part:
 
 ---
 
-if you want updates on when those future parts drop, check out my [twitter](https:/x.com/spikedoanz).
-if you've found my writing to be interesting or helpful, or just want to socialize, my DMs are also open.
+if you liked this essay, or want updates on when those future parts drop, 
+feel free to send me a message on my [twitter](https:/x.com/spikedoanz).
 
 [^1]: though that spiritual stuff is also part of the practical side of meditation. i like to 
 think of them as bug fixes to enlightenment.exe, the program.
 
-[^2]: stretching is just good in general btw, and everyone should do it (todo: cite source about
-how muscles bind up if you don't stretch).
+[^2]: well, eventually it's a mind-nothing connection, then a "nothing-nothing" connection,
+but let's not get ahead of ourselves
 
-[^3]: if it is enough for you, good job! you don't have steel cables for hamstrings.
+[^3]: stretching is just good in general btw, and 
+[everyone should do it.](https://time.com/6965081/is-stretching-important-exercise/)
 
-[^4]: measured by how little i get distracted while i meditate.
+[^4]: if it is enough for you, good job! you don't have steel cables for hamstrings.
 
-[^5]: if you don't know which these are, you'll find out once you start meditating. it'll start annoying
+[^5]: measured by how little i get distracted while i meditate.
+
+[^6]: if you don't know which these are, you'll find out once you start meditating. it'll start annoying
 you like hell.
 
-[^6]: there are great tutorials on youtube, i like [movementbydavid](https://www.youtube.com/@MovementbyDavid)
+[^7]: there are great tutorials on youtube, i like [movementbydavid](https://www.youtube.com/@MovementbyDavid)
 and [hybridcalisthenics](https://www.youtube.com/@HybridCalisthenics) in particular.
 
-[^7]: which is why i start all of my sessions with it.
+[^8]: which is why i start all of my sessions with it.
 
