@@ -11,9 +11,9 @@ meditation is just mental stretching
 
 
 ---
-> alternate title: meditation without spiritual mumbo jumbo.
+> what i mean when i talk about meditation. part 1.
 
-> part one of a series of essays on meditation.
+> alternate title: meditation without spiritual mumbo jumbo.
 ---
 
 meditation requires a combination of extreme focus as well as extreme relaxation.
@@ -78,7 +78,7 @@ that brings us to stretching[^3]. stretching is one way to force yourself to gai
 view of your body. it's effective because stretching acts as an enforced tutorial for developing
 a more sensitive body.
 
-okay touch your toe. do it right now actually. and no arching your back.
+okay touch your toe. do it right now actually; and no arching your back!
 
 you feel how the back of your thighs (your hamstrings) starts burning?
 
@@ -155,14 +155,15 @@ list the muscle groups i focus on:
 
 of course, while you do this, pay attention not only to the way your body feels, but also
 to the distracting thoughts you'll be having while you do it. these are really hard to get
-rid of, and are basically the major skillcheck for meditation. i'll detail a couple of
+rid of, and are basically the major [skillcheck](https://en.wikipedia.org/wiki/Skill_assessment)
+for meditation. i'll detail a couple of
 effective ways to get rid of them in a future blog post, but for now, just note that they're there.
 
 ### 3.3 the meditation
 
 while i promised no mumbo-jumbo, i made no such promise for scientific concepts. here's one really useful one:
 
-[propioception](https://en.wikipedia.org/wiki/Proprioception) -- a.k.a the "sense" of your body. the 
+[proprioception](https://en.wikipedia.org/wiki/Proprioception) -- a.k.a the "sense" of your body. the 
 most prominent of which is its sense of location. if this is a bit confusing, think a bit about this
 question:
 
@@ -177,12 +178,12 @@ funnily enough, it doesn't even have to be your head! it can even be your
 heart.
 
 if this is a bit too abstract, try using your center of mass, that usually also works fine for this
-exercise. in fact, "center of mass" is just one special case of propioception.
+exercise. in fact, "center of mass" is just one special case of proprioception.
 
 for this meditation tutorial boss, you'll
 want to just pay attention to how your body sits.
 
-while it sounds trivial, propioception forms the basis of what i feel is 
+while it sounds trivial, proprioception forms the basis of what i feel is 
 the effective form of meditation[^8] .
 
 this is simple by design. i've tried a handful of other meditation methods (breathwork and third eye
