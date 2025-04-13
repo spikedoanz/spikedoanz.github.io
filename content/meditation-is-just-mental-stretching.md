@@ -248,7 +248,7 @@ and the inkling of a couple more that i'll detail in a future part:
 ---
 
 if you liked this essay, or want updates on when those future parts drop, 
-feel free to send me a message on my [twitter](https:/x.com/spikedoanz).
+feel free to send me a message on my [twitter](https://x.com/spikedoanz).
 
 [^1]: though that spiritual stuff is also part of the practical side of meditation. i like to 
 think of them as bug fixes to enlightenment.exe, the program.
