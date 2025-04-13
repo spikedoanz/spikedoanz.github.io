@@ -11,7 +11,7 @@ how i meditate, part 1 -- mind-body
 
 
 ---
-> what if there existed a concrete protocol for meditation?
+> what if there existed a no nonsense guide for meditation?
 >
 > or: meditation without spiritual mumbo jumbo
 ---
@@ -27,12 +27,15 @@ i suspect that it's for this reason that many meditation practices focus heavily
 (which are essentially stretching and balancing exercises) before full meditation.
 
 this, and the upcoming series of essays will go over how i personally meditate. note that
-i am an entirely self taught meditator. but then again, this essay is in no way intended
+i am an entirely self taught meditator. then again, this essay is in no way intended
 to be prescriptive, so make of this what you will!
+
+these articles primarily meant for people who would like to get into meditation, but can't
+find a practical guide that doesn't involve reincarnation or some other spiritual stuff[^1].
 
 ---
 
-## what does "mind body connection" even mean anyway?
+## 1. what does "mind body connection" even mean anyway?
 
 are you sitting down? cool. ever thought about the way that feels? like really hard?
 
@@ -58,7 +61,7 @@ course of a meditation practice.
 
 ---
 
-## what does stretching have anything to do with meditation?
+## 2. what does stretching have anything to do with meditation?
 
 have you ever been hungover? lacked sleep? or just generally had a bad day?
 
@@ -70,7 +73,7 @@ so everyone actually understands that there is such a thing as "being less atten
 well, obviously, that implies that there is such a thing as "being more attentive" -- a state in which
 you essentially have a higher "resolution" view of the world.
 
-that brings us to stretching[^1]. stretching is one way to force yourself to gain a higher resolution
+that brings us to stretching[^2]. stretching is one way to force yourself to gain a higher resolution
 view of your body. it's effective because stretching acts as an enforced tutorial for developing
 a more sensitive body.
 
@@ -81,7 +84,7 @@ you feel how the back of your thighs (your hamstrings) starts burning?
 okay, i'll give you a pro tip: you have to release the tension in your hamstrings, and let the
 weight of your body pull yourself down to your toes.
 
-you might notice at this point that it's kinda not enough to get to your toes[^2]. so what do?
+you might notice at this point that it's kinda not enough to get to your toes[^3]. so what do?
 
 now this is the hard part: you have to also lightly pull down with your quads (the muscles in the
 front of your thighs).
@@ -105,19 +108,72 @@ more concretely, meditation boils down to:
 
 ---
 
-## your first meditation session
+## 3. the guide 
 
 okay so you stretched a little. time for some real meditation!
 
+so without further ado, here it is, the first 30 minutes of my meditation session:
+
+### 3.1 the pre-pre-meditation
+
+while not strictly necessary, it's at this point that you'll want to shut off your phone. i'm
+not exactly sure what it is about the phone, but its presence (even reading an article), usually
+spells bad habits, and loss of focus while meditating. so if you're reading this on your phone,
+i'd advise you to move to a laptop or desktop if you plan to read this and meditate.
+
+my guess is that it's the ambient tension of a possible notification that makes the phone so
+distracting. it's basically attentional russian roulette. don't do it! mute it, turn it off,
+chuck it into a [faraday cage](https://en.wikipedia.org/wiki/Faraday_cage), whatever it takes
+for you to be absolutely sure that it won't ring for the foreseeable future.
+
+however if you find yourself in a situation in which you **need** to have your phone on speed dial
+basically always (medical professional, parent, etc):
+
+- for one: i'm very sorry.
+- but for two: please know that it's not impossible to meditate even with these 
+distractions. it's just going to be slightly harder. being able to focus even with
+distractions is a major skill check later on, so think of it as skipping a couple classes.
+
+### 3.2 the pre-meditation
+
+while also not strictly necessary, doing some extra prep work before meditating usually heightens 
+your senses, and gives some time for you to mull over some compulsive thoughts -- both of which
+are really helpful for keeping focus later on when meditating.
+
+my flavor of prep is already described in this article -- stretching. i usually focus on the ones
+that are the most tense[^5]. i won't go into too much detail on how to do these[^6], so i'll just
+list the muscle groups i focus on:
+
+- hamstring stretches.
+- quad stretches
+- shoulder stretches
+- hip flexor stretch
+- arm circles
+- neck circles
+- wrist circles (i'm a programmer, and spend 8 hours a day typing)
+
+of course, while you do this, pay attention not only to the way your body feels, but also
+to the distracting thoughts you'll be having while you do it. these are really hard to get
+rid of, and are basically the major skillcheck for meditation. i'll detail a couple of
+effective ways to get rid of them in a future blog post, but for now, just note that they're there.
+
+### 3.3 the meditation
+
 while i promised no mumbo-jumbo, i made no such promise for scientific concepts. here's one really useful one:
 
-[propioception](https://en.wikipedia.org/wiki/Proprioception) -- the "sense" of your body. most prominent of
-which is its sense of location.
+[propioception](https://en.wikipedia.org/wiki/Proprioception) -- a.k.a the "sense" of your body. the 
+most prominent of which is its sense of location. for this meditation tutorial boss, you'll
+want to just pay attention to how your body sits.
 
-propioception forms the basis of what i feel is the easiest form of meditation (which is why i start all of
-my sessions with it).
+while it sounds trivial, propioception forms the basis of what i feel is 
+the effective form of meditation[^7] .
 
-okay, i'll keep this brief so you don't have to check the instructions every 30 seconds:
+this is simple by design. i've tried a handful of other meditation methods (breathwork and third eye
+meditation specifically), and my sense is that these require too many variables ("oh no my nose is stuck",
+"what the hell do you mean 'third eye'" are thoughts that come to mind) to start of with.
+
+not that they're useless. we'll revisit them in a later session, but for now, i'll 
+keep this brief so you don't have to check the instructions every 30 seconds:
 
 1. sit down.
 2. pay attention how your body feels.
@@ -127,13 +183,52 @@ okay, i'll keep this brief so you don't have to check the instructions every 30 
 that "really hard", is at the heart of why meditation is so helpful to people. and making it less hard
 essentially perfectly correlates to being happy, content and focused.
 
-if you'd like to peer behind that 4th step, go ahead and carry on to [part 2]()
+---
 
-or don't. i think this style of meditation is more than enough fun for most people.
+## what does this buy you?
+
+so why do all of this work? what's the point of all this?
+
+while i can't speak universally, i list the benefits that this particular meditation exercise has given
+me in the 5-6ish years of on and off meditation practice:
+
+- heightened mind body connection: unsurprisingly, doing the thing makes you better at the thing.
+this has helped for physical skill acquisition (playing instruments, rock climbing, lifting to name a few)
+- mental clarity: going through the really hard step 4 of the meditation exercise basically acts
+like [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) for the mind.
+most persistent thoughts don't go away until they're resolved, and they're usually not resolved until
+i sit down and mull over them for a while. meditation is a really good place to do just that.
+- creative ideation: much like taking long walks, or showevers, meditation is where a lot of my good
+ideas spring up. it's not a conscious action by any means. i think the combination of attentiveness plus
+the clearing up of mental gunk creates a good environment for my brain to iron out a couple ideas for writing
+or engineering.
+
+and the inkling of a couple more that i'll detail in a future part:
+- resolving years old mental anguish.
+- unlocking the "happy" button.
+- understanding the atomic components of consciousness.
+- and much more!
 
 ---
 
-[^1]: stretching is just good in general btw, and everyone should do it (todo: cite source about
-how muscles bind up if you don't stretch)
+if you want updates on when those future parts drop, check out my [twitter](https:/x.com/spikedoanz).
+if you've found my writing to be interesting or helpful, or just want to socialize, my DMs are also open.
 
-[^2]: if it is enough for you, good job! you don't have steel cables for hamstrings
+[^1]: though that spiritual stuff is also part of the practical side of meditation. i like to 
+think of them as bug fixes to enlightenment.exe, the program.
+
+[^2]: stretching is just good in general btw, and everyone should do it (todo: cite source about
+how muscles bind up if you don't stretch).
+
+[^3]: if it is enough for you, good job! you don't have steel cables for hamstrings.
+
+[^4]: measured by how little i get distracted while i meditate.
+
+[^5]: if you don't know which these are, you'll find out once you start meditating. it'll start annoying
+you like hell.
+
+[^6]: there are great tutorials on youtube, i like [movementbydavid](https://www.youtube.com/@MovementbyDavid)
+and [hybridcalisthenics](https://www.youtube.com/@HybridCalisthenics) in particular.
+
+[^7]: which is why i start all of my sessions with it.
+
