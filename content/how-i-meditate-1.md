@@ -1,12 +1,12 @@
 
 ---
-title: how i meditate, part 1: mind-body
+title: how i meditate, part 1 -- mind-body
 ---
 
 ### [[index|supaiku dot com]]
 
 <h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
-how i meditate, part 1: mind-body
+how i meditate, part 1 -- mind-body
 </h1>
 
 
