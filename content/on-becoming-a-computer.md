@@ -44,11 +44,12 @@ lists, journals, task trackers, and so on.
 
 ---
 
-the first piece of task tracking software i can remember using was notion. i knew
-basically jack all about software at the time, and notion looked pretty good.
-the funny part is that i never used any of the fancy features like tables or
-programmatic whatever thingamabobs that notion offered. i only ever used the
-checklists, and @time macro (which just gets replaced with the current time).
+the first piece of task tracking software i can remember using was
+[notion](https://notion.so/). i knew basically jack all about software at the
+time, and notion looked pretty good. the funny part is that i never used any of
+the fancy features like tables or programmatic whatever thingamabobs that
+notion offered. i only ever used the checklists, and @time macro (which just
+gets replaced with the current time).
 
 then about one or two years later, i switched to linux, and promptly quit
 notion. i don't exactly recall why, but i suspect it was because i got
@@ -56,8 +57,8 @@ enamoured by the search tools available in the terminal. i remember trying to
 export notion to a local file one time and ending up with a pile of gibberish
 that couldn't be parsed with grep, or plugged into a different piece of
 software while retaining all the nice formating and such. it was a pretty
-jarring, offensive experience, so i switched over to obsidian + markdown
-instead.
+jarring, offensive experience, so i switched over to
+[obsidian](https://obsidian.md/) + markdown instead.
 
 at first, i loved using the markdown hyperlink feature. i would link every noun
 to an article, and see the pretty graph show up in the graph view; jumping
@@ -88,16 +89,17 @@ was playing an rpg and hitting a checkpoint every time i commit+push.
 
 ---
 
-the next big unlock was tmux. i'd been an on and off user for a while, but
-never understood the point of tmux until: a. i rebound the leader key to Ctrl-a
-(no really, who the hell thought Ctrl-b was a good idea), and b. i learnt how
-to use tmux sessions (specifically, easily creating, renaming, and switching
-between sessions). this turned tmux into not just a terminal session manager,
-but also a process manager for my own brain. i could now dedicate a session per
-task, have a plan file open on each, and be able to reference them globally
-with my daily / weekly plan file. this also made it extremely nice to work with
-claude code. for the brief period in which i had infinite claude credits, this
-workflow made me feel like i was working at peak human efficiency.
+the next big unlock was [tmux](https://github.com/tmux/tmux/wiki). i'd been an
+on and off user for a while, but never understood the point of tmux until: a. i
+rebound the leader key to Ctrl-a (no really, who the hell thought Ctrl-b was a
+good idea), and b. i learnt how to use tmux sessions (specifically, easily
+creating, renaming, and switching between sessions). this turned tmux into not
+just a terminal session manager, but also a process manager for my own brain. i
+could now dedicate a session per task, have a plan file open on each, and be
+able to reference them globally with my daily / weekly plan file. this also
+made it extremely nice to work with claude code. for the brief period in which
+i had infinite claude credits, this workflow made me feel like i was working at
+peak human efficiency.
 
 the tmux + vim + plan file combo is now an integral part of my workflow.
 (probably will write a detailed blog about this in the future). and the point
