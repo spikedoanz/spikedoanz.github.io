@@ -21,6 +21,8 @@ subtasks involved much more clearly) until they become 'atomic' tasks that i
 can quickly do and tick off. finish a task, go back to scheduling, repeat for 8
 hours.
 
+---
+
 for most of my earlier years i did this implicitly: i would mentally note all
 the tasks i'd have to do, then do an intuitive estimation of the time and
 effort it would take, plus their relative urgency, and then rank order them
@@ -39,6 +41,8 @@ software is a todo list. i mean if you had to think about what piece of
 software would be most useful for someone without a dedicated area of expertise
 , it would be some kind of generic planning and note taking software -- todo
 lists, journals, task trackers, and so on.
+
+---
 
 the first piece of task tracking software i can remember using was notion. i knew
 basically jack all about software at the time, and notion looked pretty good.
@@ -59,6 +63,8 @@ at first, i loved using the markdown hyperlink feature. i would link every noun
 to an article, and see the pretty graph show up in the graph view; jumping
 around hyperlinks was also pretty fun. but ultimately, i never used the graph
 for anything interesting, so i eventually stopped using that too.
+
+---
 
 earlier last year (2024), i realized that i was only using obsidian because it
 was a note taking app that had vim bindings. i was already using neovim as a
@@ -102,6 +108,8 @@ that i'm 'running', with varying amounts of mental resources allocated to that
 task. if i'm dedicating any amount of mental effort at all to this book-keeping
 'process', then that's fewer mental resources i can allocate to the task at
 hand. it's like having htop on your screen at all times. that's silly!
+
+---
 
 i'm still working on more ways to programmatically plan out my life. now that i
 have a process scheduler, maybe i need finer grained resource management (maybe
