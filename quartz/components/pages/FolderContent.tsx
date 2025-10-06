@@ -37,7 +37,6 @@ function FolderContent(props: QuartzComponentProps) {
       <article>
         <p>{content}</p>
       </article>
-      <p>{pluralize(allPagesInFolder.length, "item")} under this folder.</p>
       <div>
         <PageList {...listProps} />
       </div>
