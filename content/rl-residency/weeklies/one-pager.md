@@ -291,6 +291,10 @@ llms.
 [https://moonshotai.github.io/Kimi-K2/](https://moonshotai.github.io/Kimi-K2/)#agentic-capabilities
 
 
+---
+
+## footnotes
+
 [^1]: it is possible that even though your program passes the spec, that it's
 still not what you want. sure, the semantics for 'sorted' are pretty simple
 for merge sort. but what about something more complicated like convergence
