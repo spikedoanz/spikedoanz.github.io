@@ -41,7 +41,5 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 [email](mailto:spikedoanz@gmail.com)
 
 
-
-
 <!-- :: [[about]] :: -->
 <!-- [anonymous feedback](https://docs.google.com/forms/d/e/1FAIpQLSf-6VD0DNGgLSeFmMInbvmZrmVspTCItEESMpeQaqgop4HfBg/viewform?usp=sf_link) -->
