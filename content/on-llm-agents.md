@@ -110,10 +110,10 @@ __string templating__.
    sampling engine, like verifiers, to collect proof statements from the llm.
    both of these are already implemented, so can just be reused.
 
-3. you get the proof statement from the llm, run whatever humiliation ritual
-   the compilers need from you to get it verified, and then parse the results
-into a reward for the llm. rejected means no reward, compiled means full
-reward. __this is the load bearing step__.
+3. you get the proof statement from the llm, run whatever kafkaesque torment
+   chamber the compilers need from you to get it verified, and then parse the
+results into a reward for the llm. rejected means no reward, compiled means
+full reward. __this is the load bearing step__.
 
 4. if you want to do multi turn, you'll need to pass the compiler feedback into
    the llm context, and ask for another proof attempt. this step is mandatory
