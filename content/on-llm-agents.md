@@ -17,7 +17,7 @@ i spent 100+ dollars on llm agents writing an implementation of minif2f in verfi
 
 ## I. what?
 
-> feel free to skip forward to [section V](## V. enter, llm agents)
+> feel free to skip forward to [section V](#v-enter-llm-agents)
 
 for those unaware, here are the some big blobs of context
 
