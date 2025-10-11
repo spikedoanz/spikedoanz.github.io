@@ -10,6 +10,7 @@ i spent 100+ dollars on llm agents writing an implementation of minif2f in verfi
 
 ---
 > alternate title: a walkthrough of what happens when a vibe coding weekend project spins way out of control
+>
 > but also: some things that i can reliably get llm agents to do
 >
 > as well as: a brief review of claude code, codex, and slate 
