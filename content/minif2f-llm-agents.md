@@ -1,16 +1,16 @@
 ---
-title: i spent 200+ dollars on llm agents writing an implementation of minif2f in verfiers, and all i have to show for it is 800 bucks in gpu credits, a merged pr, and 2000 lines of B- code 
+title: i spent 100+ dollars on llm agents writing an implementation of minif2f in verfiers, and all i have to show for it is 800 bucks in gpu credits, a merged pr, and 2000 lines of B- code 
 ---
 
 ### [[index|supaiku dot com]]
 
 <h1 href="" onclick="document.getElementById('darkmode-toggle').click(); return false;">
-i spent 200+ dollars on llm agents writing an implementation of minif2f in verfiers, and all i have to show for it is 800 bucks in gpu credits, a merged pr, and 3000 lines of B- code 
+i spent 100+ dollars on llm agents writing an implementation of minif2f in verfiers, and all i have to show for it is 800 bucks in gpu credits, a merged pr, and 3000 lines of B- code 
 </h1>
 
 ---
 > alternate title: a walkthrough of what happens when a vibe coding weekend project spins way out of control
-> but also: a list of things that i can reliably get llm agents to do
+> but also: some things that i can reliably get llm agents to do
 >
 > as well as: a review of claude code, codex, and slate 
 ---
@@ -37,7 +37,7 @@ such as minif2f!
 
 4. __llm agents__ are just llms (sometimes multiple) running in some kind of
    context management harness, which emit computer actions which can be executed,
-   whose outputs are then plugged back in for (potentially human) introspeciton
+   whose outputs are then plugged back in for (potentially human) inspection 
    and guidance.
 
 5. __two hundred us dollars__ is a pretty large amount of money one could spend
@@ -56,10 +56,11 @@ did a cool bounty system, in which random people can jump in and implement
 benchmarks for cash / gpu credits.
 
 seeing that i suddenly had a lot of free time on my hands, i took on the
-challenge of implementing minif2f. it's popular! the data is clean! even formal!
-how hard can this be? should be a weekend project at most.
+challenge of implementing minif2f (worth the aforementioned 800 bucks in gpu
+credits). it's popular! the data is clean! even formal! how hard can this be?
+should be a weekend project at most.
 
-well as it turns out, a lot damn harder than i thought.
+well as it turns out, it's a lot damn harder than i thought.
 
 
 --------------------------------------------------------------------------------
@@ -67,7 +68,7 @@ well as it turns out, a lot damn harder than i thought.
 ## III. formal language compilers don't have the great ux
 
 so that's not entirely true. lean is a pretty nice piece of software.
-multithreaded / batched compilation, cached builds (olean files work okayish
+multithreaded / batched compilation, cached builds (olean files work okay-ish
 as a caching system), whose version manager, elan, is available through basically
 all package managers.
 
@@ -131,7 +132,7 @@ business logic in a B2B SaaS app?
    "huhguhhhhh i want a webvseti athat makesm ame a  billllinoin doolars please"
    into claude code, and hit enter until you have 10 gazillion ARR?
 
-3. it is __especially__ most unclear what speicifc problems or programming
+3. it is __especially__ most unclear what specific problems or programming
    tasks an llm agent can help you with. prototyping? writing tests? making
 things pass tests? async programming? fixing python environment issues?
 
@@ -144,7 +145,7 @@ minif2f to verifiers.
 
 --------------------------------------------------------------------------------
 
-## VI. what can't i reliably use agents for?
+## VI. what are agents terrible at?
 
 so set expectations correctly, here's my discovered list of things that you should
 definitely do yourself and basically never hand to an llm:
@@ -174,7 +175,7 @@ completed PR is basically mandatory unless i want things to explode in my face.
 
 a useful rule i hold in mind is that llms will never reduce the amount of work
 i have to do on a daily basis, but they __will__ increase the scope of work i
-can reasonbly manage with the same amount of time. effort is still abssolutely
+can reasonably manage with the same amount of time. effort is still absolutely
 required.
 
 that is to say: vibe coding shouldn't be easy.
@@ -186,7 +187,7 @@ that is to say: vibe coding shouldn't be easy.
 1. because our editors can't specify global fuzzy edits
 
 all of our editing tools (vim, vscode, emacs, etc etc) are both extremely local
-(in that they can only edit code in one particuilar region at a time), and also
+(in that they can only edit code in one particular region at a time), and also
 extremely strict.
 
 __an llm agent is basically a fuzzy editor.__
@@ -200,12 +201,12 @@ inherit from that. please give me a schema of how you are going to implement thi
 and ask a bunch of questions if you're at all unclear"
 
 and if the llm gives a spec i'm happy with, i can basically hit enter and go do
-50 pushups or whatever.
+50 push ups or whatever.
 
 this would instead be 30 mins to an hour of work in vim, and it would be incredibly
 boring and tedious work. not only that, but it's also incredibly brittle. agents
 basically never make syntax errors, don't accidentally break typing conventions,
-don't forget to add doc strings (they might even add too many docstrings), and
+don't forget to add doc strings (they might even add too many doc-strings), and
 don't mind typing out multiple variable names in a function signature to avoid
 having to invent another abstraction.
 
@@ -269,12 +270,11 @@ look up how to make a request to them (stored in a dedicated endpoints.py file
 in my repo) (string matching is hard for my fallible human brain). llms are
 basically perfect for this kind of stuff.
 
-
 --------------------------------------------------------------------------------
 
 ## VIII. so why did the agents work for me and not for others?
 
-1. because i knew exactly what i wanted
+### 1. because i know what i am doing
 
 i knew ahead of time what the project was going to look like. it was going to
 look like 4 different backends for compilers, with a basic system for verifying
@@ -294,7 +294,7 @@ but that's why we have git worktrees and parallel agents, and guess how many
 agents i run at the same time on average![^1]
 
 
-2. because i am extremely disagreeable about code style
+### 2. because i am extremely disagreeable
 
 llms are slimy bastards. they appeal to 'best practices' and 'industry standards'
 when all they do is write 50 line functions to do float division, with a fully documented
@@ -323,6 +323,132 @@ time.
 
 --------------------------------------------------------------------------------
 
+## IX. but are agents worth the money?
+
+so in total, for this project, i've spent:
+
+- 100 dollars  [claude code](https://www.claude.com/product/claude-code) (claude max)
+- about 20 dollars on [codex](https://openai.com/codex) (gpt tokens)
+- 20 bucks on [slate](https://randomlabs.ai/)
+
+so, why multiple and not just one?
+
+### 1. claude code, the useful idiot
+
+claude code is easily the most successful and popular agent product (despite the fact that
+it is overpriced, probably not in small part due to its high demand). so why is that?
+
+the bounds of claude code, even at the tool level, are very clear. permission
+levels for commands, file reads/writes, very careful separation between human
+and llm generated content (with the adorable claude commits).
+
+when i give a prompt to claude code, and it's reasonably detailed, and the repo is easy
+to navigate, i can trust that that task will get done.
+
+all of that is to say: claude code is __reliable__.
+
+as a piece of software, it's the most well thought through. the UX is quite nice (owing
+probably not little to the fact that it shipped early, and has shipped updates
+frequently since)
+
+but that is not to say that it is perfect: claude's kind of an idiot at times. the excessive
+hand holding, the pervasive over-commenting and over-abstracting come mostly from claude code.
+
+if i want to do exploratory work (say, with a specific direction to parallelizing the compilation
+steps in minif2f), claude code __will not__ be able to do this for me. it'll give
+the veneer of having made the attempt, and then nothing works.
+
+claude code is also the most likely to attempt to cheat, out of the three products, which is why
+i read the PRs from claude code very carefully to make sure that no such test cheating has been
+done. give me the serialized outputs and inputs, or give me death.
+
+and as previously mentioned, claude code is also extremely expensive. i run out of usage on my
+max subscription within a day or two of focused programming.
+
+
+### 2. codex, the idiot savant
+
+i don't really like codex that much. and i think this owes mostly to:
+
+codex being very opinionated about how it likes to solves problems. BUT it also
+doesn't give many natural windows to insert instructions.
+
+whereas cc will pause after basically every step to ask for my opinion on a
+diff, or before running any command, codex will just go at it for 10-30 minutes
+at a time.
+
+which, feels great! ... if codex actually got it right the first time (and it
+does, to a reasonable degree). but on the off-chance that it didn't, well
+that's about a half a dollar and 30 minutes wasted.
+
+i think a workflow like codex is ultimately what you want long term, with more
+detailed specs on the user and increasingly less human interaction. but until
+we have those models (and i have reason to believe we won't get them for a hot
+minute (future blog)), codex feels like a tool that overcommitted to a local
+minima.
+
+that said, codex does give the best code out of the three agents i've used. when
+it works, it really does work[^2]
+
+### 3. slate, the idiot who went to get accommodations 
+
+as an agent product, i think slate is the best __designed__ i've used.
+
+it's the best at handling extremely long turns (i very frequently need to reset
+context when using slate; codex is single shot, and claude code is about 5
+shots on average).
+
+it's the best at actually using the computer actually given (no need for a
+SLATE.md to tell it how to type check or lint), and actually understands the
+workflow required to implement a new feature (most of the heavy refactors and
+debugging sessions that i did were with slate). as a pair programmer product,
+it's about as useful to me as talking back and fourth with opus 4.
+
+it's unclear to me how much of this is over-fit to the kind of engineering that
+i do in python (i'll soon be using these agents for writing medium scale
+projects in slightly esoteric languages like lean/gleam). so expect another
+blog by that point.
+
+that said, as an early piece of software, it's not the most stable at the moment.
+jittery UI, lack of visibility into llm state, QOL stuff like fuzzy file finding,
+or editing / managing prompts. 
+
+but i have high hopes for the challenger. the developers i've spoken to from this
+team are some of the most clear minded on llm forward design i've seen in the
+industry.
+
+--------------------------------------------------------------------------------
+
+## X. closing thoughts
+
+so what have i learnt?
+
+- formal language tooling is horrendous: these compilers are slow (especially
+when scaled up), difficult to work with, and have such clunky syntax llms (and
+myself) struggle to write anything coherent in them. i have especially high
+hopes for lean4, particularly in conjunction with llms, given the momentum
+that it's getting in the industry.
+
+- hard things are still hard: load bearing code remains to be something to put
+disproportionally more energy into. llms may reduce the friction of me learning
+how to write this code properly, but i still ultimately have to be the one to
+do it.
+
+- bullshit can be much easier: so much of unix tooling from the 80s is overly
+verbose, under-documented, and generally not nice to work with (ah yes, i love
+learning 50 different tools to convert between basic data formats). llm agents
+basically turn all of those tools into one, with nobs i can verbally dial.
+
+- we're incredibly early: even with current day llms. i can see these tools
+shaping up to be orders of magnitude more reliable, fast and powerful. we're
+past the point of {X}-of-thought, and now in the stage where people genuinely
+see the shape of how llms fit into actual software tasks, and designing tools
+to best make fit it.
+
+--------------------------------------------------------------------------------
+
 [^1]: if it's not obvious, the answer is two
+
+[^2]: it's about within 90% of what i would've written myself. the model is very smart.
 
 
