@@ -38,7 +38,8 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 [github](https://github.com/spikedoanz) :: 
 [twitter](https://twitter.com/spikedoanz) :: 
-[email](mailto:spikedoanz@gmail.com)
+[email](mailto:spikedoanz@gmail.com) ::
+[[me]]
 
 
 <!-- :: [[about]] :: -->
