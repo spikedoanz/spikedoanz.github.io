@@ -14,6 +14,9 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 #### posts 
 
+
+2025-12-12 :: [[what-does-a-lean-proof-prove| what does a lean proof prove]]
+
 2025-10-10 :: [[on-llm-agents|on llm agents]]
 
 2025-08-18 :: [[on-becoming-a-computer|on becoming a computer]]
