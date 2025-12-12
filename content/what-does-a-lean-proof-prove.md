@@ -82,19 +82,20 @@ what does a lean proof prove?
 
 - __soundness__: a formal system is sound if every provable statement is true
   in the intended interpretation.
-> that is, the syntax (what you can derive) matches the semantics (what is
-> actually true). in lean's case, this would mean that if you have a term
-> `t : P`, then P actually holds in the mathematical model.
+  > that is, the syntax (what you can derive) matches the semantics (what is
+  > actually true). in lean's case, this would mean that if you have a term
+  > `t : P`, then P actually holds in the mathematical model.
 
 - __consistency__: a formal system is consistent if it cannot prove `False`
-> equivalently, it cannot prove both a statement and its negation (in systems
-> with explosion, these definitions coincide). for completeness, i'll point out
-> that consistency is strictly weaker than soundness a consistent system might
-> prove false things, as long as it doesn't prove `False` itself. see [this
-> discussion](https://cs.stackexchange.com/questions/88274/why-does-soundness-imply-consistency)
+  > equivalently, it cannot prove both a statement and its negation (in systems
+  > with explosion, these definitions coincide). 
+  >
+  >for completeness, i'll point out that consistency is strictly weaker than
+  >soundness a consistent system might prove false things, as long as it
+  >doesn't prove `False` itself. see [this
+  >discussion](https://cs.stackexchange.com/questions/88274/why-does-soundness-imply-consistency)
 
 - __completeness__: a formal system is complete if every true statement is provable.
-
 
 - a __type theory__: is a collection of statements regarding types (and related
   theoretical machinery), how to use them, (optionally) the properties of that
@@ -112,7 +113,7 @@ what does a lean proof prove?
 > note regarding interaction of tactics with the kernel: tactics do not show up
 > in the artifacts that the kernel is supposed to validate at all. because
 > tactics are intentionally designed to only produce proof terms, they
-> themselves can be 'compiled away'[^1] in a sense. as a result, people are
+> themselves can be 'elaborated away'[^1]. as a result, people are
 > allowed to use funky tactics like
 > [hammer](https://github.com/JOSHCLUNE/LeanHammer) while still trusting that
 > it doesn't overcomplicate the job for the kernel.
@@ -247,8 +248,7 @@ for trusting most things in their field work -- other smart people said so.
 and so there is definitely a sociological angle that can be looked at when it
 comes to trust in the lean kernel not just at the global level (knowing all
 the proofs, reading all the papers, being the amalgamation of all lean experts
-in one brain), but also at the individual and organizational level. i'd love to
-write this article one day, but today is not that day.
+in one brain), but also at the individual and organizational level.
 
 --------------------------------------------------------------------------------
 
@@ -332,34 +332,9 @@ that:
   compute correctly
 
 but "lean verified my software" is not the same as "my deployed binary is
-correct." the gap between the two is significant and currently unbridged.
-
---------------------------------------------------------------------------------
-
-## what are the limits of provability?
-
-we've briefly danced around this topic in the previous sections in this
-article, but there are statements we might be very interested in knowing the
-answer to, but which are nonetheless not provable given the machinery
-available: these include but is obviously not limited to:
-
-1. a-priori knowledge of the soundness of lean's kernel: by Gödel, lean can't
-   prove its own soundness/consistency
-
-2. termination of arbitrary programs — the halting problem; lean's termination
-   checker is conservative and rejects some terminating programs
-
-3. equivalence of two arbitrary programs — Rice's theorem says all non-trivial
-   semantic properties of programs are undecidable
-
-4. whether a given statement is provable or not — there exist statements
-   independent of the axioms (Gödel's first incompleteness theorem)
-
-5. definitional equality in lean — as Carneiro's thesis shows, this is actually
-   undecidable in lean's type theory
-
-6. correctness of the physical hardware running lean — you can't formally
-   verify that cosmic rays won't flip a bit
+correct." the gap between the two is significant and currently unbridged. if
+you're interested in verification of software specifically, then may i interest
+you in our lord and savior [idris2](https://github.com/idris-lang/Idris2)
 
 --------------------------------------------------------------------------------
 
@@ -379,8 +354,9 @@ a comprehensive list of assumptions one should reasonably make in order to 'trus
 
 --------------------------------------------------------------------------------
 
-[^1]: it's more accurate to say that it's 'elaborated away', but 'compiled
-    away' gives a correct enough mental model.
+[^1]: if you don't know what this means, it's the same as functions being
+    'compiled away' into jump instructions. the machine (in this case the kernel),
+    only sees its ISA (legal type operations)
 [^2]: while consistency is derivable from soundness, it's not the __only__ way
     to obtain this. in principle, this suggests the existence of systems that
     are __unsound__ but nonetheless __consistent__. in english this suggests
