@@ -28,9 +28,9 @@ what does a lean proof prove?
 - a __type__: is the fundamental building block of all objects in Lean.
   > think `Nat`, `Bool`, `List`, and so on.
 
-- a __term__: is an inhabitant of a type. Think the number `4`, which is an inhabitant of `Nat`.
+- a __term__: is an inhabitant of a type. think the number `4`, which is an inhabitant of `Nat`.
 
-- a __proposition__: is a special type living in Lean's `Prop` universe, whose inhabitants are _proofs_ rather than data.
+- a __proposition__: is a special type living in Lean's `Prop` universe[^1], whose inhabitants are _proofs_ rather than data.
   > for example, `2 + 2 = 4` is a proposition. a proof of it is a term of that
   > type. `True` and `False` are themselves propositions -- `True` has a trivial
   > proof, while `False` has no inhabitants at all.
@@ -90,7 +90,7 @@ what does a lean proof prove?
   > equivalently, it cannot prove both a statement and its negation (in systems
   > with explosion, these definitions coincide). 
   >
-  >for completeness, i'll point out
+  > for completeness, i'll point out
   > that consistency is strictly weaker than soundness a consistent system might
   > prove false things, as long as it doesn't prove `False` itself. see [this
   > discussion](https://cs.stackexchange.com/questions/88274/why-does-soundness-imply-consistency)
@@ -98,8 +98,8 @@ what does a lean proof prove?
 - a __type theory__: is a collection of statements regarding types (and related
   theoretical machinery), how to use them, (optionally) the properties of that
   system in aggregate.
-> in lean's case, this is a modified version of [Martin-Löf Type
-> Theory](https://en.wikipedia.org/wiki/Intuitionistic_type_theory) (MLTT)
+  > in lean's case, this is a modified version of [Martin-Löf Type
+  > Theory](https://en.wikipedia.org/wiki/Intuitionistic_type_theory) (MLTT)
 
 - the lean __kernel__ (also called the type checker): is a piece of software
   which implements that type theory, whose job is to validate that given a type
@@ -112,7 +112,7 @@ what does a lean proof prove?
 > note regarding interaction of tactics with the kernel: tactics do not show up
 > in the artifacts that the kernel is supposed to validate at all. because
 > tactics are intentionally designed to only produce proof terms, they
-> themselves can be 'elaborated away'[^1]. as a result, people are
+> themselves can be 'elaborated away'[^2]. as a result, people are
 > allowed to use funky tactics like
 > [hammer](https://github.com/JOSHCLUNE/LeanHammer) while still trusting that
 > it doesn't overcomplicate the job for the kernel.
@@ -141,7 +141,7 @@ why does this matter?
 - consistency guarantees this doesn't happen. it's the bare minimum for a
   logical system to be worth anything.
 
-soundness gives you meaning. consistency gives you non-triviality. we want both.[^2]
+soundness gives you meaning. consistency gives you non-triviality. we want both.[^3]
 
 --------------------------------------------------------------------------------
 
@@ -156,7 +156,7 @@ soundness gives you meaning. consistency gives you non-triviality. we want both.
 ### epistemics of lean (the theory)
 1. lean's type theory is formally specified (this wasn't always the case. lucky us!)
 
-2. this formally specified theory has been proven consistent __relative__ to ZFC[^3]
+2. this formally specified theory has been proven consistent __relative__ to ZFC[^4]
    > that is, assuming ZFC is consistent (as all working mathematicians do),
    > lean is consistent. this is formal blackmail: you can't worry about lean's
    > consistency without also worrying about ZFC.
@@ -168,7 +168,7 @@ soundness gives you meaning. consistency gives you non-triviality. we want both.
 
 3. lean's __soundness__ (the stronger property) remains unproven.
    > recall: consistency says "you can't prove `False`." soundness says "every
-   > provable statement is true in the intended model"—the symbols mean what
+   > provable statement is true in the intended model" -- the symbols mean what
    > you think they mean.
    >
    > carneiro's thesis sketches a soundness proof relative to a ZFC model, but
@@ -191,10 +191,10 @@ soundness gives you meaning. consistency gives you non-triviality. we want both.
 2. as a result, the trust model for lean resembles the compiler landscape:
    if two independent implementations give different outputs, at least one is
    wrong. but lean's situation is more complex, as we need trust at two levels:
-   - __implementation__: does the kernel correctly implement the type theory?
-     (multiple implementations help here)
-   - __theory__: is the type theory itself sound?
-     (this requires external proof, and by gödel, can't be done in lean itself)
+  - __implementation__: does the kernel correctly implement the type theory?
+   (multiple implementations help here)
+  - __theory__: is the type theory itself sound?
+   (this requires external proof, and by gödel, can't be done in lean itself)
 
 3. [lean4lean](https://github.com/digama0/lean4lean) exists: a reimplementation
    of lean 4's kernel in lean 4 itself (self-described as a 'carbon copy' of
@@ -210,9 +210,9 @@ soundness gives you meaning. consistency gives you non-triviality. we want both.
    fortunately, these were all patchable. but considering that lean4lean
    was intentionally as close to the original implementation as feasible,
    there remains the possibility that there are other bugs lying in wait.
-      > furthermore, these bugs only occured in edge cases, and did not
-      > retroactively invalidate any existing proofs in mathlib / lean's core
-      > modules.
+   > furthermore, these bugs only occured in edge cases, and did not
+   > retroactively invalidate any existing proofs in mathlib / lean's core
+   > modules.
 
 5. very few independent implementations exist otherwise: there is
    [nanoda_lib](https://github.com/ammkrn/nanoda_lib) (from the author of
@@ -220,10 +220,12 @@ soundness gives you meaning. consistency gives you non-triviality. we want both.
    4"](https://ammkrn.github.io/type_checking_in_lean4/). though as of writing
    it doesn't achieve completeness w.r.t. all of mathlib),
    [trepplein](https://github.com/gebner/trepplein) (lean 3 only), and a few
-   others in progress. i'm working on a [prototype
-   implementation](https://github.com/spikedoanz/lean4idris) of lean 4's kernel
-   in idris, which covers about 95% of lean's core modules but is nowhere near
-   the shape where it has implications for this discussion.
+   others in progress. 
+
+   i myself am working on
+   [lean4idris](https://github.com/spikedoanz/lean4idris) which covers about
+   95% of lean's core modules but is still nowhere near the shape where it
+   would have implications for this discussion.
 
 --------------------------------------------------------------------------------
 
@@ -236,15 +238,15 @@ lean's kernel is trustworthy)
 
 while lean is proven consistent but not proven __sound__, there remains the
 possibility that our proofs typecheck perfectly but don't mean what we think
-they mean. the system wouldn't explode—it would just be quietly lying to us.
+they mean. the system wouldn't explode -- it would just be quietly lying to us.
 
 there is an additional concern, which is the regular trust models associated
 with code auditing. i myself haven't fully gone through the proof of lean's
-relative consistency w.r.t. ZFC, yet i trust that this result is likely true
-for the same reason that most working professionals in any technical field have
-for trusting most things in their field work -- other smart people said so.
+relative consistency w.r.t. ZFC; yet i trust that this result is likely true
+for the same reason that working professionals in any technical field have for
+trusting most things in their field work -- other smart people said so.
 
-and so there is definitely a sociological angle that can be looked at when it
+so there is definitely a sociological angle that can be looked at when it
 comes to trust in the lean kernel not just at the global level (knowing all
 the proofs, reading all the papers, being the amalgamation of all lean experts
 in one brain), but also at the individual and organizational level.
@@ -344,6 +346,10 @@ particular the section about
 [trust](https://ammkrn.github.io/type_checking_in_lean4/trust/trust.html), which provides
 a comprehensive list of assumptions one should reasonably make in order to 'trust' the lean kernel.
 
+JY Girard's excellent ['Proofs and
+Types'](https://www.paultaylor.eu/stable/prot.pdf), which underpins most of my
+early study of type theory and formal theorem proving.
+
 - [Mario Carniero's paper formally describing lean's type theory](https://github.com/digama0/lean-type-theory)
 
 - [a list of bugs discovered in the process of writing lean4lean, and related
@@ -353,16 +359,21 @@ a comprehensive list of assumptions one should reasonably make in order to 'trus
 
 --------------------------------------------------------------------------------
 
-[^1]: if you don't know what this means, it's the same as functions being
+[^1]: [universes](https://ncatlab.org/nlab/show/type+universe) themselves are
+    also types whose inhabitants are types (roughly). they exist for paradox
+    prevention reasons (as well as making polymorphisms and large eliminations
+    work coherently)that aren't relevant to the contents of this blog. think of
+    it as a formal OSHA requirement.
+[^2]: if you don't know what this means, it's the same as functions being
     'compiled away' into jump instructions. the machine (in this case the kernel),
     only sees its ISA (legal type operations)
-[^2]: while consistency is derivable from soundness, it's not the __only__ way
+[^3]: while consistency is derivable from soundness, it's not the __only__ way
     to obtain this. in principle, this suggests the existence of systems that
     are __unsound__ but nonetheless __consistent__. in english this suggests
     systems that are by all means, perfectly usable as logical systems, with
     all things being internally consistent, and yet proves things that are
     completely alien to what you intended. search for such a system / related
     works is left to the astute reader.
-[^3]: more accurately, [ZFC + n
+[^4]: more accurately, [ZFC + n
     inaccessibles](https://math.stackexchange.com/questions/3633748/zfc-there-exists-an-inaccessible-cardinal-proves-conzfc),
     but the meaning of this distinction doesn't really matter for our purposes.
