@@ -90,12 +90,10 @@ what does a lean proof prove?
   > equivalently, it cannot prove both a statement and its negation (in systems
   > with explosion, these definitions coincide). 
   >
-  >for completeness, i'll point out that consistency is strictly weaker than
-  >soundness a consistent system might prove false things, as long as it
-  >doesn't prove `False` itself. see [this
-  >discussion](https://cs.stackexchange.com/questions/88274/why-does-soundness-imply-consistency)
-
-- __completeness__: a formal system is complete if every true statement is provable.
+  >for completeness, i'll point out
+  > that consistency is strictly weaker than soundness a consistent system might
+  > prove false things, as long as it doesn't prove `False` itself. see [this
+  > discussion](https://cs.stackexchange.com/questions/88274/why-does-soundness-imply-consistency)
 
 - a __type theory__: is a collection of statements regarding types (and related
   theoretical machinery), how to use them, (optionally) the properties of that
@@ -105,10 +103,11 @@ what does a lean proof prove?
 
 - the lean __kernel__ (also called the type checker): is a piece of software
   which implements that type theory, whose job is to validate that given a type
-  and a term which is supposed to inhabit that type, that the term actually produces something of that type. > in lean's case, this is intentionally made to be very small. despite this, as
-> of writing, there are few independent implementations of it in various
-> languages / by various people, and this has implications on the epistemics of
-> trusting the lean kernel which will be discussed in a later section
+  and a term which is supposed to inhabit that type, that the term actually produces something of that type. 
+  > in lean's case, this is intentionally made to be very small. despite this, as
+  > of writing, there are few independent implementations of it in various
+  > languages / by various people, and this has implications on the epistemics of
+  > trusting the lean kernel which will be discussed in a later section
 
 > note regarding interaction of tactics with the kernel: tactics do not show up
 > in the artifacts that the kernel is supposed to validate at all. because
