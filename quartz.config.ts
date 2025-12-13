@@ -6,9 +6,7 @@ const config: QuartzConfig = {
     pageTitle: "spike",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
+    analytics: null,
     baseUrl: "spikedoanz.github.io",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
