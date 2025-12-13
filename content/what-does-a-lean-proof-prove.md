@@ -374,6 +374,10 @@ early study of type theory and formal theorem proving.
     all things being internally consistent, and yet proves things that are
     completely alien to what you intended. search for such a system / related
     works is left to the astute reader.
-[^4]: more accurately, [ZFC + n
+[^4]: more accurately, [ZFC + n __finite__
     inaccessibles](https://math.stackexchange.com/questions/3633748/zfc-there-exists-an-inaccessible-cardinal-proves-conzfc),
     but the meaning of this distinction doesn't really matter for our purposes.
+    > for completeness, i'll point out that the exact wording here is to say
+    > that Lean is __equiconsistent__ with a version of ZFC with access to
+    > finitely many inaccessible cardinals. see Collolary 24 from Mario
+    > Carniero's thesis for the detailed proof.
