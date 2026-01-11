@@ -32,7 +32,7 @@ jobs:
         run: |
           cp public/static/llms.txt public/llms.txt
           cp public/static/time-monetary-theory.pdf public/time-monetary-theory.pdf
-          cp public/static/time-theory-session.jsonl public/time-theory-session.jsonl
+          cp public/static/time-theory-session.txt public/time-theory-session.txt
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
