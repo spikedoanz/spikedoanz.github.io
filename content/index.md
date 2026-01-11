@@ -14,7 +14,7 @@ if you've gotten this far, feel free to say hi wherever you find me! you can DM 
 
 #### posts
 
-2026-01-11 :: <a href="https://supaiku.com/time-monetary-theory.pdf">Towards a Time Theory of Money</a>
+2026-01-11 :: <a href="https://supaiku.com/time-monetary-theory.pdf" data-router-ignore>Towards a Time Theory of Money</a>
 
 2025-12-12 :: [[what-does-a-lean-proof-prove| what does a lean proof prove]]
 
