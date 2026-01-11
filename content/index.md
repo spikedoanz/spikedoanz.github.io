@@ -12,8 +12,9 @@ weeb by
 if you've gotten this far, feel free to say hi wherever you find me! you can DM me on [twitter](https://twitter.com/spikedoanz) or email me at spikedoanz at gmail dot com. 
 
 
-#### posts 
+#### posts
 
+2026-01-11 :: [Towards a Time Theory of Money](/time-monetary-theory.pdf)
 
 2025-12-12 :: [[what-does-a-lean-proof-prove| what does a lean proof prove]]
 
