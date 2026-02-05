@@ -58,9 +58,11 @@ essentially, it is a switch / lever one can press emotionally that evokes a
 sense of deep happiness, in exactly the same vein as the sensations one might
 feel in the early stages of the jhanas.
 
-> note: while i associate the happy button with jhana 1-2, and tell people
+> __note__: while i associate the happy button with jhana 1-2, and tell people
 > interested in meditation to be on the lookout for it (both because the
 > triggered emotion is exactly the one you're taught to conjure in those
 > jhanas, and was also around the stages at which i acquired the happy button),
 > i'm not entirely sure how much of it is an artifact of my particular
 > circumstances, or is genuinely a skillcheck that other practioners acquire.
+
+--------------------------------------------------------------------------------
