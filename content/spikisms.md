@@ -21,7 +21,7 @@ spikisms
 > __example__: natural numbers are likely not fundamental, but the inductive process from which they arise likely are. to have a language (in the serial or non serial forms) whatsoever, you need a parsable grammar, which immediately brings into discussion something that looks like primitive recursion, which brings immediately into view natural numbers. i.e: at the point at which you're discussing natural numbers (or a counterfactual language in which they don't exist), you already have them.
 
 
-> __note__: a related term is 'consequence', which evokes a similar relationship: underlying structure / situation that brings forth a phenomenon / structure down the line. however, i don't use these two interchangably exactly because 'consequence' has a temporal / causal connotation that i don't want to evoke. the distinction is very similar to the distinction drawn between the local/differential vs global/variational perspectives in physics. consequences __happen__, spandrels are __just there__.
+> __note__: a related term is 'consequence', which evokes a similar relationship: underlying structure / situation that brings forth a phenomenon / structure down the line. however, i don't use these two interchangably exactly because 'consequence' has a temporal / causal connotation that i don't want to evoke. the distinction is very similar to the distinction drawn between the [local/differential](https://en.wikipedia.org/wiki/Differential_calculus) vs [global/variational](https://en.wikipedia.org/wiki/Calculus_of_variations) perspectives in physics. consequences __happen__, spandrels are __just there__.
 
 --------------------------------------------------------------------------------
 
