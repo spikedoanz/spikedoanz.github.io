@@ -9,12 +9,17 @@ heya! i'm [[index|spike]] -- ml researcher by
 weeb by
 <b onclick="document.getElementById('darkmode-toggle').click();">night</b>.
 
-if you've gotten this far, feel free to say hi wherever you find me! you can DM me on [twitter](https://twitter.com/spikedoanz) or email me at spikedoanz at gmail dot com. 
+if you've gotten this far, feel free to say hi wherever you find me! you can DM
+me on [twitter](https://twitter.com/spikedoanz) or email me at spikedoanz at
+gmail dot com. 
 
 
 #### posts
 
-2026-01-11 :: <a href="https://supaiku.com/time-monetary-theory.pdf" data-router-ignore>Towards a Time Theory of Money</a>
+2026-02-05 :: [[spikisms|spikisms]]
+
+2026-01-11 :: <a href="https://supaiku.com/time-monetary-theory.pdf"
+data-router-ignore>Towards a Time Theory of Money</a>
 
 2025-12-12 :: [[what-does-a-lean-proof-prove| what does a lean proof prove]]
 
