@@ -1,6 +1,6 @@
 ---
 title: spikisms
-description: a collection of idiosyncratically words and phrases that i use often
+description: a collection of idiosyncratic words and phrases that i use often
 ---
 
 ### [[index|supaiku dot com]]
