@@ -11,7 +11,7 @@ spikisms
 
 --------------------------------------------------------------------------------
 
-> a collection of idiosyncratically words and phrases that i use often
+> a collection of idiosyncratic words and phrases that i use often
 
 --------------------------------------------------------------------------------
 
