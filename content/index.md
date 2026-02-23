@@ -6,7 +6,7 @@ title: spike
 
 heya! i'm [[index|spike]] -- ml researcher by
 <b onclick="document.getElementById('darkmode-toggle').click();">day</b>, 
-weeb by
+mathematician by
 <b onclick="document.getElementById('darkmode-toggle').click();">night</b>.
 
 if you've gotten this far, feel free to say hi wherever you find me! you can DM
