@@ -4,7 +4,7 @@ title: spike
 
 ### [[index|supaiku dot com]]
 
-heya! i'm [[index|spike]] -- ml researcher by
+heya! i'm [[index|spike]] -- computer scientist by
 <b onclick="document.getElementById('darkmode-toggle').click();">day</b>, 
 mathematician by
 <b onclick="document.getElementById('darkmode-toggle').click();">night</b>.
