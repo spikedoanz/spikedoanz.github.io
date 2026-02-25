@@ -9,6 +9,9 @@ heya! i'm [[index|spike]] -- ml researcher by
 mathematician by
 <b onclick="document.getElementById('darkmode-toggle').click();">night</b>.
 
+i used to [[work|me]] at one of the math asi labs, but now do independent math,
+plt, machine learning and create work.
+
 if you've gotten this far, feel free to say hi wherever you find me! you can DM
 me on [twitter](https://twitter.com/spikedoanz) or email me at spikedoanz at
 gmail dot com. 
@@ -52,6 +55,6 @@ data-router-ignore>Towards a Time Theory of Money</a>
 [email](mailto:spikedoanz@gmail.com) ::
 [[me]]
 
+--------------------------------------------------------------------------------
 
-<!-- :: [[about]] :: -->
-<!-- [anonymous feedback](https://docs.google.com/forms/d/e/1FAIpQLSf-6VD0DNGgLSeFmMInbvmZrmVspTCItEESMpeQaqgop4HfBg/viewform?usp=sf_link) -->
+last updated: 2026-02-25
