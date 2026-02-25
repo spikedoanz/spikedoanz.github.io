@@ -109,15 +109,15 @@ going outside and meeting with friends in person?
 
 well a couple of reasons:
 
-1. you own literally all of the data: everything is hosted off of a sqlite db
-   that you can cache, read, backup, ... to your hearts content. there's also
-   less concern of a custodial service (like discord), snooping into your
-   server to train some AI models or whatever.
+1. you own literally all of the data: everything is hosted off of a postgres
+   instance that you can cache, read, backup, ... to your hearts content.
+   there's also less concern of a custodial service (like discord), snooping
+   into your server to train some AI models or whatever.
 
 2. among all of the chat software alternatives, zulip is the closest to getting
    to feature parity with discord, while avoiding the issues that got you into
    the discord problems in the first place (not owning the platform). irc
-   doesn't have image embeds, matrix doesn't have a functional phone client,
+   doesn't have image embeds, matrix doesn't have a streamlined phone client,
    slack is just not open source (and also they can see your messages if they
    want), etc etc. i've tried the rest, and found zulip to be the most
    functional choice out of everything.
