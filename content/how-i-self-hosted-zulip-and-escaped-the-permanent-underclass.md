@@ -44,9 +44,6 @@ on. a tally of some shenanigans they've been up to:
 
 ## escaping the permanent underclass
 
-> these setup steps are repeated no matter what chat backend you end up
-> choosing.
-
 ### 1. self hosting is neither scary nor expensive
 
 to host something like zulip, you fundamentally need two things:
