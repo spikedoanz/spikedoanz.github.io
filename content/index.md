@@ -16,6 +16,8 @@ gmail dot com.
 
 #### posts
 
+2026-02-25 :: [[how-i-self-hosted-zulip-and-escaped-the-permanent-underclass|how i self hosted zulip and escaped the permanent underclass]]
+
 2026-02-05 :: [[spikisms|spikisms]]
 
 2026-01-11 :: <a href="https://supaiku.com/time-monetary-theory.pdf"
