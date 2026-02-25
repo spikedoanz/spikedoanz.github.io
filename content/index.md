@@ -9,7 +9,7 @@ heya! i'm [[index|spike]] -- ml researcher by
 mathematician by
 <b onclick="document.getElementById('darkmode-toggle').click();">night</b>.
 
-i used to [[work|me]] at one of the math asi labs, but now do independent math,
+i used to [[me|work]] at one of the math asi labs, but now do independent math,
 plt, machine learning and create work.
 
 if you've gotten this far, feel free to say hi wherever you find me! you can DM
