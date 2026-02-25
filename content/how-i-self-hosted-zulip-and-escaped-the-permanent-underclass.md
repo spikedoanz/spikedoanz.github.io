@@ -193,4 +193,4 @@ to make ever again in software.
     permissions into the server. if you don't know how to handle this, you
     should pay zulip to deal with it instead; they're a good company.
 
-[^5] https://en.wikipedia.org/wiki/You_are_the_product
+[^5]: https://en.wikipedia.org/wiki/You_are_the_product
