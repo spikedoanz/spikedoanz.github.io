@@ -10,7 +10,7 @@ mathematician by
 <b onclick="document.getElementById('darkmode-toggle').click();">night</b>.
 
 i used to [[me|work]] at one of the math asi labs, but now do independent math,
-plt, machine learning and create work.
+plt, and machine learning research.
 
 if you've gotten this far, feel free to say hi wherever you find me! you can DM
 me on [twitter](https://twitter.com/spikedoanz) or email me at spikedoanz at
