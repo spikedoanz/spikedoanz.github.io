@@ -4,9 +4,9 @@ title: spike
 
 ### [[index|supaiku dot com]]
 
-heya! i'm [[index|spike]] -- computer scientist by
+heya! i'm [[index|spike]] -- computer person by
 <b onclick="document.getElementById('darkmode-toggle').click();">day</b>, 
-mathematician by
+language person by
 <b onclick="document.getElementById('darkmode-toggle').click();">night</b>.
 
 i used to [[me#work|work]] at one of the math asi labs, but now do independent math,
