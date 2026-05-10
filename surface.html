@@ -311,59 +311,21 @@
     overflow-y: hidden;
     text-align: left !important;
   }
-  .left-footnote {
-    display: inline-block;
-    position: relative;
-    vertical-align: super;
-    line-height: 1;
-  }
-  .left-footnote-marker {
-    appearance: none;
-    background: transparent;
-    border: none;
-    color: var(--link);
-    cursor: help;
+  .footnote-ref {
     font-family: var(--mono);
-    font-size: 0.68rem;
-    padding: 0 2px;
+    font-size: 0.72rem;
   }
-  .left-footnote-body {
-    position: absolute;
-    top: -8px;
-    right: calc(100% + 14px);
-    width: 285px;
-    padding: 10px 12px;
-    background: var(--bg);
-    border: 1px solid var(--rule);
+  .footnotes {
+    margin-top: 32px;
     color: var(--muted);
-    font-size: 13px;
-    line-height: 1.35;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(6px);
-    transition: opacity 0.15s, transform 0.15s;
-    z-index: 3;
+    font-size: 14px;
   }
-  .left-footnote-body a {
-    color: var(--link);
+  .footnotes ol {
+    padding-left: 1.3rem;
   }
-  .left-footnote:hover .left-footnote-body,
-  .left-footnote:focus-within .left-footnote-body {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  @media (max-width: 1180px) {
-    .left-footnote-body {
-      top: 1.4em;
-      right: auto;
-      left: 0;
-      width: min(260px, 80vw);
-      transform: translateY(-4px);
-    }
-    .left-footnote:hover .left-footnote-body,
-    .left-footnote:focus-within .left-footnote-body {
-      transform: translateY(0);
-    }
+  .footnotes li::marker,
+  .footnotes p {
+    color: var(--muted);
   }
   footer { color: var(--muted); font-size: 14px; margin-top: 48px; }
 </style>
@@ -454,7 +416,7 @@ underlying surface."</p>
   </div>
 
   <div class="algorithm-step">
-    <p>2. choose the radius that can actually reach every floor point.<span class="left-footnote"><button type="button" class="left-footnote-marker" aria-label="projection length note">*</button><span class="left-footnote-body" role="note">not really a named shadow theorem: <a href="https://proofwiki.org/wiki/Metric_Projection_onto_Closed_Convex_Set_is_1-Lipschitz">orthogonal projection is 1-lipschitz</a>, so a <a href="https://math.stackexchange.com/questions/3755651/projection-of-space-curve-shortens">projected curve cannot be longer</a>. a radius-1 curve can only cast points inside the euclidean unit disk; the L<sub>∞</sub> square has corners at √2.</span></span></p>
+    <p>2. choose the radius that can actually reach every floor point.<sup><a href="#user-content-fn-1" id="user-content-fnref-1" class="footnote-ref">[1]</a></sup></p>
     <div class="algorithm-viz-row">
       <canvas id="algo-reach-viz" class="algorithm-viz" aria-label="minimum enclosing reach radius"></canvas>
       <input type="range" class="algorithm-p-slider" aria-label="adjust p for reach step" min="0" max="1" step="0.001" value="0.6666">
@@ -492,6 +454,15 @@ underlying surface."</p>
 while its xy-projection lands on the L<sub>p</sub> unit ball. the red loop on
 the surface is the geodesic circle of radius R; its shadow on the floor is the
 yellow L<sub>p</sub> ball.</p>
+
+<section data-footnotes class="footnotes">
+  <h2 id="footnote-label">footnotes</h2>
+  <ol>
+    <li id="user-content-fn-1">
+      <p>not really a named shadow theorem: <a href="https://proofwiki.org/wiki/Metric_Projection_onto_Closed_Convex_Set_is_1-Lipschitz">orthogonal projection is 1-lipschitz</a>, so a <a href="https://math.stackexchange.com/questions/3755651/projection-of-space-curve-shortens">projected curve cannot be longer</a>. a radius-1 curve can only cast points inside the euclidean unit disk; the L<sub>∞</sub> square has corners at √2. <a href="#user-content-fnref-1" aria-label="Back to content">↩</a></p>
+    </li>
+  </ol>
+</section>
 
 <footer>
   <hr>
