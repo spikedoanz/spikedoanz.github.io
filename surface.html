@@ -311,12 +311,6 @@
     overflow-y: hidden;
     text-align: left !important;
   }
-  .footnotes {
-    margin-top: 32px;
-  }
-  .footnotes ol {
-    padding-left: 1.3rem;
-  }
   footer { color: var(--muted); font-size: 14px; margin-top: 48px; }
 </style>
 </head>
@@ -406,7 +400,7 @@ underlying surface."</p>
   </div>
 
   <div class="algorithm-step">
-    <p>2. choose the radius that can actually reach every floor point.<sup><a href="#user-content-fn-1" id="user-content-fnref-1" class="footnote-ref">[1]</a></sup></p>
+    <p>2. choose the radius that can actually reach every floor point.</p>
     <div class="algorithm-viz-row">
       <canvas id="algo-reach-viz" class="algorithm-viz" aria-label="minimum enclosing reach radius"></canvas>
       <input type="range" class="algorithm-p-slider" aria-label="adjust p for reach step" min="0" max="1" step="0.001" value="0.6666">
@@ -417,6 +411,8 @@ underlying surface."</p>
         2^{1/2-1/p}, & p>2
       \end{cases}
     \]
+    <p>see also: <a href="https://proofwiki.org/wiki/Metric_Projection_onto_Closed_Convex_Set_is_1-Lipschitz">orthogonal projection is 1-lipschitz</a>, so a
+    <a href="https://math.stackexchange.com/questions/3755651/projection-of-space-curve-shortens">projected curve cannot be longer</a>. a radius-1 curve can only cast points inside the euclidean unit disk; the L<sub>∞</sub> square has corners at √2.</p>
   </div>
 
   <div class="algorithm-step">
@@ -444,15 +440,6 @@ underlying surface."</p>
 while its xy-projection lands on the L<sub>p</sub> unit ball. the red loop on
 the surface is the geodesic circle of radius R; its shadow on the floor is the
 yellow L<sub>p</sub> ball.</p>
-
-<section data-footnotes class="footnotes">
-  <h2 id="footnote-label">footnotes</h2>
-  <ol>
-    <li id="user-content-fn-1">
-      <p>see also: <a href="https://proofwiki.org/wiki/Metric_Projection_onto_Closed_Convex_Set_is_1-Lipschitz">orthogonal projection is 1-lipschitz</a>, so a <a href="https://math.stackexchange.com/questions/3755651/projection-of-space-curve-shortens">projected curve cannot be longer</a>. a radius-1 curve can only cast points inside the euclidean unit disk; the L<sub>∞</sub> square has corners at √2. <a href="#user-content-fnref-1" aria-label="Back to content">↩</a></p>
-    </li>
-  </ol>
-</section>
 
 <footer>
   <hr>
