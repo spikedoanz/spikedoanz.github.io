@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>the surface on which the Lp ball is a true circle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --rule: #d8d6cf;
+    --link: #8a4a2c;
+    --serif: 'EB Garamond', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 36px 24px 80px;
+  }
+  .breadcrumb {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+  .breadcrumb a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .breadcrumb a:hover { border-color: var(--ink); }
+  .anchor {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85em;
+    margin-left: 4px;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+  h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 24px 0 16px;
+    letter-spacing: -0.005em;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 36px 0 12px;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 28px 0;
+  }
+  blockquote {
+    margin: 18px 0;
+    padding-left: 16px;
+    border-left: 2px solid var(--rule);
+    color: var(--muted);
+    font-style: italic;
+  }
+  p { margin: 0 0 14px; }
+  a { color: var(--link); }
+  .viz-card {
+    margin: 24px 0;
+    border: 1px solid var(--rule);
+    background: #0e1014;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .viz-card-inner {
+    display: flex;
+    flex-direction: column;
+    color: #dde3ec;
+    font-family: var(--serif);
+  }
+  .viz-controls {
+    padding: 14px 18px 12px;
+    border-bottom: 1px solid #1f242c;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .viz-slider-row {
+    display: flex;
+    flex-direction: column;
+  }
+  .viz-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #7a8494;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .viz-slider-labels .live {
+    color: #ffe066;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+  .viz-slider-row input[type=range] {
+    width: 100%;
+    accent-color: #ffe066;
+    cursor: pointer;
+  }
+  .viz-snaps {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+  .viz-snaps button {
+    padding: 3px 9px;
+    font-family: var(--serif);
+    font-size: 11px;
+    background: transparent;
+    color: #7a8494;
+    border: 1px solid #2c333d;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .viz-snaps button:hover {
+    color: #dde3ec;
+    border-color: #4a525e;
+  }
+  .viz-toggles {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+  .viz-toggles label {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+  }
+  #viz-canvas {
+    width: 100%;
+    height: 520px;
+    display: block;
+    touch-action: none;
+  }
+  .viz-caption {
+    padding: 10px 18px;
+    border-top: 1px solid #1f242c;
+    font-size: 12px;
+    color: #7a8494;
+    line-height: 1.5;
+  }
+  .viz-caption .key { color: #dde3ec; }
+  .viz-caption .yellow { color: #ffe066; }
+  .viz-caption .red { color: #ff5577; }
+  .viz-caption .green { color: #66ff99; }
+  code, pre { font-family: var(--mono); font-size: 0.92em; }
+  footer { color: var(--muted); font-size: 14px; margin-top: 48px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="breadcrumb">
+  <a href="https://supaiku.com/">supaiku dot com</a> <a href="#top" class="anchor">§</a>
+</div>
+
+<h1 id="top">the surface on which the L<sub>p</sub> ball is a true circle <a href="#top" class="anchor">§</a></h1>
+
+<hr>
+
+<blockquote>
+the L<sub>2</sub> circle is the equidistant locus from a point on a flat plane.
+what surface makes the L<sub>1</sub> diamond, the L<sub>∞</sub> square, and the
+intermediate L<sub>p</sub> shapes equidistant?
+</blockquote>
+
+<hr>
+
+<p>each radial ray on the surface has length equal to the L<sub>p</sub>-norm of
+its xy-projection. the red loop on the surface is the geodesic circle of radius
+1; its shadow on the floor is the yellow L<sub>p</sub> ball.</p>
+
+<p>for p&lt;2 the surface arches up along the axes and dips down along the
+diagonals — the shadow squeezes inward. as p drops below 1 the diagonals plunge
+so steeply that the shadow becomes a non-convex four-pointed star (an astroid in
+the limit), collapsing toward the bare coordinate axes as p→0. for p&gt;2 the
+surface flips: ridges along the diagonals, valleys along the axes, and the
+shadow stretches outward into a square as p→∞. at p=2 the surface is the flat
+plane.</p>
+
+<div class="viz-card">
+  <div class="viz-card-inner">
+    <div class="viz-controls">
+      <div class="viz-slider-row">
+        <div class="viz-slider-labels">
+          <span>p → 0 (axes)</span>
+          <span class="live">p = <span id="p-display">2.00</span></span>
+          <span>p = ∞ (square)</span>
+        </div>
+        <input type="range" id="p-slider" min="0" max="1" step="0.001" value="0.6666">
+        <div class="viz-snaps">
+          <button data-s="0.279">0.5</button>
+          <button data-s="0.333">1</button>
+          <button data-s="0.5">1.5</button>
+          <button data-s="0.6666">2</button>
+          <button data-s="0.7777">3</button>
+          <button data-s="0.8888">6</button>
+          <button data-s="1">∞</button>
+        </div>
+      </div>
+      <div class="viz-toggles">
+        <label><input type="checkbox" id="t-rays" checked> rays</label>
+        <label><input type="checkbox" id="t-shadow" checked> shadows</label>
+        <label><input type="checkbox" id="t-grid" checked> surface grid</label>
+      </div>
+    </div>
+    <canvas id="viz-canvas"></canvas>
+    <div class="viz-caption">
+      <span class="key">drag</span> to spin · <span class="key">scroll</span> to zoom ·
+      <span class="green">green</span> rays go from origin to the geodesic-distance-1 shell on the surface,
+      <span class="yellow">yellow dashed</span> shadows drop straight down to the
+      <span class="yellow">yellow L<sub>p</sub> ball</span> on the floor,
+      <span class="red">red loop</span> traces the geodesic circle.
+    </div>
+  </div>
+</div>
+
+<footer>
+  <hr>
+  see also: <a href="https://en.wikipedia.org/wiki/Lp_space">L<sup>p</sup> space</a>,
+  <a href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski distance</a>,
+  <a href="https://en.wikipedia.org/wiki/Finsler_manifold">Finsler manifold</a>.
+</footer>
+
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+
+// --- Lp math ---
+const lpNorm = (x, y, p) => {
+  if (p >= 50) return Math.max(Math.abs(x), Math.abs(y));
+  return Math.pow(Math.pow(Math.abs(x), p) + Math.pow(Math.abs(y), p), 1 / p);
+};
+const lpRadius = (theta, p) => 1 / lpNorm(Math.cos(theta), Math.sin(theta), p);
+
+function sliderToP(s) {
+  if (s <= 1 / 3) {
+    const u = s * 3;
+    return Math.max(0.05, u * 1 + (1 - u) * 0.05);
+  } else if (s <= 2 / 3) {
+    const u = (s - 1 / 3) * 3;
+    return 1 + u;
+  } else {
+    const u = (s - 2 / 3) * 3;
+    if (u >= 0.98) return 50;
+    return 2 / (1 - u);
+  }
+}
+function formatP(p) {
+  if (p >= 50) return '∞';
+  if (p >= 10) return p.toFixed(0);
+  return p.toFixed(2);
+}
+
+// --- builders ---
+function buildSurface(p, segmentsTheta = 384, segmentsT = 60, scale = 2.4) {
+  const positions = [], indices = [], colors = [];
+  const R = new Float32Array(segmentsTheta + 1);
+  for (let i = 0; i <= segmentsTheta; i++) {
+    const theta = (i / segmentsTheta) * Math.PI * 2;
+    R[i] = lpRadius(theta, p);
+  }
+  for (let i = 0; i <= segmentsTheta; i++) {
+    const theta = (i / segmentsTheta) * Math.PI * 2;
+    const cosT = Math.cos(theta), sinT = Math.sin(theta);
+    const r = R[i];
+    for (let j = 0; j <= segmentsT; j++) {
+      const t = (j / segmentsT) * scale;
+      const xyR = t * r;
+      const x = xyR * cosT, y = xyR * sinT;
+      let z;
+      if (r <= 1.0) z = t * Math.sqrt(Math.max(0, 1 - r * r));
+      else z = -t * Math.sqrt(r * r - 1);
+      positions.push(x, y, z);
+      const hNorm = Math.max(-1, Math.min(1, z / 1.5));
+      const tCol = (hNorm + 1) * 0.5;
+      colors.push(0.18 + 0.55 * tCol, 0.38 + 0.50 * tCol, 0.62 + 0.30 * tCol);
+    }
+  }
+  const stride = segmentsT + 1;
+  for (let i = 0; i < segmentsTheta; i++) {
+    for (let j = 0; j < segmentsT; j++) {
+      const a = i * stride + j;
+      const b = (i + 1) * stride + j;
+      const c = (i + 1) * stride + (j + 1);
+      const d = i * stride + (j + 1);
+      indices.push(a, b, d, b, c, d);
+    }
+  }
+  const geom = new THREE.BufferGeometry();
+  geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  geom.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+  geom.setIndex(indices);
+  geom.computeVertexNormals();
+  return geom;
+}
+
+function buildShadowDrop(p, theta) {
+  const r = lpRadius(theta, p);
+  const c = Math.cos(theta), s = Math.sin(theta);
+  const x = r * c, y = r * s;
+  let z;
+  if (r <= 1.0) z = Math.sqrt(Math.max(0, 1 - r * r));
+  else z = -Math.sqrt(r * r - 1);
+  return new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(x, y, z),
+    new THREE.Vector3(x, y, 0),
+  ]);
+}
+
+// --- scene setup ---
+const canvas = document.getElementById('viz-canvas');
+const renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
+renderer.setPixelRatio(window.devicePixelRatio);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#0e1014');
+
+const camera = new THREE.PerspectiveCamera(40, 1, 0.01, 100);
+camera.position.set(0, 0, 5);
+camera.up.set(0, 1, 0);
+camera.lookAt(0, 0, 0);
+
+function resize() {
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+resize();
+window.addEventListener('resize', resize);
+
+// world group (we rotate this, not the camera — trackball style)
+const world = new THREE.Group();
+world.quaternion.setFromAxisAngle(new THREE.Vector3(1, 0, 0), -Math.PI * 55 / 180);
+scene.add(world);
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+const key = new THREE.DirectionalLight(0xffffff, 0.85);
+key.position.set(3, 4, 5);
+scene.add(key);
+const rim = new THREE.DirectionalLight(0x88aaff, 0.35);
+rim.position.set(-3, -2, 2);
+scene.add(rim);
+
+// axes
+const axesLen = 1.8;
+const axesMat = new THREE.LineBasicMaterial({ color: 0x444a55 });
+for (const seg of [
+  [[-axesLen, 0, 0], [axesLen, 0, 0]],
+  [[0, -axesLen, 0], [0, axesLen, 0]],
+  [[0, 0, -1.2], [0, 0, 1.2]],
+]) {
+  const g = new THREE.BufferGeometry().setFromPoints(seg.map(p => new THREE.Vector3(...p)));
+  world.add(new THREE.Line(g, axesMat));
+}
+const originMesh = new THREE.Mesh(
+  new THREE.SphereGeometry(0.025, 16, 16),
+  new THREE.MeshBasicMaterial({ color: 0xffe066 }),
+);
+world.add(originMesh);
+
+const raysGroup = new THREE.Group(); world.add(raysGroup);
+const shadowGroup = new THREE.Group(); world.add(shadowGroup);
+
+let surfaceMesh = null, shellLine = null, geodesicLoop = null, surfaceGrid = null;
+
+function disposeMesh(m) {
+  if (!m) return;
+  m.geometry.dispose();
+  if (m.material) m.material.dispose();
+}
+
+function rebuildForP(pVal) {
+  if (surfaceMesh) { world.remove(surfaceMesh); disposeMesh(surfaceMesh); }
+  if (shellLine) { world.remove(shellLine); disposeMesh(shellLine); }
+  if (geodesicLoop) { world.remove(geodesicLoop); disposeMesh(geodesicLoop); }
+  while (raysGroup.children.length) {
+    const c = raysGroup.children[0]; raysGroup.remove(c); disposeMesh(c);
+  }
+  while (shadowGroup.children.length) {
+    const c = shadowGroup.children[0]; shadowGroup.remove(c); disposeMesh(c);
+  }
+
+  // surface
+  const surfGeom = buildSurface(pVal);
+  const surfMat = new THREE.MeshStandardMaterial({
+    vertexColors: true, side: THREE.DoubleSide,
+    roughness: 0.55, metalness: 0.05,
+    transparent: true, opacity: 0.55,
+    flatShading: false, depthWrite: false,
+  });
+  surfaceMesh = new THREE.Mesh(surfGeom, surfMat);
+  world.add(surfaceMesh);
+
+  // surface polar grid
+  surfaceGrid = new THREE.Group();
+  surfaceGrid.name = 'surfacegrid';
+  const gridLineMat = new THREE.LineBasicMaterial({
+    color: 0xffffff, transparent: true, opacity: 0.22,
+  });
+  const N_SPOKES = 24, SPOKE_T_MAX = 1.5, SPOKE_SEGS = 40;
+  for (let i = 0; i < N_SPOKES; i++) {
+    const theta = (i / N_SPOKES) * Math.PI * 2;
+    const r = lpRadius(theta, pVal);
+    const c = Math.cos(theta), s = Math.sin(theta);
+    const pts = [];
+    for (let j = 0; j <= SPOKE_SEGS; j++) {
+      const t = (j / SPOKE_SEGS) * SPOKE_T_MAX;
+      const xyR = t * r;
+      const x = xyR * c, y = xyR * s;
+      let z;
+      if (r <= 1.0) z = t * Math.sqrt(Math.max(0, 1 - r * r));
+      else z = -t * Math.sqrt(r * r - 1);
+      pts.push(new THREE.Vector3(x, y, z));
+    }
+    surfaceGrid.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gridLineMat));
+  }
+  for (const tVal of [0.25, 0.5, 0.75, 1.0, 1.25]) {
+    const pts = [];
+    const ARC_SEGS = 360;
+    for (let i = 0; i <= ARC_SEGS; i++) {
+      const theta = (i / ARC_SEGS) * Math.PI * 2;
+      const r = lpRadius(theta, pVal);
+      const xyR = tVal * r;
+      const x = xyR * Math.cos(theta), y = xyR * Math.sin(theta);
+      let z;
+      if (r <= 1.0) z = tVal * Math.sqrt(Math.max(0, 1 - r * r));
+      else z = -tVal * Math.sqrt(r * r - 1);
+      pts.push(new THREE.Vector3(x, y, z));
+    }
+    surfaceGrid.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gridLineMat));
+  }
+  surfaceMesh.add(surfaceGrid);
+  surfaceGrid.visible = document.getElementById('t-grid').checked;
+
+  // yellow shell (tube)
+  const shellPts = [];
+  for (let i = 0; i <= 720; i++) {
+    const theta = (i / 720) * Math.PI * 2;
+    const r = lpRadius(theta, pVal);
+    shellPts.push(new THREE.Vector3(r * Math.cos(theta), r * Math.sin(theta), 0));
+  }
+  const shellCurve = new THREE.CatmullRomCurve3(shellPts, true);
+  shellLine = new THREE.Mesh(
+    new THREE.TubeGeometry(shellCurve, 720, 0.018, 10, true),
+    new THREE.MeshBasicMaterial({ color: 0xffe066 }),
+  );
+  world.add(shellLine);
+
+  // red geodesic loop (tube)
+  const loopPts = [];
+  for (let i = 0; i <= 720; i++) {
+    const theta = (i / 720) * Math.PI * 2;
+    const r = lpRadius(theta, pVal);
+    const x = r * Math.cos(theta), y = r * Math.sin(theta);
+    let z;
+    if (r <= 1.0) z = Math.sqrt(Math.max(0, 1 - r * r));
+    else z = -Math.sqrt(r * r - 1);
+    loopPts.push(new THREE.Vector3(x, y, z));
+  }
+  const loopCurve = new THREE.CatmullRomCurve3(loopPts, true);
+  geodesicLoop = new THREE.Mesh(
+    new THREE.TubeGeometry(loopCurve, 720, 0.018, 10, true),
+    new THREE.MeshBasicMaterial({ color: 0xff5577 }),
+  );
+  world.add(geodesicLoop);
+
+  // green rays (tubes) and yellow drop shadows
+  const N_RAYS = 12, RAY_SEGS = 30;
+  for (let i = 0; i < N_RAYS; i++) {
+    const theta = (i / N_RAYS) * Math.PI * 2;
+    const r = lpRadius(theta, pVal);
+    const c = Math.cos(theta), s = Math.sin(theta);
+    const pts = [];
+    for (let j = 0; j <= RAY_SEGS; j++) {
+      const t = j / RAY_SEGS;
+      const xyR = t * r;
+      const x = xyR * c, y = xyR * s;
+      let z;
+      if (r <= 1.0) z = t * Math.sqrt(Math.max(0, 1 - r * r));
+      else z = -t * Math.sqrt(r * r - 1);
+      pts.push(new THREE.Vector3(x, y, z));
+    }
+    const rayCurve = new THREE.CatmullRomCurve3(pts, false);
+    const rayMesh = new THREE.Mesh(
+      new THREE.TubeGeometry(rayCurve, RAY_SEGS, 0.012, 8, false),
+      new THREE.MeshBasicMaterial({ color: 0x66ff99, transparent: true, opacity: 0.9 }),
+    );
+    raysGroup.add(rayMesh);
+
+    const dropGeom = buildShadowDrop(pVal, theta);
+    const dropMat = new THREE.LineDashedMaterial({
+      color: 0xffe066, dashSize: 0.04, gapSize: 0.04,
+      transparent: true, opacity: 0.6,
+    });
+    const drop = new THREE.Line(dropGeom, dropMat);
+    drop.computeLineDistances();
+    shadowGroup.add(drop);
+  }
+}
+
+// --- trackball controls ---
+function projectToSphere(nx, ny) {
+  const d2 = nx * nx + ny * ny;
+  let z;
+  if (d2 < 0.5) z = Math.sqrt(1 - d2);
+  else z = 0.5 / Math.sqrt(d2);
+  const v = new THREE.Vector3(nx, ny, z);
+  v.normalize();
+  return v;
+}
+let isDragging = false, prevSphereVec = null, zoomDist = 5;
+function getNormalized(clientX, clientY) {
+  const rect = canvas.getBoundingClientRect();
+  return [
+    ((clientX - rect.left) / rect.width) * 2 - 1,
+    -(((clientY - rect.top) / rect.height) * 2 - 1),
+  ];
+}
+function beginDrag(x, y) {
+  const [nx, ny] = getNormalized(x, y);
+  prevSphereVec = projectToSphere(nx, ny);
+  isDragging = true;
+}
+function updateDrag(x, y) {
+  if (!isDragging || !prevSphereVec) return;
+  const [nx, ny] = getNormalized(x, y);
+  const curr = projectToSphere(nx, ny);
+  const axis = new THREE.Vector3().crossVectors(prevSphereVec, curr);
+  const dot = Math.max(-1, Math.min(1, prevSphereVec.dot(curr)));
+  const angle = Math.acos(dot);
+  if (angle > 1e-6 && axis.lengthSq() > 1e-12) {
+    axis.normalize();
+    const q = new THREE.Quaternion().setFromAxisAngle(axis, angle);
+    world.quaternion.premultiply(q);
+  }
+  prevSphereVec = curr;
+}
+function endDrag() { isDragging = false; prevSphereVec = null; }
+
+canvas.addEventListener('mousedown', e => beginDrag(e.clientX, e.clientY));
+window.addEventListener('mousemove', e => updateDrag(e.clientX, e.clientY));
+window.addEventListener('mouseup', endDrag);
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  zoomDist *= e.deltaY > 0 ? 1.08 : 0.93;
+  zoomDist = Math.max(1.5, Math.min(15, zoomDist));
+  camera.position.set(0, 0, zoomDist);
+}, { passive: false });
+canvas.addEventListener('touchstart', e => {
+  if (e.touches.length === 1) beginDrag(e.touches[0].clientX, e.touches[0].clientY);
+});
+canvas.addEventListener('touchmove', e => {
+  if (e.touches.length === 1) updateDrag(e.touches[0].clientX, e.touches[0].clientY);
+}, { passive: true });
+canvas.addEventListener('touchend', endDrag);
+
+// --- UI wiring ---
+const slider = document.getElementById('p-slider');
+const pDisplay = document.getElementById('p-display');
+function applySlider() {
+  const p = sliderToP(parseFloat(slider.value));
+  pDisplay.textContent = formatP(p);
+  rebuildForP(p);
+}
+slider.addEventListener('input', applySlider);
+document.querySelectorAll('.viz-snaps button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    slider.value = btn.dataset.s;
+    applySlider();
+  });
+});
+document.getElementById('t-rays').addEventListener('change', e => {
+  raysGroup.visible = e.target.checked;
+});
+document.getElementById('t-shadow').addEventListener('change', e => {
+  shadowGroup.visible = e.target.checked;
+});
+document.getElementById('t-grid').addEventListener('change', e => {
+  if (surfaceGrid) surfaceGrid.visible = e.target.checked;
+});
+
+// initial build
+applySlider();
+
+// --- render loop ---
+function tick() {
+  renderer.render(scene, camera);
+  requestAnimationFrame(tick);
+}
+tick();
+</script>
+</body>
+</html>
