@@ -13,6 +13,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="/index.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+    svg: { fontCache: 'global' },
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
   :root {
     --bg: #fdfcf7;
@@ -254,6 +261,107 @@
     min-height: 0;
   }
   code, pre { font-family: var(--mono); font-size: 0.92em; }
+  .algorithm {
+    margin: 18px 0 20px;
+  }
+  .algorithm-step {
+    margin: 16px 0 22px;
+    position: relative;
+  }
+  .algorithm p {
+    margin-bottom: 10px;
+  }
+  .algorithm-viz-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) repeat(var(--slider-count, 1), 24px);
+    gap: 10px;
+    align-items: stretch;
+    margin: 8px 0 10px;
+  }
+  .algorithm-viz {
+    width: 100%;
+    height: 150px;
+    display: block;
+    margin: 0;
+    background: var(--viz-bg);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+  }
+  .algorithm-viz.surface-patch-viz,
+  .algorithm-viz-row.surface-patch-row .algorithm-p-slider,
+  .algorithm-viz-row.surface-patch-row .algorithm-sweep-slider {
+    height: 190px;
+  }
+  .surface-patch-row {
+    --slider-count: 2;
+  }
+  .algorithm-p-slider,
+  .algorithm-sweep-slider {
+    width: 24px;
+    height: 150px;
+    margin: 0;
+    accent-color: var(--viz-yellow);
+    cursor: pointer;
+    writing-mode: vertical-lr;
+    direction: rtl;
+  }
+  .algorithm .mjx-container[jax="SVG"][display="true"] {
+    margin: 8px 0 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-align: left !important;
+  }
+  .left-footnote {
+    display: inline-block;
+    position: relative;
+    vertical-align: super;
+    line-height: 1;
+  }
+  .left-footnote-marker {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: var(--link);
+    cursor: help;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 0 2px;
+  }
+  .left-footnote-body {
+    position: absolute;
+    top: -8px;
+    right: calc(100% + 14px);
+    width: 245px;
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.35;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(6px);
+    transition: opacity 0.15s, transform 0.15s;
+    z-index: 3;
+  }
+  .left-footnote:hover .left-footnote-body,
+  .left-footnote:focus-within .left-footnote-body {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  @media (max-width: 1180px) {
+    .left-footnote-body {
+      top: 1.4em;
+      right: auto;
+      left: 0;
+      width: min(260px, 80vw);
+      transform: translateY(-4px);
+    }
+    .left-footnote:hover .left-footnote-body,
+    .left-footnote:focus-within .left-footnote-body {
+      transform: translateY(0);
+    }
+  }
   footer { color: var(--muted); font-size: 14px; margin-top: 48px; }
 </style>
 </head>
@@ -283,7 +391,7 @@ intermediate L<sub>p</sub> shapes equidistant?
       <div class="viz-slider-row">
         <div class="viz-slider-labels">
           <span>p → 0 (axes)</span>
-          <span class="live">p = <span id="p-display">2.00</span></span>
+          <span class="live">p = <span id="p-display">2.00</span> · R = <span id="r-display">1.000</span></span>
           <span>p = ∞ (square)</span>
         </div>
         <input type="range" id="p-slider" min="0" max="1" step="0.001" value="0.6666">
@@ -308,10 +416,12 @@ intermediate L<sub>p</sub> shapes equidistant?
     </div>
     <div class="viz-caption">
       <span class="key">drag</span> to spin · <span class="key">scroll</span> to zoom ·
-      <span class="green">green</span> rays go from origin to the geodesic-distance-1 shell on the surface,
+      <span class="green">green</span> rays go from origin to the geodesic-radius-R shell on the surface,
       <span class="yellow">yellow dashed</span> shadows drop straight down to the
       <span class="yellow">yellow L<sub>p</sub> ball</span> on the floor,
-      <span class="red">red loop</span> traces the geodesic circle.
+      <span class="red">red loop</span> traces the geodesic circle. R=1 for p≤2 and
+      grows to √2 as p→∞ because the square's corners sit beyond the unit disk;
+      the p&gt;2 branch is drawn below the floor for a continuous signed deformation.
     </div>
   </div>
 </div>
@@ -326,17 +436,59 @@ inverse operation which transforms the L<sub>2</sub> circle's curve, into the
 straight line from the L<sub>1</sub> diamond, but instead applied to the
 underlying surface."</p>
 
-<p>each radial ray on the surface has length equal to the L<sub>p</sub>-norm of
-its xy-projection. the red loop on the surface is the geodesic circle of radius
-1; its shadow on the floor is the yellow L<sub>p</sub> ball.</p>
+<div class="algorithm">
+  <p>algorithmically, for a given p:</p>
 
-<p>for p&lt;2 the surface arches up along the axes and dips down along the
-diagonals — the shadow squeezes inward. as p drops below 1 the diagonals plunge
-so steeply that the shadow becomes a non-convex four-pointed star (an astroid in
-the limit), collapsing toward the bare coordinate axes as p→0. for p&gt;2 the
-surface flips: ridges along the diagonals, valleys along the axes, and the
-shadow stretches outward into a square as p→∞. at p=2 the surface is the flat
-plane.</p>
+  <div class="algorithm-step">
+    <p>1. take the L<sub>p</sub> unit-ball radius in each direction.</p>
+    <div class="algorithm-viz-row">
+      <canvas id="algo-radius-viz" class="algorithm-viz" aria-label="top-down Lp radius slice"></canvas>
+      <input type="range" class="algorithm-p-slider" aria-label="adjust p for radius step" min="0" max="1" step="0.001" value="0.6666">
+    </div>
+    \[
+      r_p(\theta)=\frac{1}{\left(|\cos\theta|^p+|\sin\theta|^p\right)^{1/p}}
+    \]
+  </div>
+
+  <div class="algorithm-step">
+    <p>2. choose the radius that can actually reach every floor point.<span class="left-footnote"><button type="button" class="left-footnote-marker" aria-label="shadow theorem note">*</button><span class="left-footnote-body" role="note">shadow theorem: orthogonal projection cannot increase length. so any radius-1 curve from the origin can only cast points inside the euclidean unit disk. the L<sub>∞</sub> square has corners at distance √2, so for p&gt;2 the radius has to grow.</span></span></p>
+    <div class="algorithm-viz-row">
+      <canvas id="algo-reach-viz" class="algorithm-viz" aria-label="minimum enclosing reach radius"></canvas>
+      <input type="range" class="algorithm-p-slider" aria-label="adjust p for reach step" min="0" max="1" step="0.001" value="0.6666">
+    </div>
+    \[
+      R_p=\begin{cases}
+        1, & p\le 2 \\
+        2^{1/2-1/p}, & p>2
+      \end{cases}
+    \]
+  </div>
+
+  <div class="algorithm-step">
+    <p>3. lift, or sink, the floor point by the missing euclidean length.</p>
+    <div class="algorithm-viz-row">
+      <canvas id="algo-surface-viz" class="algorithm-viz" aria-label="signed vertical surface slice"></canvas>
+      <input type="range" class="algorithm-p-slider" aria-label="adjust p for surface step" min="0" max="1" step="0.001" value="0.6666">
+    </div>
+    \[
+      S_p(\theta)=\left(r_p(\theta)\cos\theta,\ r_p(\theta)\sin\theta,\ \operatorname{sgn}(2-p)\sqrt{R_p^2-r_p(\theta)^2}\right)
+    \]
+  </div>
+
+  <div class="algorithm-step">
+    <p>4. sweep a small angular wedge to get a local patch of the surface.</p>
+    <div class="algorithm-viz-row surface-patch-row">
+      <canvas id="algo-patch-viz" class="algorithm-viz surface-patch-viz" aria-label="finite angular wedge of the morphed surface"></canvas>
+      <input type="range" class="algorithm-p-slider" aria-label="adjust p for surface patch" min="0" max="1" step="0.001" value="0.6666">
+      <input type="range" id="patch-sweep-slider" class="algorithm-sweep-slider" aria-label="adjust sweep angle for surface patch" min="0" max="1" step="0.001" value="0.027778">
+    </div>
+  </div>
+</div>
+
+<p>each boundary ray on the surface has straight 3D length R for the current p,
+while its xy-projection lands on the L<sub>p</sub> unit ball. the red loop on
+the surface is the geodesic circle of radius R; its shadow on the floor is the
+yellow L<sub>p</sub> ball.</p>
 
 <footer>
   <hr>
@@ -363,6 +515,14 @@ const lpNorm = (x, y, p) => {
   return Math.pow(Math.pow(Math.abs(x), p) + Math.pow(Math.abs(y), p), 1 / p);
 };
 const lpRadius = (theta, p) => 1 / lpNorm(Math.cos(theta), Math.sin(theta), p);
+const geodesicRadius = (p) => {
+  if (p <= 2) return 1;
+  if (p >= 50) return Math.SQRT2;
+  return Math.pow(2, 0.5 - 1 / p);
+};
+const surfaceSign = (p) => p <= 2 ? 1 : -1;
+const surfaceHeight = (r, radius, p) =>
+  surfaceSign(p) * Math.sqrt(Math.max(0, radius * radius - r * r));
 
 function sliderToP(s) {
   if (s <= 1 / 3) {
@@ -382,9 +542,12 @@ function formatP(p) {
   if (p >= 10) return p.toFixed(0);
   return p.toFixed(2);
 }
+function formatRadius(radius) {
+  return radius.toFixed(3);
+}
 
 // --- builders ---
-function buildSurface(p, segmentsTheta = 384, segmentsT = 60, scale = 2.4) {
+function buildSurface(p, radius, segmentsTheta = 384, segmentsT = 60, scale = 2.4) {
   const positions = [], indices = [], colors = [];
   const R = new Float32Array(segmentsTheta + 1);
   for (let i = 0; i <= segmentsTheta; i++) {
@@ -399,9 +562,7 @@ function buildSurface(p, segmentsTheta = 384, segmentsT = 60, scale = 2.4) {
       const t = (j / segmentsT) * scale;
       const xyR = t * r;
       const x = xyR * cosT, y = xyR * sinT;
-      let z;
-      if (r <= 1.0) z = t * Math.sqrt(Math.max(0, 1 - r * r));
-      else z = -t * Math.sqrt(r * r - 1);
+      const z = t * surfaceHeight(r, radius, p);
       positions.push(x, y, z);
       const hNorm = Math.max(-1, Math.min(1, z / 1.5));
       const tCol = (hNorm + 1) * 0.5;
@@ -426,13 +587,11 @@ function buildSurface(p, segmentsTheta = 384, segmentsT = 60, scale = 2.4) {
   return geom;
 }
 
-function buildShadowDrop(p, theta) {
+function buildShadowDrop(p, theta, radius) {
   const r = lpRadius(theta, p);
   const c = Math.cos(theta), s = Math.sin(theta);
   const x = r * c, y = r * s;
-  let z;
-  if (r <= 1.0) z = Math.sqrt(Math.max(0, 1 - r * r));
-  else z = -Math.sqrt(r * r - 1);
+  const z = surfaceHeight(r, radius, p);
   return new THREE.BufferGeometry().setFromPoints([
     new THREE.Vector3(x, y, z),
     new THREE.Vector3(x, y, 0),
@@ -534,6 +693,7 @@ function disposeMesh(m) {
 }
 
 function rebuildForP(pVal) {
+  const radius = geodesicRadius(pVal);
   if (surfaceMesh) { world.remove(surfaceMesh); disposeMesh(surfaceMesh); }
   if (shellLine) { world.remove(shellLine); disposeMesh(shellLine); }
   if (geodesicLoop) { world.remove(geodesicLoop); disposeMesh(geodesicLoop); }
@@ -545,7 +705,7 @@ function rebuildForP(pVal) {
   }
 
   // surface
-  const surfGeom = buildSurface(pVal);
+  const surfGeom = buildSurface(pVal, radius);
   const surfMat = new THREE.MeshStandardMaterial({
     vertexColors: true, side: THREE.DoubleSide,
     roughness: 0.55, metalness: 0.05,
@@ -571,9 +731,7 @@ function rebuildForP(pVal) {
       const t = (j / SPOKE_SEGS) * SPOKE_T_MAX;
       const xyR = t * r;
       const x = xyR * c, y = xyR * s;
-      let z;
-      if (r <= 1.0) z = t * Math.sqrt(Math.max(0, 1 - r * r));
-      else z = -t * Math.sqrt(r * r - 1);
+      const z = t * surfaceHeight(r, radius, pVal);
       pts.push(new THREE.Vector3(x, y, z));
     }
     surfaceGrid.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gridLineMat));
@@ -586,9 +744,7 @@ function rebuildForP(pVal) {
       const r = lpRadius(theta, pVal);
       const xyR = tVal * r;
       const x = xyR * Math.cos(theta), y = xyR * Math.sin(theta);
-      let z;
-      if (r <= 1.0) z = tVal * Math.sqrt(Math.max(0, 1 - r * r));
-      else z = -tVal * Math.sqrt(r * r - 1);
+      const z = tVal * surfaceHeight(r, radius, pVal);
       pts.push(new THREE.Vector3(x, y, z));
     }
     surfaceGrid.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gridLineMat));
@@ -616,9 +772,7 @@ function rebuildForP(pVal) {
     const theta = (i / 720) * Math.PI * 2;
     const r = lpRadius(theta, pVal);
     const x = r * Math.cos(theta), y = r * Math.sin(theta);
-    let z;
-    if (r <= 1.0) z = Math.sqrt(Math.max(0, 1 - r * r));
-    else z = -Math.sqrt(r * r - 1);
+    const z = surfaceHeight(r, radius, pVal);
     loopPts.push(new THREE.Vector3(x, y, z));
   }
   const loopCurve = new THREE.CatmullRomCurve3(loopPts, true);
@@ -639,9 +793,7 @@ function rebuildForP(pVal) {
       const t = j / RAY_SEGS;
       const xyR = t * r;
       const x = xyR * c, y = xyR * s;
-      let z;
-      if (r <= 1.0) z = t * Math.sqrt(Math.max(0, 1 - r * r));
-      else z = -t * Math.sqrt(r * r - 1);
+      const z = t * surfaceHeight(r, radius, pVal);
       pts.push(new THREE.Vector3(x, y, z));
     }
     const rayCurve = new THREE.CatmullRomCurve3(pts, false);
@@ -651,7 +803,7 @@ function rebuildForP(pVal) {
     );
     raysGroup.add(rayMesh);
 
-    const dropGeom = buildShadowDrop(pVal, theta);
+    const dropGeom = buildShadowDrop(pVal, theta, radius);
     const dropMat = new THREE.LineDashedMaterial({
       color: 0xffe066, dashSize: 0.04, gapSize: 0.04,
       transparent: true, opacity: 0.6,
@@ -718,19 +870,347 @@ canvas.addEventListener('touchmove', e => {
 }, { passive: true });
 canvas.addEventListener('touchend', endDrag);
 
+// --- algorithm sketches ---
+const algoCanvases = {
+  radius: document.getElementById('algo-radius-viz'),
+  reach: document.getElementById('algo-reach-viz'),
+  surface: document.getElementById('algo-surface-viz'),
+  patch: document.getElementById('algo-patch-viz'),
+};
+const sketch = {
+  bg: '#0e1014',
+  muted: '#7a8494',
+  rule: '#2c333d',
+  text: '#dde3ec',
+  yellow: '#ffe066',
+  red: '#ff5577',
+  green: '#66ff99',
+};
+
+function canvasContext2d(canvas) {
+  const rect = canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  const width = Math.max(1, Math.round(rect.width * dpr));
+  const height = Math.max(1, Math.round(rect.height * dpr));
+  if (canvas.width !== width || canvas.height !== height) {
+    canvas.width = width;
+    canvas.height = height;
+  }
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return { ctx, width: rect.width, height: rect.height };
+}
+
+function drawText(ctx, text, x, y, color = sketch.muted) {
+  ctx.save();
+  ctx.fillStyle = color;
+  ctx.font = '12px JetBrains Mono, SF Mono, Menlo, monospace';
+  ctx.fillText(text, x, y);
+  ctx.restore();
+}
+
+function drawDashedLine(ctx, x1, y1, x2, y2, color, width = 1) {
+  ctx.save();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.setLineDash([5, 5]);
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawLpBoundary(ctx, p, cx, cy, scale, color, width = 2, alpha = 1) {
+  ctx.save();
+  ctx.strokeStyle = color;
+  ctx.globalAlpha = alpha;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  for (let i = 0; i <= 360; i++) {
+    const theta = (i / 360) * Math.PI * 2;
+    const r = lpRadius(theta, p);
+    const x = cx + scale * r * Math.cos(theta);
+    const y = cy - scale * r * Math.sin(theta);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawCircle(ctx, cx, cy, radius, color, width = 1, alpha = 1) {
+  ctx.save();
+  ctx.strokeStyle = color;
+  ctx.globalAlpha = alpha;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawDot(ctx, x, y, color, radius = 4) {
+  ctx.save();
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function selectedTheta(p) {
+  return p <= 2 ? Math.PI / 4 : 0;
+}
+
+function drawTopDownRadius(p, radius) {
+  const { ctx, width, height } = canvasContext2d(algoCanvases.radius);
+  const cx = width * 0.5, cy = height * 0.52;
+  const scale = Math.min(width, height) * 0.36 / Math.max(1.45, radius);
+  const theta = selectedTheta(p);
+  const r = lpRadius(theta, p);
+  const x = cx + scale * r * Math.cos(theta);
+  const y = cy - scale * r * Math.sin(theta);
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = sketch.bg;
+  ctx.fillRect(0, 0, width, height);
+  drawDashedLine(ctx, 18, cy, width - 18, cy, sketch.rule);
+  drawDashedLine(ctx, cx, 14, cx, height - 14, sketch.rule);
+  drawCircle(ctx, cx, cy, scale, sketch.muted, 1, 0.4);
+  drawLpBoundary(ctx, p, cx, cy, scale, sketch.yellow, 2.5);
+
+  ctx.strokeStyle = sketch.green;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.lineTo(x, y);
+  ctx.stroke();
+  drawDot(ctx, x, y, sketch.red, 4);
+  drawText(ctx, `r = ${r.toFixed(3)}`, 14, 20, sketch.text);
+}
+
+function drawReachRadius(p, radius) {
+  const { ctx, width, height } = canvasContext2d(algoCanvases.reach);
+  const cx = width * 0.5, cy = height * 0.52;
+  const scale = Math.min(width, height) * 0.35 / Math.max(1.45, radius);
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = sketch.bg;
+  ctx.fillRect(0, 0, width, height);
+  drawDashedLine(ctx, 18, cy, width - 18, cy, sketch.rule);
+  drawDashedLine(ctx, cx, 14, cx, height - 14, sketch.rule);
+  drawCircle(ctx, cx, cy, scale, sketch.muted, 1, 0.35);
+  drawLpBoundary(ctx, p, cx, cy, scale, sketch.yellow, 2, 0.75);
+  drawCircle(ctx, cx, cy, scale * radius, sketch.red, 2, 0.95);
+
+  ctx.strokeStyle = sketch.red;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.lineTo(cx + scale * radius, cy);
+  ctx.stroke();
+  drawDot(ctx, cx + scale * radius, cy, sketch.red, 3.5);
+  drawText(ctx, `R = ${radius.toFixed(3)}`, 14, 20, sketch.text);
+}
+
+function drawSurfaceSlice(p, radius) {
+  const { ctx, width, height } = canvasContext2d(algoCanvases.surface);
+  const theta = selectedTheta(p);
+  const r = lpRadius(theta, p);
+  const z = surfaceHeight(r, radius, p);
+  const originX = 54;
+  const originY = height * 0.5;
+  const scale = Math.min((width - 92) / Math.max(1.6, radius * 1.18), (height - 32) / Math.max(2.2, radius * 2.2));
+  const px = originX + scale * r;
+  const py = originY - scale * z;
+  const floorX = px;
+  const floorY = originY;
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = sketch.bg;
+  ctx.fillRect(0, 0, width, height);
+  drawDashedLine(ctx, 18, originY, width - 18, originY, sketch.rule);
+  drawCircle(ctx, originX, originY, scale * radius, sketch.muted, 1, 0.28);
+
+  ctx.strokeStyle = sketch.yellow;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(originX, floorY);
+  ctx.lineTo(floorX, floorY);
+  ctx.stroke();
+  drawDashedLine(ctx, floorX, floorY, px, py, sketch.yellow, 1.25);
+
+  ctx.strokeStyle = sketch.green;
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(originX, originY);
+  ctx.lineTo(px, py);
+  ctx.stroke();
+  drawDot(ctx, originX, originY, sketch.yellow, 3.5);
+  drawDot(ctx, px, py, sketch.red, 4);
+
+  drawText(ctx, `z = ${z.toFixed(3)}`, 14, 20, sketch.text);
+  drawText(ctx, p <= 2 ? 'above' : 'below', 14, height - 14, sketch.muted);
+}
+
+function sweepAmountToHalfWidth(amount) {
+  return amount * Math.PI;
+}
+
+function formatSweep(amount) {
+  if (amount <= 0.001) return 'thin';
+  if (amount >= 0.999) return 'full';
+  return `${(amount * 360).toFixed(0)}°`;
+}
+
+function drawSurfacePatch(p, radius, sweepAmount) {
+  const { ctx, width, height } = canvasContext2d(algoCanvases.patch);
+  const centerTheta = Math.PI / 4;
+  const halfWidth = sweepAmountToHalfWidth(sweepAmount);
+  const thetaSteps = 18;
+  const radialSteps = 10;
+  const scale = Math.min((width - 58) / 1.65, (height - 42) / Math.max(2.3, radius * 2.15));
+  const originX = width * 0.45;
+  const originY = height * 0.56;
+  const cosC = Math.cos(centerTheta);
+  const sinC = Math.sin(centerTheta);
+
+  function point(theta, t, onFloor = false) {
+    const r = lpRadius(theta, p);
+    const x = t * r * Math.cos(theta);
+    const y = t * r * Math.sin(theta);
+    const z = onFloor ? 0 : t * surfaceHeight(r, radius, p);
+    const u = x * cosC + y * sinC;
+    const v = -x * sinC + y * cosC;
+    return {
+      x: originX + scale * (v + 0.32 * u),
+      y: originY - scale * (z + 0.24 * u),
+      z,
+    };
+  }
+
+  function path(points) {
+    ctx.beginPath();
+    points.forEach((pt, i) => {
+      if (i === 0) ctx.moveTo(pt.x, pt.y);
+      else ctx.lineTo(pt.x, pt.y);
+    });
+  }
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = sketch.bg;
+  ctx.fillRect(0, 0, width, height);
+
+  const thetaMin = centerTheta - halfWidth;
+  const thetaMax = centerTheta + halfWidth;
+  const floorBoundary = [point(thetaMin, 0, true)];
+  for (let i = 0; i <= thetaSteps; i++) {
+    const theta = thetaMin + (i / thetaSteps) * (thetaMax - thetaMin);
+    floorBoundary.push(point(theta, 1, true));
+  }
+  floorBoundary.push(point(thetaMax, 0, true));
+  ctx.save();
+  ctx.fillStyle = 'rgba(255, 224, 102, 0.08)';
+  ctx.strokeStyle = 'rgba(255, 224, 102, 0.35)';
+  ctx.setLineDash([5, 5]);
+  path(floorBoundary);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  ctx.restore();
+
+  for (let j = radialSteps - 1; j >= 0; j--) {
+    for (let i = 0; i < thetaSteps; i++) {
+      const t0 = j / radialSteps;
+      const t1 = (j + 1) / radialSteps;
+      const th0 = thetaMin + (i / thetaSteps) * (thetaMax - thetaMin);
+      const th1 = thetaMin + ((i + 1) / thetaSteps) * (thetaMax - thetaMin);
+      const quad = [
+        point(th0, t0),
+        point(th1, t0),
+        point(th1, t1),
+        point(th0, t1),
+      ];
+      const avgZ = quad.reduce((sum, pt) => sum + pt.z, 0) / quad.length;
+      const alpha = 0.34 + 0.22 * (j / radialSteps);
+      ctx.fillStyle = avgZ >= 0
+        ? `rgba(76, 140, 214, ${alpha})`
+        : `rgba(194, 76, 126, ${alpha})`;
+      ctx.strokeStyle = 'rgba(221, 227, 236, 0.12)';
+      ctx.lineWidth = 1;
+      path(quad);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    }
+  }
+
+  ctx.save();
+  ctx.strokeStyle = sketch.red;
+  ctx.lineWidth = 2.5;
+  path(Array.from({ length: thetaSteps + 1 }, (_, i) => {
+    const theta = thetaMin + (i / thetaSteps) * (thetaMax - thetaMin);
+    return point(theta, 1);
+  }));
+  ctx.stroke();
+
+  ctx.strokeStyle = sketch.green;
+  ctx.lineWidth = 2.25;
+  path(Array.from({ length: radialSteps + 1 }, (_, j) => point(centerTheta, j / radialSteps)));
+  ctx.stroke();
+  ctx.restore();
+
+  drawDot(ctx, point(centerTheta, 0).x, point(centerTheta, 0).y, sketch.yellow, 3.5);
+  drawText(ctx, `sweep = ${formatSweep(sweepAmount)}`, 14, 20, sketch.text);
+  drawText(ctx, p <= 2 ? 'upper sheet' : 'lower sheet', 14, height - 14, sketch.muted);
+}
+
+function drawAlgorithmVisuals(p, radius, sweepAmount) {
+  drawTopDownRadius(p, radius);
+  drawReachRadius(p, radius);
+  drawSurfaceSlice(p, radius);
+  drawSurfacePatch(p, radius, sweepAmount);
+}
+
 // --- UI wiring ---
 const slider = document.getElementById('p-slider');
+const algorithmSliders = [...document.querySelectorAll('.algorithm-p-slider')];
+const patchSweepSlider = document.getElementById('patch-sweep-slider');
 const pDisplay = document.getElementById('p-display');
-function applySlider() {
-  const p = sliderToP(parseFloat(slider.value));
+const rDisplay = document.getElementById('r-display');
+let currentP = sliderToP(parseFloat(slider.value));
+let currentRadius = geodesicRadius(currentP);
+let currentSweepAmount = parseFloat(patchSweepSlider.value);
+function syncSliderValues(value) {
+  slider.value = value;
+  for (const localSlider of algorithmSliders) {
+    localSlider.value = value;
+  }
+}
+function applySlider(value = slider.value) {
+  syncSliderValues(value);
+  const p = sliderToP(parseFloat(value));
+  const radius = geodesicRadius(p);
+  currentP = p;
+  currentRadius = radius;
   pDisplay.textContent = formatP(p);
+  rDisplay.textContent = formatRadius(radius);
+  drawAlgorithmVisuals(p, radius, currentSweepAmount);
   rebuildForP(p);
 }
-slider.addEventListener('input', applySlider);
+window.addEventListener('resize', () => drawAlgorithmVisuals(currentP, currentRadius, currentSweepAmount));
+slider.addEventListener('input', () => applySlider(slider.value));
+for (const localSlider of algorithmSliders) {
+  localSlider.addEventListener('input', () => applySlider(localSlider.value));
+}
+patchSweepSlider.addEventListener('input', () => {
+  currentSweepAmount = parseFloat(patchSweepSlider.value);
+  drawSurfacePatch(currentP, currentRadius, currentSweepAmount);
+});
 document.querySelectorAll('.viz-snaps button').forEach(btn => {
   btn.addEventListener('click', () => {
-    slider.value = btn.dataset.s;
-    applySlider();
+    applySlider(btn.dataset.s);
   });
 });
 document.getElementById('t-rays').addEventListener('change', e => {
