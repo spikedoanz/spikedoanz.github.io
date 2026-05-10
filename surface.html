@@ -331,7 +331,7 @@
     position: absolute;
     top: -8px;
     right: calc(100% + 14px);
-    width: 245px;
+    width: 285px;
     padding: 10px 12px;
     background: var(--bg);
     border: 1px solid var(--rule);
@@ -343,6 +343,9 @@
     transform: translateX(6px);
     transition: opacity 0.15s, transform 0.15s;
     z-index: 3;
+  }
+  .left-footnote-body a {
+    color: var(--link);
   }
   .left-footnote:hover .left-footnote-body,
   .left-footnote:focus-within .left-footnote-body {
@@ -451,7 +454,7 @@ underlying surface."</p>
   </div>
 
   <div class="algorithm-step">
-    <p>2. choose the radius that can actually reach every floor point.<span class="left-footnote"><button type="button" class="left-footnote-marker" aria-label="shadow theorem note">*</button><span class="left-footnote-body" role="note">shadow theorem: orthogonal projection cannot increase length. so any radius-1 curve from the origin can only cast points inside the euclidean unit disk. the L<sub>∞</sub> square has corners at distance √2, so for p&gt;2 the radius has to grow.</span></span></p>
+    <p>2. choose the radius that can actually reach every floor point.<span class="left-footnote"><button type="button" class="left-footnote-marker" aria-label="projection length note">*</button><span class="left-footnote-body" role="note">not really a named shadow theorem: <a href="https://proofwiki.org/wiki/Metric_Projection_onto_Closed_Convex_Set_is_1-Lipschitz">orthogonal projection is 1-lipschitz</a>, so a <a href="https://math.stackexchange.com/questions/3755651/projection-of-space-curve-shortens">projected curve cannot be longer</a>. a radius-1 curve can only cast points inside the euclidean unit disk; the L<sub>∞</sub> square has corners at √2.</span></span></p>
     <div class="algorithm-viz-row">
       <canvas id="algo-reach-viz" class="algorithm-viz" aria-label="minimum enclosing reach radius"></canvas>
       <input type="range" class="algorithm-p-slider" aria-label="adjust p for reach step" min="0" max="1" step="0.001" value="0.6666">
