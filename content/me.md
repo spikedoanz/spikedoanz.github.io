@@ -16,7 +16,7 @@ about spikedoanz
 ## work
 
 i'm a machine learning engineer/researcher specializing in formal methods. i
-worked at morph labs, where i built agent/rl infrastructre for the
+worked at morph labs, where i built agent/rl infrastructure for the
 [trinity](https://www.morph.so/blog/trinity)/[gauss](https://www.math.inc/gauss)
 autoformalization projects. i've also worked at a neuroscience lab building
 tooling for radiologists in the browser, and synthetic data pipelines.
@@ -28,7 +28,7 @@ tooling for radiologists in the browser, and synthetic data pipelines.
 my lifelong hobby has always been to learn a variety of languages, human,
 computer, written, spoken, played, or otherwise. what i mean by language is
 very broad, essentially just any information transfer medium that has some
-analogous notion of vocabulary, compositionality (i.e grammar, algebra,
+analogous notion of vocabulary, compositionality (i.e., grammar, algebra,
 harmony) and referentiability.
 
 for human languages, i'm fluent in english and vietnamese, and intermediate at
@@ -59,7 +59,7 @@ plain tmux and mostly plain neovim (just some lsps).
 i'm a cautious fan of llm agent software, and use opencode, slate, claude-code
 and codex for minor edits, having a fuzzy way to use unix tooling[^2], running
 benchmarks and sweeps, and finding code insights. i see this as more wine
-tasting than anything of a science, and use it as my main boots to the ground
+tasting than anything of a science, and use it as my main boots-on-the-ground
 method of evaluating ai progress.
 
 --------------------------------------------------------------------------------
