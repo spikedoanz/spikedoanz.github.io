@@ -18,7 +18,7 @@ about spikedoanz
 i'm a machine learning engineer/researcher specializing in formal methods. i
 worked at morph labs, where i built agent/rl infrastructre for the
 [trinity](https://www.morph.so/blog/trinity)/[gauss](https://www.math.inc/gauss)
-autoformazation projects. i've also worked at a neuroscience lab building
+autoformalization projects. i've also worked at a neuroscience lab building
 tooling for radiologists in the browser, and synthetic data pipelines.
 
 --------------------------------------------------------------------------------
