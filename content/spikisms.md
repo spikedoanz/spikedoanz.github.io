@@ -78,7 +78,7 @@ examples:
 [dynamic software updating](https://en.wikipedia.org/wiki/Dynamic_software_updating),
 [build systems](https://en.wikipedia.org/wiki/Build_automation),
 [distributed consistency](https://en.wikipedia.org/wiki/Consistency_model),
-[first class continuations](https://en.wikipedia.org/wiki/Continuation)
+[garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science))
 
 --------------------------------------------------------------------------------
 
