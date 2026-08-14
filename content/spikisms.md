@@ -66,3 +66,31 @@ feel in the early stages of the jhanas.
 > circumstances, or is genuinely a skillcheck that other practioners acquire.
 
 --------------------------------------------------------------------------------
+
+## dragon problems
+
+a dragon problem is a recurring motif in cs and other technical domains in
+which the usual approach to solving it involves scoping the problem extremely
+precisely, otherwise it completely blows up in complexity. if you solve
+a dragon problem you get promoted to principal engineer.
+
+examples: 
+[dynamic software updating](https://en.wikipedia.org/wiki/Dynamic_software_updating),
+[build systems](https://en.wikipedia.org/wiki/Build_automation),
+[distributed consistency](https://en.wikipedia.org/wiki/Consistency_model),
+[first class continuations](https://en.wikipedia.org/wiki/Continuation)
+
+--------------------------------------------------------------------------------
+
+## beaver problems
+
+a beaver problem is another recurring motif, primarily in cs, where the spec
+is pretty simply statable, but the search space for a valid solution is just
+completely intractable. usually only tackleable by scoping the problem to
+extremely small cases. if you solve a beaver prolem you get a turing award.
+
+examples:
+[the busy beaver function](https://en.wikipedia.org/wiki/Busy_beaver),
+[model checking](https://en.wikipedia.org/wiki/Model_checking),
+[sat/smt](https://en.wikipedia.org/wiki/SAT_solver),
+[program synthesis](https://en.wikipedia.org/wiki/Program_synthesis)
