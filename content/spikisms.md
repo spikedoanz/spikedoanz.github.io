@@ -72,7 +72,7 @@ feel in the early stages of the jhanas.
 a dragon problem is a recurring motif in cs and other technical domains in
 which the usual approach to solving it involves scoping the problem extremely
 precisely, otherwise it completely blows up in complexity. if you solve
-a dragon problem you get promoted to principal engineer.
+a dragon problem you get a turing award (or equivalent).
 
 examples: 
 
@@ -81,6 +81,14 @@ examples:
 [distributed consistency](https://en.wikipedia.org/wiki/Consistency_model),
 [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science))
 
+
+examples of dragon slayers:
+- [leslie lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) for work in
+  distributed systems.
+- [robin milner](https://en.wikipedia.org/wiki/Robin_Milner) for [specific kinds
+  of type checking](https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system).
+
+
 --------------------------------------------------------------------------------
 
 ## beaver problems
@@ -88,8 +96,8 @@ examples:
 a beaver problem is another recurring motif, primarily in cs, where the spec
 is pretty simply statable, but the search space for a valid solution is just
 completely intractable. usually only tackleable by scoping the problem to
-extremely small cases. if you solve a beaver prolem you get a turing award (or
-an equivalent).
+extremely small cases. if you solve a beaver prolem you get a fields medal /
+nobel prize (or equivalent).
 
 examples:
 
@@ -98,9 +106,9 @@ examples:
 [sat/smt](https://en.wikipedia.org/wiki/SAT_solver),
 [program synthesis](https://en.wikipedia.org/wiki/Program_synthesis)
 
-examples of slain beavers:
+examples of beaver slayers:
 
-[leonid kantorovich](https://en.wikipedia.org/wiki/Leonid_Kantorovich) invented
+- [leonid kantorovich](https://en.wikipedia.org/wiki/Leonid_Kantorovich) invented
 what would be later called [linear
 programming](https://en.wikipedia.org/wiki/Linear_programming). for this he was
 awarded a nobel prize in economics.
