@@ -75,6 +75,7 @@ precisely, otherwise it completely blows up in complexity. if you solve
 a dragon problem you get promoted to principal engineer.
 
 examples: 
+
 [dynamic software updating](https://en.wikipedia.org/wiki/Dynamic_software_updating),
 [build systems](https://en.wikipedia.org/wiki/Build_automation),
 [distributed consistency](https://en.wikipedia.org/wiki/Consistency_model),
@@ -87,10 +88,20 @@ examples:
 a beaver problem is another recurring motif, primarily in cs, where the spec
 is pretty simply statable, but the search space for a valid solution is just
 completely intractable. usually only tackleable by scoping the problem to
-extremely small cases. if you solve a beaver prolem you get a turing award.
+extremely small cases. if you solve a beaver prolem you get a turing award (or
+an equivalent).
 
 examples:
+
 [the busy beaver function](https://en.wikipedia.org/wiki/Busy_beaver),
 [model checking](https://en.wikipedia.org/wiki/Model_checking),
 [sat/smt](https://en.wikipedia.org/wiki/SAT_solver),
 [program synthesis](https://en.wikipedia.org/wiki/Program_synthesis)
+
+examples of slain beavers:
+
+[leonid kantorovich](https://en.wikipedia.org/wiki/Leonid_Kantorovich) invented
+what would be later called [linear
+programming](https://en.wikipedia.org/wiki/Linear_programming). for this he was
+awarded a nobel prize in economics.
+
