@@ -19,11 +19,12 @@ gmail dot com.
 
 #### posts
 
+2026-08-14 :: [[spikisms|spikisms]]
+
 2026-05-10 :: <a href="/the-surface-on-which-the-lp-ball-is-a-true-circle/" data-router-ignore>the surface on which the L<sub>p</sub> ball is a true circle</a>
 
 2026-02-25 :: [[how-i-self-hosted-zulip-and-escaped-the-permanent-underclass|how i self hosted zulip and escaped the permanent underclass]]
 
-2026-02-05 :: [[spikisms|spikisms]]
 
 2026-01-11 :: <a href="https://supaiku.com/time-monetary-theory.pdf"
 data-router-ignore>Towards a Time Theory of Money</a>
